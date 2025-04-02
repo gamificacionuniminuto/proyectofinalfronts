@@ -1,0 +1,105 @@
+body {
+    background-image: url('./fondo.jpg'); /* Ruta de la imagen */
+    background-size: cover, border-box; /* Ajusta la imagen para cubrir todo el fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    margin: 0; /* Elimina el margen predeterminado del body */
+   /* Ancho del body */
+ /* Altura del body (100% del viewport) */
+  }
+.logo  {
+    position: absolute;
+    top: 50px;;
+    left: 35%;
+    transition: transform 0.3s ease-in-out;
+    animation: glow 2s infinite alternate;
+    box-sizing: border-box;
+  
+}
+
+.logo img {
+    width: 200px; /* Ajusta el tamaño del icono */
+    height: auto;
+    display: block;
+    position: center;
+    z-index: 1;
+    animation:  float 3s ease-in-out infinite; /* Aplica la animación directamente a la imagen */
+    transition: transform 0.3s ease-in-out;
+  
+}
+.logo::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-540%, -50%);
+    width: 250px; /* Tamaño del resplandor */
+    height: 250px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 215, 0, 0.8) 20%, /* Dorado */
+        rgba(255, 215, 0, 0.4) 50%,
+        rgba(255, 215, 0, 0) 70%
+    );
+    border-radius: 50%;
+    z-index: 0;
+    animation: glow 2s infinite alternate; /* Animación del resplandor */
+}
+.logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px; /* Tamaño de la luz */
+    height: 300px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 215, 0, 0.8) 20%, /* Dorado */
+        rgba(255, 215, 0, 0.4) 50%,
+        rgba(255, 215, 0, 0) 80%
+    );
+    border-radius: 50%;
+    z-index: -1;
+    animation: pulse 3s infinite ease-in-out; /* Animación de pulso */
+}
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8))
+                drop-shadow(0 0 30px rgba(255, 215, 0, 0.6))
+                drop-shadow(0 0 50px rgba(255, 215, 0, 0));
+    }
+    100% {
+        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1))
+                drop-shadow(0 0 40px rgba(255, 255, 255, 0.8))
+                drop-shadow(0 0 60px rgba(255, 255, 255, 0.6));
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.6;
+    }
+}
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+.logo:hover {
+    transform: translate(50px, 20px)  scale(1.2);
+}
