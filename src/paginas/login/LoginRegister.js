@@ -1,21 +1,18 @@
 
 import React, { useState } from 'react';
 import './../login/LoginRegister.css'; 
+import Swal from 'sweetalert2';
+import axios from 'axios';
 const LoginRegister = () => {
     const [formData, setFormData] = useState({
-        // Datos del tutor
-        tutorName: '',
-        tutorEmail: '',
-        // Datos del estudiante
-        studentName: '',
-        studentLastName: '',
-        studentGrade: '',
-        // Datos de acceso
-        email: '',
-        confirmEmail: '',
-        password: '',
-        confirmPassword: ''
-    });
+        parent: "",
+    name: "",
+    lastName: "",
+    email: "",
+    emailparent: "",    
+    password: "",
+    passConfirmation: "",
+  });
 
     const [errors, setErrors] = useState({});
 
@@ -28,48 +25,72 @@ const LoginRegister = () => {
     };
 
     const validateForm = () => {
-        const newErrors = {};
+        // const newErrors = {};
         
-        if (formData.email !== formData.confirmEmail) {
-            newErrors.email = "Los emails no coinciden";
-        }
+        // if (formData.email !== formData.confirmEmail) {
+        //     newErrors.email = "Los emails no coinciden";
+        // }
         
-        if (formData.password !== formData.confirmPassword) {
-            newErrors.password = "Las contraseñas no coinciden";
-        }
+        // if (formData.password !== formData.confirmPassword) {
+        //     newErrors.password = "Las contraseñas no coinciden";
+        // }
         
-        if (!formData.tutorName) {
-            newErrors.tutorName = "Este campo es requerido";
-        }
+        // if (!formData.tutorName) {
+        //     newErrors.tutorName = "Este campo es requerido";
+        // }
         
-        // Agrega más validaciones según necesites
+        // // Agrega más validaciones según necesites
         
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
+        // setErrors(newErrors);
+        // return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        
-        if (validateForm()) {
-            console.log('Datos enviados:', {
-                tutor: {
-                    name: formData.tutorName,
-                    email: formData.tutorEmail
-                },
-                student: {
-                    name: formData.studentName,
-                    lastName: formData.studentLastName,
-                    grade: formData.studentGrade
-                },
-                account: {
-                    email: formData.email,
-                    password: formData.password
-                }
-            });
-            // Aquí iría tu lógica para enviar los datos al servidor
+        if (formData.password !== formData.passConfirmation) {
+          alert("Las contraseñas no coinciden");
+          return;
         }
-    };
+    
+        try {
+          
+          const formDataToSend = new FormData();
+          for (const key in formData) {
+            formDataToSend.append(key, formData[key]);
+          }
+    
+          const response = await axios.post("http://localhost:3001/api/user", formDataToSend, {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+    
+          Swal.fire({
+            title: '¡Éxito!',
+            text: 'Usuario creado exitosamente',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+          });
+          setFormData({
+            parent: "",
+            name: "",
+            lastName: "",
+            email: "",
+            emailparent: "",
+            image: null,
+            password:"" ,
+            passConfirmation: "",
+          });
+        } catch (error) {
+          console.error("Error al enviar el formulario", error);
+          alert("Hubo un error al enviar el formulario");
+        }
+      
+    
+      const handleAvatarSelect = (avatar) => {
+       
+      };
+    }
 
     return (
         <div className="login-register-container">
@@ -81,19 +102,19 @@ const LoginRegister = () => {
                         <label>Nombre completo del tutor*:</label>
                         <input
                             type="text"
-                            name="tutorName"
-                            value={formData.tutorName}
+                            name="parent"
+                            value={formData.parent}
                             onChange={handleChange}
                             required
                         />
-                        {errors.tutorName && <span className="error">{errors.tutorName}</span>}
+                        {errors.parent && <span className="error">{errors.parent}</span>}
                     </div>
                     <div className="form-group">
                         <label>Email del tutor:</label>
                         <input
                             type="email"
-                            name="tutorEmail"
-                            value={formData.tutorEmail}
+                            name="emailparent"
+                            value={formData.emailparent}
                             onChange={handleChange}
                         />
                     </div>
@@ -105,8 +126,8 @@ const LoginRegister = () => {
                         <label>Nombre del niñ@*:</label>
                         <input
                             type="text"
-                            name="studentName"
-                            value={formData.studentName}
+                            name="name"
+                            value={formData.name}
                             onChange={handleChange}
                             required
                         />
@@ -115,13 +136,13 @@ const LoginRegister = () => {
                         <label>Apellido del niñ@*:</label>
                         <input
                             type="text"
-                            name="studentLastName"
-                            value={formData.studentLastName}
+                            name="lastName"
+                            value={formData.lastName}
                             onChange={handleChange}
                             required
                         />
                     </div>
-                    <div className="form-group">
+                    {/* <div className="form-group">
                         <label>Grado académico*:</label>
                         <select
                             name="studentGrade"
@@ -138,7 +159,7 @@ const LoginRegister = () => {
                             <option value="5° Primaria">5° Primaria</option>
                            
                         </select>
-                    </div>
+                    </div> */}
                 </fieldset>
 
                 <fieldset>
@@ -154,7 +175,7 @@ const LoginRegister = () => {
                         />
                         {errors.email && <span className="error">{errors.email}</span>}
                     </div>
-                    <div className="form-group">
+                    {/* <div className="form-group">
                         <label>Confirmar Email*:</label>
                         <input
                             type="email"
@@ -163,7 +184,7 @@ const LoginRegister = () => {
                             onChange={handleChange}
                             required
                         />
-                    </div>
+                    </div> */}
                     <div className="form-group">
                         <label>Contraseña*:</label>
                         <input
@@ -179,8 +200,8 @@ const LoginRegister = () => {
                         <label>Confirmar Contraseña*:</label>
                         <input
                             type="password"
-                            name="confirmPassword"
-                            value={formData.confirmPassword}
+                            name="passConfirmation"
+                            value={formData.passConfirmation}
                             onChange={handleChange}
                             required
                         />
