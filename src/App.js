@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './home.js';
-import Login from './paginas/login/login.js'; // Asegúrate de que la ruta sea correcta
+import Login from './paginas/login/LoginRegister'; // Asegúrate de que la ruta sea correcta
 import './home.css'; // Importación de un archivo CSS
-import Register from './paginas/register/register.js'
-import Dashboard from './paginas/dashboard/dashboard.js'
+import Singin from './paginas/singin/singin.js'
+import Profile from './paginas/profile/profile.js'
 
 import { Link } from 'react-router-dom';
 import NotFound from './NotFound.js'; // Asegúrate de que la ruta sea correcta
@@ -19,8 +19,8 @@ function App() {
           <Link to="/">Inicio</Link>
           <Link to="/home">Home</Link>
           <Link to="/login">Login</Link>
-          <Link to="/registrar">registrar</Link>
-          
+          <Link to="/singin">Singin</Link>
+          <Link to="/perfil">perfil</Link>
         </nav>
         {/* Puedes agregar un header/navbar común aquí si lo necesitas */}
 
@@ -28,8 +28,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/registrar" element={<Register />} /> 
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/singin" element={<Singin/>}/>
+          <Route path="/perfil" element={<Profile/>}/>
 
           {/* Ejemplo de cómo agregar más rutas: */}
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
