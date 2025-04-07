@@ -8,16 +8,11 @@ const SingIn = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const validCredentials = {
-    email: 'usuario@ejemplo.com',
-    password: 'contraseña123'
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
-    // Validaciones
+    // Validaciones básicas
     if (!email || !password) {
       setError('Por favor completa todos los campos');
       return;
@@ -28,22 +23,37 @@ const SingIn = () => {
       return;
     }
 
-    // Validación de credenciales
-    if (email === validCredentials.email && password === validCredentials.password) {
-      navigate('/home');
-    } else {
-      setError('Correo electrónico o contraseña incorrectos');
+    try {
+      const response = await fetch('http://localhost:3001/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (data.status === 'success') {
+        // Guardar token y datos del usuario en localStorage
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.data.user));
+
+        // Redirigir al home
+        navigate('/home');
+      } else {
+        setError(data.message || 'Correo electrónico o contraseña incorrectos');
+        setTimeout(() => setError(''), 3000);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setError('Error al conectar con el servidor');
       setTimeout(() => setError(''), 3000);
     }
   };
 
-
   return (
     <div className="singin-container">
-      {/* Avatar dinámico */}
-     
       <h2>Iniciar Sesión</h2>
-      
+
       {error && <div className="error-message">{error}</div>}
 
       <form onSubmit={handleSubmit}>
@@ -57,7 +67,8 @@ const SingIn = () => {
             required
           />
         </div>
-         <div className="form-group">
+
+        <div className="form-group">
           <label htmlFor="password">Contraseña:</label>
           <input
             type="password"
@@ -67,15 +78,15 @@ const SingIn = () => {
             required
           />
         </div>
-        
+
         <button type="submit" className="login-button">
           Iniciar Sesión
         </button>
       </form>
 
       <div className="register-link">
-        ¿Aún no tienes cuenta? <span onClick={() => navigate('/LoginRegister')}>Regístrate</span>
-        
+        ¿Aún no tienes cuenta?{' '}
+        <span onClick={() => navigate('/LoginRegister')}>Regístrate</span>
       </div>
     </div>
   );
