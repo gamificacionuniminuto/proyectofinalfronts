@@ -38,7 +38,7 @@ const SingIn = () => {
         localStorage.setItem('user', JSON.stringify(data.data.user));
 
         // Redirigir al home
-        navigate('/home');
+        navigate('/perfil');
       } else {
         setError(data.message || 'Correo electrónico o contraseña incorrectos');
         setTimeout(() => setError(''), 3000);

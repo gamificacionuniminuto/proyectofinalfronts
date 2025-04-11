@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Confetti from 'react-confetti';
 import './profile.css';
+const userFromStorage = JSON.parse(localStorage.getItem('user'));
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -11,13 +12,13 @@ const Profile = () => {
   // Datos de ejemplo con información ampliada
   const userData = {
     tutor: {
-      name: "María López",
+      name: userFromStorage?.parent,
       email: "tutor@email.com",
       avatar: '👩'
     },
     student: {
-      name: "Juan",
-      lastName: "López",
+      name: userFromStorage?.name,
+      lastName: userFromStorage?.lastName,
       grade: "3° Primaria",
       avatar: '🧒',
       points: 120,
