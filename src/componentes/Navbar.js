@@ -1,11 +1,11 @@
-// src/components/Navbar.js
+
 import { Link, useLocation } from "react-router-dom";
-import "./Navbar.css";
+import "./Navbar.css"; 
 
 const Navbar = () => {
   const location = useLocation();
 
-  return (
+  return (    
     <nav className="navbar">
       <Link 
         to="/home" 
@@ -31,8 +31,23 @@ const Navbar = () => {
       >
         Perfil
       </Link>
+      <Link 
+        to="/configuracion" 
+        className={location.pathname === '/configuracion' ? 'active' : ''}
+      >
+        Configuración
+       </Link> 
+      <Link
+        to="/clasesTransicion" 
+        className={location.pathname === '/clasesTransicion' ? 'active' : ''}
+      >   
+        ClasesTransicion  
+      </Link>   
+        
+
     </nav>
   );
 };
 
-export default Navbar;
+// Corrige el nombre al exportar (de "NAvbar" a "Navbar")
+export default Navbar; 
