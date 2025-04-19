@@ -30,7 +30,7 @@ body {
 
   max-width: 100%;
   min-height: 100vh;
-  background-image: url('./fondoperfil2.png');
+  /* background-image: url('./fondoperfil2.png'); */
   font-family: 'Comic Sans MS', cursive, sans-serif;
   color: var(--dark);
   padding: 0;
