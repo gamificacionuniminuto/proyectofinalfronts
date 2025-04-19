@@ -7,6 +7,8 @@ import Singin from './paginas/singin/singin.js'
 import Profile from './paginas/profile/profile.js'
 import Configuracion from './paginas/configuracion/configuracion.js';
 import NewPassword from './paginas/newPassword/newPassword.js';
+import ForgotPassword from './paginas/forgotpassword/ForgotPassword.js'
+
 
 
 import { Link } from 'react-router-dom';
@@ -26,6 +28,8 @@ function App() {
           <Link to="/configuracion">Configuración</Link>
           <Link to="/clasesT">clasesT</Link>
           <Link to="/newPassword">newPassword</Link>
+          <Link to="/forgotPassword">forgotPassword</Link>
+
           {/* Puedes agregar más enlaces aquí según sea necesario */}
         </nav>
         {/* Puedes agregar un header/navbar común aquí si lo necesitas */}
@@ -39,6 +43,7 @@ function App() {
           <Route path="/configuracion" element={<Configuracion/>}/>
           <Route path="/clasesTransicion" element={<clasesTransicion/>}/>
           <Route path="/newPassword" element={<NewPassword/>}/>
+          <Route path="/forgotPassword" element={<ForgotPassword/>}/>
         
           <Route path="*" element={<NotFound />} />
         </Routes>
