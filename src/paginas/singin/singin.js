@@ -80,7 +80,7 @@ const SingIn = () => {
         </div>
         <div className="register-link">
         
-        <span onClick={() => navigate('/newPassword')}>Olvide la contraseña</span>
+        <span onClick={() => navigate('/forgotPassword')}>Olvide la contraseña</span>
       </div>
 
         <button type="submit" className="login-button">
@@ -90,7 +90,7 @@ const SingIn = () => {
 
       <div className="register-link">
         ¿Aún no tienes cuenta?{' '}
-        <span onClick={() => navigate('/Login')}>Regístrate</span>
+        <span onClick={() => navigate('/newPassword')}>Regístrate</span>
       </div>
     </div>
   );

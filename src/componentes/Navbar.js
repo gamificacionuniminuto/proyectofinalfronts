@@ -20,14 +20,14 @@ const Navbar = () => {
         Iniciar Sesión
       </Link>
       <Link 
-        to="/LoginRegister" 
-        className={location.pathname === '/LoginRegister' ? 'active' : ''}
+        to="/login" 
+        className={location.pathname === '/login' ? 'active' : ''}
       >
         Registro
       </Link>
       <Link 
-        to="/profile" 
-        className={location.pathname === '/profile' ? 'active' : ''}
+        to="/perfil" 
+        className={location.pathname === '/perfil' ? 'active' : ''}
       >
         Perfil
       </Link>
@@ -37,12 +37,7 @@ const Navbar = () => {
       >
         Configuración
        </Link> 
-      <Link
-        to="/clasesTransicion" 
-        className={location.pathname === '/clasesTransicion' ? 'active' : ''}
-      >   
-        ClasesTransicion  
-      </Link>   
+      
         
 
     </nav>
