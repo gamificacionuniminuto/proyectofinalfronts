@@ -78,10 +78,6 @@ const SingIn = () => {
             required
           />
         </div>
-        <div className="register-link">
-        
-        <span onClick={() => navigate('/forgotPassword')}>Olvide la contraseña</span>
-      </div>
 
         <button type="submit" className="login-button">
           Iniciar Sesión
@@ -90,7 +86,7 @@ const SingIn = () => {
 
       <div className="register-link">
         ¿Aún no tienes cuenta?{' '}
-        <span onClick={() => navigate('/newPassword')}>Regístrate</span>
+        <span onClick={() => navigate('/LoginRegister')}>Regístrate</span>
       </div>
     </div>
   );

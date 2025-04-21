@@ -1,10 +1,9 @@
 body {
     background-image: url('./fondo.jpg'); /* Ruta de la imagen */
-    background-size: cover, border-box; /* Ajusta la imagen para cubrir todo el fondo */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
-    margin: 0; /* Elimina el margen predeterminado del body */
-   /* Ancho del body */
- /* Altura del body (100% del viewport) */
+    margin: 0;
+
   }
 .logo  {
     position: absolute;
