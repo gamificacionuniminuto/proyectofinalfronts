@@ -13,25 +13,17 @@ import Singin from './paginas/singin/singin.js';
 import Profile from './paginas/profile/profile.js';
 import Configuracion from './paginas/configuracion/configuracion.js';
 import NewPassword from './paginas/newPassword/newPassword.js';
-import ForgotPassword from './paginas/forgotpassword/forgotPassword.js';
+import ForgotPassword from './paginas/forgotpassword/ForgotPassword.js';
 import { Link } from 'react-router-dom';
 import NotFound from './NotFound.js';
-import ProtectedRoute from './componentes/ProtectedRoute.jsx';
+import ProtectedRoute from './componentes/ProtectedRoute.js';
 
 function App() {
   return (
     <Router>
       <div className="app-container"> {/* Contenedor principal */}
         <Navbar />
-        <nav className="main-nav">
-          <Link to="/home">Home</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/singin">Singin</Link>
-          <Link to="/perfil">perfil</Link>
-          <Link to="/configuracion">Configuración</Link>
-          <Link to="/newPassword">newPassword</Link>
-          <Link to="/forgotPassword">forgotPassword</Link>
-        </nav>
+       
 
         <div className="main-content"> {/* Contenedor del contenido */}
           <Routes>
