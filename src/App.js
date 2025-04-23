@@ -1,20 +1,16 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import React from 'react';
 import Navbar from './componentes/Navbar.js'; 
-import Footer from './componentes/Footer.js'; // Asegúrate de que la ruta sea correcta
-
-// Asegúrate de que la ruta sea correcta
-
-import './paginas/Home/home.js'; // Importación de un archivo CSS
+import Footer from './componentes/Footer.js'; 
+import './paginas/Home/home.js';
 import Home from './paginas/Home/home.js';
-import './paginas/Home/home.css'; // Importación de un archivo CSS
+import './paginas/Home/home.css'; 
 import Login from './paginas/login/LoginRegister';  
 import Singin from './paginas/singin/singin.js';
 import Profile from './paginas/profile/profile.js';
 import Configuracion from './paginas/configuracion/configuracion.js';
 import NewPassword from './paginas/newPassword/newPassword.js';
 import ForgotPassword from './paginas/forgotpassword/ForgotPassword.js';
-import { Link } from 'react-router-dom';
 import NotFound from './NotFound.js';
 import ProtectedRoute from './componentes/ProtectedRoute.js';
 
