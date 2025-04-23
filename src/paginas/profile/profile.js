@@ -32,7 +32,7 @@ const Profile = () => {
   };
 
   const handleLogout = () => {
-    navigate('/login');
+    navigate('/home');
   };
 
   const completeActivity = (index) => {

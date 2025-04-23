@@ -30,6 +30,8 @@ const Configuracion = () => {
         passwordValid: true
     });
     
+
+  
     const [showSuccessAlert, setShowSuccessAlert] = useState(false);
     const [showErrorAlert, setShowErrorAlert] = useState(false);
     const [currentAvatarIndex, setCurrentAvatarIndex] = useState(0);
@@ -87,6 +89,7 @@ const Configuracion = () => {
             selectedAvatar: avatares[currentAvatarIndex === 0 ? avatares.length - 1 : currentAvatarIndex - 1]
         }));
     };
+   
 
     return (
         <div className="configuracion-container">
@@ -236,20 +239,29 @@ const Configuracion = () => {
                 <button type="submit" className="submit-button">
                     Guardar cambios
                 </button>
-            <div>
-                <button type="cerrar cuenta" className="cancel-button">
-                    Cerrar cuenta
-                </button>   
-            </div>
-            <div>
-                <button type="Regresar" onClick={() => navigate('/profile')} 
-                className="return-button"
-                 >
-                    Regresar
-                 </button>
-             
-                 
-            </div>
+            <div className="action-buttons">
+ 
+              <button 
+                type="button"
+                    onClick={() => {
+                   if (window.history.length > 1) {
+                  navigate(-1);  // Regresa si hay historial
+                 } else {
+                    navigate('/');  // Va al inicio si no hay historial
+                    }
+                 }}
+                 className="return-button"
+                >
+                 Regresar
+              </button>
+            <button 
+                type="button"
+                onClick={() => {/* lógica para cerrar cuenta */}}
+                className="cancel-button"
+              >
+                Cerrar cuenta
+            </button>
+         </div>
 
             </form>
         </div>
