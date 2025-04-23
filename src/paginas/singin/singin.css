@@ -21,9 +21,10 @@
   max-width: 1500px;
   max-height: 1500px;
   margin: 10px;
-  translate: 30%;
+  translate: -160px;
   padding: 1rem;
 }
+
 
 @media (max-height: 500px) {
   .singin-container {
