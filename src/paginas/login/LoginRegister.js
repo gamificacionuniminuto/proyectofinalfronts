@@ -1,218 +1,252 @@
 
 import React, { useState } from 'react';
-import './../login/LoginRegister.css'; 
+import './../login/LoginRegister.css';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+
 const LoginRegister = () => {
-    const [formData, setFormData] = useState({
-        parent: "",
+  const [formData, setFormData] = useState({
+    parent: "",
     name: "",
     lastName: "",
     email: "",
+    confirmEmail: "",
     emailparent: "",    
     password: "",
     passConfirmation: "",
+    studentGrade: ""
   });
 
-    const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({});
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ 
-            ...formData, 
-            [name]: value 
-        });
-    };
-
-    const validateForm = () => {
-        // const newErrors = {};
-        
-        // if (formData.email !== formData.confirmEmail) {
-        //     newErrors.email = "Los emails no coinciden";
-        // }
-        
-        // if (formData.password !== formData.confirmPassword) {
-        //     newErrors.password = "Las contraseñas no coinciden";
-        // }
-        
-        // if (!formData.tutorName) {
-        //     newErrors.tutorName = "Este campo es requerido";
-        // }
-        
-        // // Agrega más validaciones según necesites
-        
-        // setErrors(newErrors);
-        // return Object.keys(newErrors).length === 0;
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (formData.password !== formData.passConfirmation) {
-          alert("Las contraseñas no coinciden");
-          return;
-        }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ 
+      ...formData, 
+      [name]: value 
+    });
     
-        try {
-          
-          const formDataToSend = new FormData();
-          for (const key in formData) {
-            formDataToSend.append(key, formData[key]);
-          }
-    
-          const response = await axios.post("http://localhost:3001/api/user", formDataToSend, {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
-    
-          Swal.fire({
-            title: '¡Éxito!',
-            text: 'Usuario creado exitosamente',
-            icon: 'success',
-            confirmButtonText: 'Aceptar'
-          });
-          setFormData({
-            parent: "",
-            name: "",
-            lastName: "",
-            email: "",
-            emailparent: "",
-            image: null,
-            password:"" ,
-            passConfirmation: "",
-          });
-        } catch (error) {
-          console.error("Error al enviar el formulario", error);
-          alert("Hubo un error al enviar el formulario");
-        }
-      
-    
-      const handleAvatarSelect = (avatar) => {
-       
-      };
+    // Limpiar error cuando el usuario corrige
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: null
+      });
     }
+  };
 
-    return (
-        <div className="login-register-container">
-            <h2>Registro de Nuevo Usuario</h2>
-            <form onSubmit={handleSubmit}>
-                <fieldset>
-                    <legend>Datos del Tutor</legend>
-                    <div className="form-group">
-                        <label>Nombre completo del tutor*:</label>
-                        <input
-                            type="text"
-                            name="parent"
-                            value={formData.parent}
-                            onChange={handleChange}
-                            required
-                        />
-                        {errors.parent && <span className="error">{errors.parent}</span>}
-                    </div>
-                    <div className="form-group">
-                        <label>Email del tutor:</label>
-                        <input
-                            type="email"
-                            name="emailparent"
-                            value={formData.emailparent}
-                            onChange={handleChange}
-                        />
-                    </div>
-                </fieldset>
+  const validateForm = () => {
+    const newErrors = {};
+    
+    // Validación de campos requeridos
+    if (!formData.parent.trim()) newErrors.parent = "Nombre del tutor es requerido";
+    if (!formData.name.trim()) newErrors.name = "Nombre del niño es requerido";
+    if (!formData.lastName.trim()) newErrors.lastName = "Apellido del niño es requerido";
+    if (!formData.studentGrade) newErrors.studentGrade = "Grado académico es requerido";
+    
+    // Validación de emails
+    if (!formData.email.trim()) {
+      newErrors.email = "Email es requerido";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Email no válido";
+    }
+    
+    if (formData.email !== formData.confirmEmail) {
+      newErrors.confirmEmail = "Los emails no coinciden";
+    }
+    
+    // Validación de contraseñas
+    if (!formData.password) {
+      newErrors.password = "Contraseña es requerida";
+    } else if (formData.password.length < 6) {
+      newErrors.password = "La contraseña debe tener al menos 6 caracteres";
+    }
+    
+    if (formData.password !== formData.passConfirmation) {
+      newErrors.passConfirmation = "Las contraseñas no coinciden";
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
-                <fieldset>
-                    <legend>Datos del Estudiante</legend>
-                    <div className="form-group">
-                        <label>Nombre del niñ@*:</label>
-                        <input
-                            type="text"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>Apellido del niñ@*:</label>
-                        <input
-                            type="text"
-                            name="lastName"
-                            value={formData.lastName}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
-                    {/* <div className="form-group">
-                        <label>Grado académico*:</label>
-                        <select
-                            name="studentGrade"
-                            value={formData.studentGrade}
-                            onChange={handleChange}
-                            required
-                        >
-                            <option value="">Seleccione un grado</option>
-                            <option value="Transicion">Transicion</option>
-                            <option value="1° Primaria">1° Primaria</option>
-                            <option value="2° Primaria">2° Primaria</option>
-                            <option value="3° Primaria">3° Primaria</option>
-                            <option value="4° Primaria">4° Primaria</option>
-                            <option value="5° Primaria">5° Primaria</option>
-                           
-                        </select>
-                    </div> */}
-                </fieldset>
+  const showErrorAlert = (message) => {
+    Swal.fire({
+      title: 'Error',
+      text: message,
+      icon: 'error',
+      confirmButtonText: 'Entendido'
+    });
+  };
 
-                <fieldset>
-                    <legend>Datos de Acceso</legend>
-                    <div className="form-group">
-                        <label>Email*:</label>
-                        <input
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
-                        />
-                        {errors.email && <span className="error">{errors.email}</span>}
-                    </div>
-                    {/* <div className="form-group">
-                        <label>Confirmar Email*:</label>
-                        <input
-                            type="email"
-                            name="confirmEmail"
-                            value={formData.confirmEmail}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div> */}
-                    <div className="form-group">
-                        <label>Contraseña*:</label>
-                        <input
-                            type="password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            required
-                        />
-                        {errors.password && <span className="error">{errors.password}</span>}
-                    </div>
-                    <div className="form-group">
-                        <label>Confirmar Contraseña*:</label>
-                        <input
-                            type="password"
-                            name="passConfirmation"
-                            value={formData.passConfirmation}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
-                </fieldset>
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      // Mostrar el primer error encontrado
+      const firstError = Object.values(errors)[0];
+      showErrorAlert(firstError);
+      return;
+    }
+    
+    try {
+     await axios.post("http://localhost:3004/api/user", formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    
+      Swal.fire({
+        title: '¡Éxito!',
+        text: 'Usuario creado exitosamente',
+        icon: 'success',
+        confirmButtonText: 'Aceptar'
+      });
+      
+      // Resetear formulario
+      setFormData({
+        parent: "",
+        name: "",
+        lastName: "",
+        email: "",
+        confirmEmail: "",
+        emailparent: "",
+        password: "",
+        passConfirmation: "",
+        studentGrade: ""
+      });
+      
+    } catch (error) {
+      console.error("Error al enviar el formulario", error);
+      let errorMessage = "Hubo un error al enviar el formulario";
+      
+      if (error.response && error.response.data && error.response.data.message) {
+        errorMessage = error.response.data.message;
+      }
+      
+      showErrorAlert(errorMessage);
+    }
+  };
 
-                <button type="submit" className="submit-btn">Registrar</button>
-            </form>
-        </div>
-    );
+  return (
+    <div className="login-register-container">
+      <h2>Registro de Nuevo Usuario</h2>
+      <form onSubmit={handleSubmit}>
+        <fieldset>
+          <legend>Datos del Tutor</legend>
+          <div className="form-group">
+            <label>Nombre completo del tutor*:</label>
+            <input
+              type="text"
+              name="parent"
+              value={formData.parent}
+              onChange={handleChange}
+            />
+            {errors.parent && <span className="error">{errors.parent}</span>}
+          </div>
+          <div className="form-group">
+            <label>Email del tutor:</label>
+            <input
+              type="email"
+              name="emailparent"
+              value={formData.emailparent}
+              onChange={handleChange}
+            />
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Datos del Estudiante</legend>
+          <div className="form-group">
+            <label>Nombre del niñ@*:</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+            {errors.name && <span className="error">{errors.name}</span>}
+          </div>
+          <div className="form-group">
+            <label>Apellido del niñ@*:</label>
+            <input
+              type="text"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+            />
+            {errors.lastName && <span className="error">{errors.lastName}</span>}
+          </div>
+          <div className="form-group">
+            <label>Grado académico*:</label>
+            <select
+              name="studentGrade"
+              value={formData.studentGrade}
+              onChange={handleChange}
+            >
+              <option value="">Seleccione un grado</option>
+              <option value="Transicion">Transicion</option>
+              <option value="1° Primaria">1° Primaria</option>
+              <option value="2° Primaria">2° Primaria</option>
+              <option value="3° Primaria">3° Primaria</option>
+              <option value="4° Primaria">4° Primaria</option>
+              <option value="5° Primaria">5° Primaria</option>
+            </select>
+            {errors.studentGrade && <span className="error">{errors.studentGrade}</span>}
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Datos de Acceso</legend>
+          <div className="form-group">
+            <label>Email*:</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            {errors.email && <span className="error">{errors.email}</span>}
+          </div>
+          <div className="form-group">
+            <label>Confirmar Email*:</label>
+            <input
+              type="email"
+              name="confirmEmail"
+              value={formData.confirmEmail}
+              onChange={handleChange}
+            />
+            {errors.confirmEmail && <span className="error">{errors.confirmEmail}</span>}
+          </div>
+          <div className="form-group">
+            <label>Contraseña*:</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+            />
+            {errors.password && <span className="error">{errors.password}</span>}
+          </div>
+          <div className="form-group">
+            <label>Confirmar Contraseña*:</label>
+            <input
+              type="password"
+              name="passConfirmation"
+              value={formData.passConfirmation}
+              onChange={handleChange}
+            />
+            {errors.passConfirmation && <span className="error">{errors.passConfirmation}</span>}
+          </div>
+        </fieldset>
+
+        <button type="submit" className="submit-btn">Registrar</button>
+      </form>
+    </div>
+  );
 };
 
 export default LoginRegister;
+
+
 

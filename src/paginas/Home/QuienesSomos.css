@@ -1,0 +1,163 @@
+body {
+    background-image: url('./fondo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh; /* Permite que el contenido se expanda y tenga scroll si es necesario */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Cambiado para que los elementos no estén centrados verticalmente */
+    flex-direction: column;
+    overflow-y: auto; /* Habilita el scroll vertical si es necesario */
+}
+
+.container {
+    text-align: center;
+    color: #333;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; 
+    background-color: aliceblue;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 1%;
+    transform: translate(5rem, 0);
+    width: 90%; /* Cambiado a un porcentaje para que sea más responsivo */
+    max-width: 1100px;
+    translate: center;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con opacidad */
+     
+
+}
+.container h2 {
+    font-size: 2.5rem;
+    color: #ff9a00;
+    margin-bottom: 20px;
+}
+
+.logo {
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+    animation: glow 2s infinite alternate;
+    margin-bottom: 30px;
+}
+
+.logo img {
+    width: 200px;
+    height: auto;
+    display: block;
+    position: center;
+    z-index: 1;
+    animation: float 3s ease-in-out infinite;
+}
+
+.who-we-are {
+    text-align: center;
+    color: #444;
+}
+
+.who-we-are h1 {
+    font-size: 2.5rem;
+    color: #ff9a00;
+}
+
+.who-we-are p {
+    font-size: 1.2rem;
+    color: #444;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #ff9a00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff7200;
+}
+
+/* Media queries para hacer el diseño responsivo */
+@media (max-width: 1200px) {
+    .logo img {
+        width: 180px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .logo {
+        top: 10px;
+    }
+
+    .logo img {
+        width: 150px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .logo img {
+        width: 120px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        font-size: 1.2rem;
+    }
+}

@@ -32,7 +32,9 @@ const Profile = () => {
   };
 
   const handleLogout = () => {
-    navigate('/login');
+    localStorage.clear();
+    window.location.reload(true);
+    navigate('/home');
   };
 
   const completeActivity = (index) => {
@@ -140,6 +142,14 @@ const Profile = () => {
               <p><strong>Nombre:</strong> {userData.tutor.name}</p>
               <p><strong>Email:</strong> {userData.tutor.email}</p>
             </div>
+
+            <div className="info-card last-access-Configuracion">
+              <h2>🔑 Último Acceso</h2>
+              <p>{userData.lastAccess}</p>
+              <button className="config-btn" onClick={() => navigate('/configuracion')}>Configuración</button>
+            </div>
+
+
           </section>
         )}
 

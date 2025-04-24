@@ -1,11 +1,13 @@
-// src/components/Navbar.js
 import { Link, useLocation } from "react-router-dom";
-import "./Navbar.css";
+import "./Navbar.css"; 
 
 const Navbar = () => {
   const location = useLocation();
+  const hiddenRoutes = ['/perfil', '/configuracion']
+  // Oculta completamente el navbar en la ruta /perfil
+   if (hiddenRoutes.includes(location.pathname)) return null;;
 
-  return (
+  return (    
     <nav className="navbar">
       <Link 
         to="/home" 
@@ -20,19 +22,29 @@ const Navbar = () => {
         Iniciar Sesión
       </Link>
       <Link 
-        to="/LoginRegister" 
-        className={location.pathname === '/LoginRegister' ? 'active' : ''}
+        to="/login" 
+        className={location.pathname === '/login' ? 'active' : ''}
       >
         Registro
       </Link>
       <Link 
-        to="/profile" 
-        className={location.pathname === '/profile' ? 'active' : ''}
+        to="/perfil" 
+        className={location.pathname === '/perfil' ? 'active' : ''}
       >
         Perfil
       </Link>
+      <Link 
+        to="/configuracion" 
+        className={location.pathname === '/configuracion' ? 'active' : ''}
+      >
+        Configuración
+       </Link> 
+      
+        
+
     </nav>
   );
 };
 
-export default Navbar;
+// Corrige el nombre al exportar (de "NAvbar" a "Navbar")
+export default Navbar; 

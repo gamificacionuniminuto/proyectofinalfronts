@@ -36,3 +36,38 @@
     transform: rotate(360deg);
   }
 }
+.footer {
+  background-color: #2c3e50;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+/* Asegura que el contenedor ocupe toda la altura de la pantalla */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* El contenido principal crece para empujar al footer hacia abajo */
+.main-content {
+  flex: 1;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ocupar toda la altura de la pantalla */
+}
+
+.main-content {
+  flex: 1; /* El contenido crece y empuja al footer hacia abajo */
+}
+
+.singin {
+  height: calc(100vh - 80px); /* si el footer mide 80px */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
