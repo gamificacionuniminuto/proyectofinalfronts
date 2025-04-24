@@ -32,6 +32,8 @@ const Profile = () => {
   };
 
   const handleLogout = () => {
+    localStorage.clear();
+    window.location.reload(true);
     navigate('/home');
   };
 
