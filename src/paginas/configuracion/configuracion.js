@@ -13,14 +13,16 @@ const Configuracion = () => {
     // Lista de avatares locales
     const avatares = [avatar1, avatar3, avatar4, avatar5, avatar6,  avatar8]; // Reemplaza con tus avatares locales
     const navigate = useNavigate();
+    const user = JSON.parse(localStorage.getItem('user')) || {};
+
     const [formData, setFormData] = useState({
-        username: '',
-        tutorName: '',
-        email: '',
-        confirmEmail: '',
-        password: '',
+        username: user.name || '',
+        tutorName: user.parent || '',
+        email: user.email || '',
+        confirmEmail: user.email || '',
+        password: '',  // Por seguridad, normalmente no precargas contraseñas
         confirmPassword: '',
-        selectedAvatar: avatares[0] // Avatar por defecto
+        selectedAvatar: user.image || avatares[0]
     });
     
     const [errors, setErrors] = useState({
@@ -153,6 +155,7 @@ const Configuracion = () => {
                         value={formData.username}
                         onChange={handleChange}
                         className="form-input" 
+                        disabled
                     />
                 </div>
                 
@@ -165,6 +168,7 @@ const Configuracion = () => {
                         value={formData.tutorName}
                         onChange={handleChange}
                         className="form-input" 
+                        disabled
                     />
                 </div>
                 
@@ -177,6 +181,7 @@ const Configuracion = () => {
                         value={formData.email}
                         onChange={handleChange}
                         className={`form-input ${!errors.emailValid ? 'input-error' : ''}`} 
+                        disabled
                     />
                     {!errors.emailValid && (
                         <p className="error-message">
@@ -194,6 +199,7 @@ const Configuracion = () => {
                         value={formData.confirmEmail}
                         onChange={handleChange}
                         className={`form-input ${errors.emailMatch ? 'input-error' : ''}`} 
+                        disabled
                     />
                     {errors.emailMatch && (
                         <p className="error-message">
@@ -211,6 +217,7 @@ const Configuracion = () => {
                         value={formData.password}
                         onChange={handleChange}
                         className={`form-input ${!errors.passwordValid ? 'input-error' : ''}`} 
+                        disabled
                     />
                     {!errors.passwordValid && (
                         <p className="error-message">
@@ -228,6 +235,7 @@ const Configuracion = () => {
                         value={formData.confirmPassword}
                         onChange={handleChange}
                         className={`form-input ${errors.passwordMatch ? 'input-error' : ''}`} 
+                        disabled
                     />
                     {errors.passwordMatch && (
                         <p className="error-message">
