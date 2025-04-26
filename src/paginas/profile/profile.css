@@ -1,17 +1,33 @@
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-    
-    
-  }
-  
+
 .body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  height: 200%;
+}
+footer {
+ 
+  margin-top: 220px; 
+
+
+  
+  
+}
+.profile-content {
+  position: absolute; 
+  margin-top: 14%;/* o 'fixed' si quieres que sea estático al hacer scroll */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2rem;
+  background-image: url('./fondoperfil2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: var(--light);
+  z-index: 0; /* ¡Importante! (1200px es inválido, debe ser número sin unidad) */
+  min-height: 100vh;
   
   
 }
@@ -27,26 +43,29 @@ body {
 }
 
 .kids-profile-container {
+  color: #151516;
 
-  max-width: 100%;
   min-height: 100vh;
-  background-image: url('./fondoperfil2.png') ;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-color: var(--light);
+  display: flex;
+  flex-direction: column;
   font-family: 'Comic Sans MS', cursive, sans-serif;
   color: var(--dark);
   padding: 0;
+  z-index: 1; /* Asegúrate de que el contenedor esté por encima del fondo */
+ 
 }
 
 .kids-profile-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   background: linear-gradient(135deg, var(--primary), var(--accent));
   padding: 1.5rem;
   color: white;
   border-radius: 0 0 20px 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 2; /* Asegúrate de que el encabezado esté por encima del fondo */
 }
 
 .header-content {
@@ -54,6 +73,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+  z-index: 2; /* Asegúrate de que el contenido del encabezado esté por encima del fondo */
 }
 
 .avatar-container {
@@ -73,11 +93,13 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--primary);
+ 
 }
 
 .welcome-message h1 {
   margin: 0;
   font-size: 1.5rem;
+
 }
 
 .welcome-emoji {
@@ -104,12 +126,19 @@ body {
 }
 
 .tabs {
+  position: absolute;	
+  top: 0; /* Ajusta según la altura de tu encabezado */
+  left: 0;
+  right: 0;
+
+  margin-top: 10rem;
   display: flex;
   justify-content: center;
   gap: 0.5rem;
   padding: 1rem;
   background: white;
   border-bottom: 1px solid #eee;
+  z-index: 3/* Asegúrate de que las pestañas estén por encima del fondo */
 }
 
 .tab-btn {
@@ -120,11 +149,14 @@ body {
   font-family: inherit;
   cursor: pointer;
   transition: all 0.3s;
+  color: #151516;
 }
 
 .tab-btn.active {
   background: var(--secondary);
   color: white;
+  z-index: 2;
+ 
 }
 
 .profile-content {
@@ -608,6 +640,7 @@ body {
     cursor: pointer;
     transition: all 0.3s;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    color: #151516;
   }
   
   .action-btn:hover {
@@ -646,5 +679,7 @@ body {
     .tabs {
       flex-wrap: wrap;
     }
+
+
   }
 

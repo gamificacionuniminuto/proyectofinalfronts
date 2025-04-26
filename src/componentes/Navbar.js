@@ -1,9 +1,11 @@
-
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css"; 
 
 const Navbar = () => {
   const location = useLocation();
+  const hiddenRoutes = ['/perfil', '/configuracion']
+  // Oculta completamente el navbar en la ruta /perfil
+   if (hiddenRoutes.includes(location.pathname)) return null;;
 
   return (    
     <nav className="navbar">

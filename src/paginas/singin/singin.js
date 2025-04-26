@@ -36,6 +36,7 @@ const SingIn = () => {
         // Guardar token y datos del usuario en localStorage
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.data.user));
+        window.location.reload(true);
 
         // Redirigir al perfil
         navigate('/perfil');
@@ -87,7 +88,7 @@ const SingIn = () => {
   
         <div className="register-link">
           ¿Aún no tienes cuenta?{' '}
-          <span onClick={() => navigate('/LoginRegister')}>Regístrate</span>
+          <span onClick={() => navigate('/Login')}>Regístrate</span>
         </div>
         <div className="forgot-password-link">
           ¿Olvidaste tu contraseña?{' '}
