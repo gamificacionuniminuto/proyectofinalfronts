@@ -8,6 +8,7 @@ const ClasesData = [
     icono: "🔢",
     forma: "circulo",
     color: "#264653", // azul oscuro
+    link: "/juegos"
   },
   {
     id: 2,
