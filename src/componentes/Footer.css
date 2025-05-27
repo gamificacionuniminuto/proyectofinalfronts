@@ -10,7 +10,7 @@ footer.footer {
     z-index: 5000;
     left: 0; /* Asegura que esté alineada a la izquierda */
     right: 0; /* Asegura que esté alineada a la derecha */
-    translate: 0; /* Asegura que esté centrada en la pantalla */
+    translate: 3; /* Asegura que esté centrada en la pantalla */
   
   }
   

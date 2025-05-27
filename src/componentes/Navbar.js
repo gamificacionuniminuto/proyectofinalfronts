@@ -40,7 +40,19 @@ const Navbar = () => {
         Configuración
        </Link> 
       
-        
+       <Link 
+        to="/Ejercicio1" 
+        className={location.pathname === '/Ejercicio1' ? 'active' : ''}
+      >
+        Primero
+       </Link>
+       
+        <Link
+        to="/clases" 
+        className={location.pathname === '/clases' ? 'active' : ''}
+        >
+        Clases
+        </Link>
 
     </nav>
   );
