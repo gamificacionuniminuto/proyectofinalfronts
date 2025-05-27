@@ -1,47 +1,89 @@
 /* General Styles */
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
-
 .ejercicio-matematicas {
-    margin-top: 18%;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 600px;
-    translate: 25%;
- 
+  width: 50vh;
+  max-width: none;
+  margin: 90rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 8%;
 }
 
+/* Título */
 .titulo-ejercicio {
-    font-size: 24px;
-    margin-bottom: 10px;
-    text-align: center;
-    color: #ff5a0e;
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #ff5a0e;
 }
+
+/* Campo de respuesta */
 .campo-respuesta {
-    margin-top: 2px;
-    width: 85%;
-    position:center;
-    translate: 8%;
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
+/* Botón de verificación */
 .boton-verificar {
-    width: 50%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    margin-top: 10px;
-    position: center;
-    translate:50%;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-top: 15px;
+  background-color: #ff5a0e;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
-.footer {
-  margin-top: 100vh;
 
+.boton-verificar:hover {
+  background-color: #e64a04;
+}
+
+/* Footer */
+.footer {
+  margin-top: 10vh;
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .ejercicio-matematicas {
+    padding: 1.5rem;
+  }
+
+  .titulo-ejercicio {
+    font-size: 20px;
+  }
+
+  .boton-verificar {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo-ejercicio {
+    font-size: 18px;
+  }
+
+  .boton-verificar {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .campo-respuesta {
+    font-size: 14px;
+  }
 }

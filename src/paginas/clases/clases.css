@@ -1,24 +1,21 @@
-
-
-.body, html {
-  display: flex;
-  justify-content: center;
- 
-}
-
 .main-content {
-  margin-top: 100%;
-  width: 100%;
-  height: 1vh;
+  max-width: none; 
+  min-height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  box-sizing: border-box;
 }
 
+
+
 .contenedor-niveles {
-  max-width: 1000px;
-  width: 100%;
   margin: 0 auto;
+  margin-top: 1.2vw;
+  max-width: 120vh;
+  transform: translate(30% );
+  width: 1000%;
   padding: 40px 20px;
   background: #ffffff;
   border-radius: 80px;
@@ -29,6 +26,7 @@
   flex-direction: column;
   align-items: center;
   gap: 100px;
+
 }
 
 /* Sección de nivel */
@@ -36,25 +34,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 50%,50%, 50%, 50%;
-  gap: 20px;
+  gap: 30px;
 }
 
 /* Título */
 .titulo-nivel {
   font-size: 3rem;
-  color: #ce5720; /* rojo fuerte */
+  color: #ce5720;
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 3px;
-  border-bottom: 5px solid #fcbf49; /* amarillo */
+  border-bottom: 5px solid #fcbf49;
   padding-bottom: 12px;
   width: fit-content;
+  text-align: center;
 }
 
 /* Contenedor de tarjetas */
 .tarjetas {
-  border-radius: 0%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -65,28 +62,25 @@
 .tarjeta {
   position: relative;
   width: 220px;
-  min-height: 300px;
+  min-height: 20px;
   background: #ffffff;
-  border-radius: 800px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-  padding: 35px 25px 45px;
+  border-radius: 40px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  padding: 20px 25px 45px;
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  overflow: visible;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tarjeta:hover {
   transform: translateY(-18px) scale(1.05);
-  box-shadow: 0 18px 45px rgba(0,0,0,0.25);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
 }
 
-
-/* Icono en burbuja */
+/* Icono */
 .burbuja-icono {
-  position: relative;
   z-index: 2;
   width: 90px;
   height: 90px;
@@ -97,16 +91,15 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
-  box-shadow: 0 7px 15px rgba(0,0,0,0.15);
+  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.15);
   user-select: none;
-  transition: background-color 0.3s ease;
 }
 
 /* Nombre */
 .nombre {
   z-index: 2;
   font-size: 1rem;
-  color: #264653; /* azul oscuro */
+  color: #264653;
   font-weight: 700;
   text-align: center;
   margin-bottom: 12px;
@@ -122,21 +115,32 @@
   padding: 0 10px;
 }
 
-/* Completado - cambia fondo icono */
+/* Estado completado */
 .tarjeta.completado .burbuja-icono {
-  background-color: #fcbf49; /* amarillo */
+  background-color: #fcbf49;
   color: #264653;
 }
 
-/* Responsive */
-@media (max-width: 700px) {
-  .tarjetas {
-    gap: 20px;
+/* Responsive: Tablets */
+@media (max-width: 1024px) {
+  .contenedor-niveles {
+    padding: 30px 15px;
+    gap: 80px;
+  }
+  .titulo-nivel {
+    font-size: 2.5rem;
+  }
+}
+
+/* Responsive: Móviles */
+@media (max-width: 768px) {
+  .contenedor-niveles {
+    gap: 60px;
   }
   .tarjeta {
-    width: 80vw;
-    min-height: 260px;
-    padding: 25px 20px 30px;
+    width: 80%;
+    min-height: 250px;
+    padding: 25px 20px 35px;
   }
   .burbuja-icono {
     width: 75px;
@@ -145,12 +149,34 @@
     margin-bottom: 15px;
   }
   .nombre {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     margin-bottom: 8px;
   }
   .descripcion {
     font-size: 1rem;
     padding: 0 8px;
+  }
+}
+
+/* Responsive: Pantallas pequeñas */
+@media (max-width: 480px) {
+  .titulo-nivel {
+    font-size: 2rem;
+  }
+  .tarjeta {
+    width: 90%;
+    padding: 20px 15px 30px;
+  }
+  .burbuja-icono {
+    width: 65px;
+    height: 65px;
+    font-size: 2.5rem;
+  }
+  .nombre {
+    font-size: 1rem;
+  }
+  .descripcion {
+    font-size: 0.95rem;
   }
 }
 
