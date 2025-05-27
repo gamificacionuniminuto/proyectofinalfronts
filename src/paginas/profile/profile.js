@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Confetti from 'react-confetti';
+import ProgresoNivel from '../../componentes/ProgresoNivel';
 import './profile.css';
 
 const Profile = () => {
@@ -43,6 +44,7 @@ const Profile = () => {
     userData.student.points += 10;
     setShowConfetti(true);
     setTimeout(() => setShowConfetti(false), 3000);
+    
   };
 
   return (
@@ -62,7 +64,7 @@ const Profile = () => {
         </div>
         
         <div className="progress-bar">
-          <div className="progress-fill" style={{ width: `${(userData.student.points % 100)}%` }}></div>
+          <ProgresoNivel userId={localStorage.getItem('userId')} />
         </div>
       </header>
 

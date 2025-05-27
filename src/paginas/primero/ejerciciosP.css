@@ -1,0 +1,47 @@
+/* General Styles */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.ejercicio-matematicas {
+    margin-top: 18%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    translate: 25%;
+ 
+}
+
+.titulo-ejercicio {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #ff5a0e;
+}
+.campo-respuesta {
+    margin-top: 2px;
+    width: 85%;
+    position:center;
+    translate: 8%;
+}
+
+.boton-verificar {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 10px;
+    position: center;
+    translate:50%;
+}
+.footer {
+  margin-top: 100vh;
+
+}

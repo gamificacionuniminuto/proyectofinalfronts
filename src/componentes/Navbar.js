@@ -39,7 +39,26 @@ const Navbar = () => {
       >
         Configuración
        </Link> 
-      
+       <Link
+        to="/clases" 
+        className={location.pathname === '/clases' ? 'active' : ''}
+        >
+        Clases
+        </Link>
+
+      <Link
+        to="/EjerciciosP" 
+        className={location.pathname === '/EjerciciosP' ? 'active' : ''}
+      >
+        Ejercicio Primero
+      </Link>
+
+      <Link
+        to="/juegosNumeros" 
+        className={location.pathname === '/juegosNumeros' ? 'active' : ''}
+      >
+        Juegos de Números
+      </Link>
         
 
     </nav>
