@@ -14,7 +14,7 @@ const LoginRegister = () => {
     emailparent: "",    
     password: "",
     passConfirmation: "",
-    studentGrade: ""
+   
   });
 
   const [errors, setErrors] = useState({});
@@ -42,7 +42,7 @@ const LoginRegister = () => {
     if (!formData.parent.trim()) newErrors.parent = "Nombre del tutor es requerido";
     if (!formData.name.trim()) newErrors.name = "Nombre del niño es requerido";
     if (!formData.lastName.trim()) newErrors.lastName = "Apellido del niño es requerido";
-    if (!formData.studentGrade) newErrors.studentGrade = "Grado académico es requerido";
+    
     
     // Validación de emails
     if (!formData.email.trim()) {
@@ -51,9 +51,9 @@ const LoginRegister = () => {
       newErrors.email = "Email no válido";
     }
     
-    if (formData.email !== formData.confirmEmail) {
-      newErrors.confirmEmail = "Los emails no coinciden";
-    }
+    // if (formData.email !== formData.confirmEmail) {
+    //   newErrors.confirmEmail = "Los emails no coinciden";
+    // }
     
     // Validación de contraseñas
     if (!formData.password) {
@@ -90,7 +90,7 @@ const LoginRegister = () => {
     }
     
     try {
-     await axios.post("http://localhost:3004/api/user", formData, {
+     await axios.post("http://localhost:3001/api/user", formData, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -109,11 +109,11 @@ const LoginRegister = () => {
         name: "",
         lastName: "",
         email: "",
-        confirmEmail: "",
+        
         emailparent: "",
         password: "",
         passConfirmation: "",
-        studentGrade: ""
+       
       });
       
     } catch (error) {
@@ -177,23 +177,7 @@ const LoginRegister = () => {
             />
             {errors.lastName && <span className="error">{errors.lastName}</span>}
           </div>
-          <div className="form-group">
-            <label>Grado académico*:</label>
-            <select
-              name="studentGrade"
-              value={formData.studentGrade}
-              onChange={handleChange}
-            >
-              <option value="">Seleccione un grado</option>
-              <option value="Transicion">Transicion</option>
-              <option value="1° Primaria">1° Primaria</option>
-              <option value="2° Primaria">2° Primaria</option>
-              <option value="3° Primaria">3° Primaria</option>
-              <option value="4° Primaria">4° Primaria</option>
-              <option value="5° Primaria">5° Primaria</option>
-            </select>
-            {errors.studentGrade && <span className="error">{errors.studentGrade}</span>}
-          </div>
+        
         </fieldset>
 
         <fieldset>
@@ -208,16 +192,7 @@ const LoginRegister = () => {
             />
             {errors.email && <span className="error">{errors.email}</span>}
           </div>
-          <div className="form-group">
-            <label>Confirmar Email*:</label>
-            <input
-              type="email"
-              name="confirmEmail"
-              value={formData.confirmEmail}
-              onChange={handleChange}
-            />
-            {errors.confirmEmail && <span className="error">{errors.confirmEmail}</span>}
-          </div>
+          
           <div className="form-group">
             <label>Contraseña*:</label>
             <input

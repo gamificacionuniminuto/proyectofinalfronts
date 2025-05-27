@@ -15,6 +15,7 @@ import ProtectedRoute from './componentes/ProtectedRoute.js';
 import Ejercicio1 from './paginas/primero/Ejercicio1.jsx';
 import Clases from './paginas/clases/clases.jsx';  // Corrige el nombre del import para Clases.jsx
 import ProgresoNivel from './componentes/ProgresoNivel.jsx';
+import JuegoNumeros from './paginas/juegos/JuegoNumeros.jsx'
 
 function RutaConProgreso() {
   const location = useLocation();
@@ -54,6 +55,7 @@ function App() {
           <Route path="/Ejercicio1" element={<Ejercicio1 />} />
           <Route path="/clases" element={<Clases />} /> {/* Incluí la ruta para Clases */}
           <Route path="*" element={<NotFound />} />
+          <Route path="/juegos" element={<JuegoNumeros/>} />
         </Routes>
       </div>
 

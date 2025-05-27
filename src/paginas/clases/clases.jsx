@@ -1,6 +1,7 @@
 import React from "react";
 import ClasesData from "./clasesData";
 import "./clases.css";
+import { Link } from "react-router-dom";
 
 const Clases = () => {
   const niveles = [...new Set(ClasesData.map((clase) => clase.nivel))];
@@ -22,6 +23,10 @@ const Clases = () => {
                 </div>
                 <h3 className="nombre">{clase.nombre}</h3>
                 <p className="descripcion">{clase.descripcion}</p>
+                <Link to={clase.link} className="prueba">
+                  {/* Aquí puedes poner el texto que quieras que aparezca en el enlace */}
+                  Ver más
+                </Link>
               </div>
             ))}
           </div>
