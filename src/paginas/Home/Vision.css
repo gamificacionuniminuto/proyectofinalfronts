@@ -2,17 +2,14 @@
     text-align: center;
     color: #333;
     padding: 40px;
-    background-color: #f1f1f1; /* Fondo claro para diferenciar de la sección de Misión */
+    background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 30px;
     width: 100%;
     max-width: 800px;
-    translate: 20rem 0; /* Ajuste de la posición */
-    transform: translate(4rem, 0); 
+    translate: 3rem 0;
     background-color: rgba(255, 255, 255, 0.8); 
-
-    /* Ajuste de la posición */
 }
 
 .vision h1 {

@@ -1,23 +1,52 @@
+html, body {
+   height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
+
+  }
+  
+
 footer.footer {
 
     backdrop-filter: blur(10px);
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
     color: rgb(15, 15, 15);
-    padding: 0.5rem;
-    font-size: 16px;
-    width: 142%;
-    position: static; /* Cambiado a static para que no se superponga con el contenido */
-    z-index: 5000;
-    left: 0; /* Asegura que esté alineada a la izquierda */
-    right: 0; /* Asegura que esté alineada a la derecha */
-    translate: 0; /* Asegura que esté centrada en la pantalla */
-  
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding-bottom: 0px;
+    overflow-x: hidden;
+    box-sizing: border-box; /* Espacio para el contenido */
   }
-  
+  *,*::before,*::after {
+    box-sizing:  inherit; /* Asegura que el padding y el border se incluyan en el ancho y alto */
+  }
+  #root {
+ display: flex;
+ flex-direction: column;
+ min-height: 100vh;
+  /* Asegura que el contenido ocupe al menos toda la altura de la ventana */
+}
+  /* Permite que el contenido se expanda y tenga scroll si es necesario */
+  main {
+    flex-grow: 1;
+    max-width: 100%;
+    overflow-x: hidden;
+    padding: 20px;
+
+
+  }
+   
+
   
   .footer-content {
     display: flex;
-    flex-direction: row;
+    flex-direction: row
+;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
@@ -50,7 +79,8 @@ footer.footer {
   .footer a.active {
     background-color: #4CAF50;
     border-radius: 4px
-  }
+  } /* Fondo claro para el contenido principal */
+  
   @media (max-width: 600px) {
     .footer-content {
       gap: 1rem; /* Reduce el espacio entre elementos */

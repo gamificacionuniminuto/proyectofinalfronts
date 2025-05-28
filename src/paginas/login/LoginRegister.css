@@ -1,14 +1,19 @@
+.app-container {
+
+
+
+} 
 .login-register-container {
   width: 90%;
   max-width: none;
-  margin: 10rem auto;
+  margin: 0 auto;
   padding: 2rem;
   background: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-top: 20%;
-  transform: translateX(40%);
+  margin-top: 10%;
+  transform: translateX(20%);
   flex-direction: center;
 }
 
@@ -46,7 +51,7 @@
 
 .login-register-container input,
 .login-register-container select {
-  width: 100%;
+  width: 98%;
   padding: 0.8rem;
   border: 1px solid #ddd;
   border-radius: 6px;
