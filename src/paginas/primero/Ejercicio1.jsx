@@ -1,17 +1,69 @@
-// Ejercicio1.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import './Ejercicio1.css';
 
+// Funciones para generar ejercicios dinámicos
+const generarEjerciciosSuma = (cantidad = 5) => {
+  const ejercicios = [];
+  for (let i = 0; i < cantidad; i++) {
+    const num1 = Math.floor(Math.random() * 10) + 1;
+    const num2 = Math.floor(Math.random() * 10) + 1;
+    ejercicios.push({
+      titulo: `Suma ${i + 1}`,
+      pregunta: `Resuelve: ${num1} + ${num2} = ?`,
+      respuestaCorrecta: num1 + num2
+    });
+  }
+  return ejercicios;
+};
+
+const generarEjerciciosResta = (cantidad = 5) => {
+  const ejercicios = [];
+  for (let i = 0; i < cantidad; i++) {
+    const num1 = Math.floor(Math.random() * 10) + 5;
+    const num2 = Math.floor(Math.random() * 5) + 1;
+    const mayor = Math.max(num1, num2);
+    const menor = Math.min(num1, num2);
+    ejercicios.push({
+      titulo: `Resta ${i + 1}`,
+      pregunta: `Resuelve: ${mayor} - ${menor} = ?`,
+      respuestaCorrecta: mayor - menor
+    });
+  }
+  return ejercicios;
+};
+
+const generarEjerciciosMultiplicacion = (cantidad = 5) => {
+  const ejercicios = [];
+  for (let i = 0; i < cantidad; i++) {
+    const num1 = Math.floor(Math.random() * 5) + 1;
+    const num2 = Math.floor(Math.random() * 5) + 1;
+    ejercicios.push({
+      titulo: `Multiplicación ${i + 1}`,
+      pregunta: `Resuelve: ${num1} × ${num2} = ?`,
+      respuestaCorrecta: num1 * num2
+    });
+  }
+  return ejercicios;
+};
+
+const generarEjerciciosDivision = (cantidad = 5) => {
+  const ejercicios = [];
+  for (let i = 0; i < cantidad; i++) {
+    const divisor = Math.floor(Math.random() * 5) + 1;
+    const resultado = Math.floor(Math.random() * 5) + 1;
+    const dividendo = divisor * resultado;
+    ejercicios.push({
+      titulo: `División ${i + 1}`,
+      pregunta: `Resuelve: ${dividendo} ÷ ${divisor} = ?`,
+      respuestaCorrecta: resultado
+    });
+  }
+  return ejercicios;
+};
+
 // Componente para ejercicios de suma
 const EjercicioMatematicasSuma = () => {
-  const ejercicios = [
-    { titulo: 'Suma Básica 1', pregunta: 'Resuelve: 7 + 5 = ?', respuestaCorrecta: 12 },
-    { titulo: 'Suma Básica 2', pregunta: 'Resuelve: 2 + 9 = ?', respuestaCorrecta: 11 },
-    { titulo: 'Suma Básica 3', pregunta: 'Resuelve: 5 + 4 = ?', respuestaCorrecta: 9 },
-    { titulo: 'Suma Básica 4', pregunta: 'Resuelve: 3 + 2 = ?', respuestaCorrecta: 5 },
-    { titulo: 'Suma Básica 5', pregunta: 'Resuelve: 4 + 3 = ?', respuestaCorrecta: 7 },
-  ];
-
+  const [ejercicios] = useState(generarEjerciciosSuma());
   const [respuesta, setRespuesta] = useState('');
   const [mostrarResultado, setMostrarResultado] = useState(false);
   const [esCorrecto, setEsCorrecto] = useState(false);
@@ -116,14 +168,7 @@ const EjercicioMatematicasSuma = () => {
 
 // Componente para ejercicios de resta
 const EjercicioMatematicasResta = () => {
-  const ejercicios = [
-    { titulo: 'Resta Básica 1', pregunta: 'Resuelve: 10 - 3 = ?', respuestaCorrecta: 7 },
-    { titulo: 'Resta Básica 2', pregunta: 'Resuelve: 15 - 6 = ?', respuestaCorrecta: 9 },
-    { titulo: 'Resta Básica 3', pregunta: 'Resuelve: 12 - 4 = ?', respuestaCorrecta: 8 },
-    { titulo: 'Resta Básica 4', pregunta: 'Resuelve: 9 - 5 = ?', respuestaCorrecta: 4 },
-    { titulo: 'Resta Básica 5', pregunta: 'Resuelve: 8 - 2 = ?', respuestaCorrecta: 6 },
-  ];
-
+  const [ejercicios] = useState(generarEjerciciosResta());
   const [respuesta, setRespuesta] = useState('');
   const [mostrarResultado, setMostrarResultado] = useState(false);
   const [esCorrecto, setEsCorrecto] = useState(false);
@@ -228,14 +273,7 @@ const EjercicioMatematicasResta = () => {
 
 // Componente para ejercicios de multiplicación
 const EjercicioMatematicasMultiplicacion = () => {
-  const ejercicios = [
-    { titulo: 'Multiplicación Básica 1', pregunta: 'Resuelve: 3 × 2 = ?', respuestaCorrecta: 6 },
-    { titulo: 'Multiplicación Básica 2', pregunta: 'Resuelve: 5 × 4 = ?', respuestaCorrecta: 20 },
-    { titulo: 'Multiplicación Básica 3', pregunta: 'Resuelve: 2 × 3 = ?', respuestaCorrecta: 6 },
-    { titulo: 'Multiplicación Básica 4', pregunta: 'Resuelve: 4 × 2 = ?', respuestaCorrecta: 8 },
-    { titulo: 'Multiplicación Básica 5', pregunta: 'Resuelve: 6 × 3 = ?', respuestaCorrecta: 18 },
-  ];
-
+  const [ejercicios] = useState(generarEjerciciosMultiplicacion());
   const [respuesta, setRespuesta] = useState('');
   const [mostrarResultado, setMostrarResultado] = useState(false);
   const [esCorrecto, setEsCorrecto] = useState(false);
@@ -340,14 +378,7 @@ const EjercicioMatematicasMultiplicacion = () => {
 
 // Componente para ejercicios de división
 const EjercicioMatematicasDivision = () => {
-  const ejercicios = [
-    { titulo: 'División Básica 1', pregunta: 'Resuelve: 12 ÷ 3 = ?', respuestaCorrecta: 4 },
-    { titulo: 'División Básica 2', pregunta: 'Resuelve: 20 ÷ 4 = ?', respuestaCorrecta: 5 },
-    { titulo: 'División Básica 3', pregunta: 'Resuelve: 15 ÷ 3 = ?', respuestaCorrecta: 5 },
-    { titulo: 'División Básica 4', pregunta: 'Resuelve: 18 ÷ 6 = ?', respuestaCorrecta: 3 },
-    { titulo: 'División Básica 5', pregunta: 'Resuelve: 24 ÷ 4 = ?', respuestaCorrecta: 6 },
-  ];
-
+  const [ejercicios] = useState(generarEjerciciosDivision());
   const [respuesta, setRespuesta] = useState('');
   const [mostrarResultado, setMostrarResultado] = useState(false);
   const [esCorrecto, setEsCorrecto] = useState(false);
@@ -452,9 +483,8 @@ const EjercicioMatematicasDivision = () => {
 
 // Componente padre que renderiza la sección seleccionada
 const EjercicioMatematicas = () => {
-  const [operacionSeleccionada, setOperacionSeleccionada] = useState(null); // Estado para rastrear la operación seleccionada
+  const [operacionSeleccionada, setOperacionSeleccionada] = useState(null);
 
-  // Función para renderizar la caja correspondiente
   const renderizarCaja = () => {
     switch (operacionSeleccionada) {
       case 'suma':
@@ -466,18 +496,15 @@ const EjercicioMatematicas = () => {
       case 'division':
         return <EjercicioMatematicasDivision />;
       default:
-        return null; // No renderizamos nada si no hay operación seleccionada
+        return null;
     }
   };
 
   return (
     <div className="contenedor-ejercicios">
       <h1 className="titulo-principal">Ejercicios de Matemáticas</h1>
-      
-      {/* Movemos el mensaje aquí, entre el título y el menú */}
       <p className="mensaje-seleccion">Selecciona una operación para comenzar:</p>
 
-      {/* Botones para seleccionar la operación */}
       <div className="menu-operaciones">
         <button
           onClick={() => setOperacionSeleccionada('suma')}
@@ -505,7 +532,6 @@ const EjercicioMatematicas = () => {
         </button>
       </div>
 
-      {/* Renderizamos la caja seleccionada */}
       <div className="contenedor-caja">
         {renderizarCaja()}
       </div>
