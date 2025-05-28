@@ -1,0 +1,14 @@
+{
+    "javascript.suggest.autoImports": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+    "files.exclude": {
+      "**/node_modules": true
+    },
+    "eslint.validate": ["javascript", "javascriptreact"],
+    "importModuleSpecifier": "relative"
+  }
+  

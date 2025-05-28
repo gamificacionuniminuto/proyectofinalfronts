@@ -1,39 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Confetti from 'react-confetti';
+import ProgresoNivel from '../../componentes/ProgresoNivel';
 import './profile.css';
 
 const Profile = () => {
   const navigate = useNavigate();
   const [showConfetti, setShowConfetti] = useState(false);
   const [activeTab, setActiveTab] = useState('actividades');
-  const [userData, setUserData] = useState(null);
+  
+  // Datos de ejemplo con información ampliada
+  const userData = {
+    tutor: {
+      name: "María López",
+      email: "tutor@email.com",
+      avatar: '👩'
+    },
+    student: {
+      name: "Juan",
+      lastName: "López",
+      grade: "3° Primaria",
+      avatar: '🧒',
+      points: 120,
+      level: 5,
+      achievements: ['Matemático Novato', ]
+    },
+    lastAccess: new Date().toLocaleDateString(),
+    activities: [
+      { name: "Matemáticas - Sumas", date: "05/06/2025", completed: true },
 
-  useEffect(() => {
-    const localUser = JSON.parse(localStorage.getItem('user'));
-    if (localUser) {
-      setUserData({
-        tutor: {
-          name: localUser.parent || 'Tutor',
-          email: localUser.emailparent || 'tutor@email.com',
-          avatar: '👩'
-        },
-        student: {
-          name: localUser.name,
-          lastName: localUser.lastName,
-          grade: "3° Primaria",
-          avatar: '🧒',
-          points: 120,
-          level: 5,
-          achievements: ['Matemático Novato']
-        },
-        lastAccess: new Date().toLocaleDateString(),
-        activities: [
-          { name: "Matemáticas - Sumas", date: "05/06/2025", completed: true }
-        ]
-      });
-    }
-  }, []);
+    ]
+  };
 
   const handleLogout = () => {
     localStorage.clear();
@@ -42,20 +39,18 @@ const Profile = () => {
   };
 
   const completeActivity = (index) => {
-    const updatedUserData = { ...userData };
-    updatedUserData.activities[index].completed = true;
-    updatedUserData.student.points += 10;
-    setUserData(updatedUserData);
+    // Simular completar actividad
+    userData.activities[index].completed = true;
+    userData.student.points += 10;
     setShowConfetti(true);
     setTimeout(() => setShowConfetti(false), 3000);
+    
   };
-
-  if (!userData) return <div>Cargando perfil...</div>;
 
   return (
     <div className="kids-profile-container">
       {showConfetti && <Confetti recycle={false} numberOfPieces={200} />}
-
+      
       <header className="kids-profile-header">
         <div className="header-content">
           <div className="avatar-container">
@@ -67,26 +62,26 @@ const Profile = () => {
           </div>
           <button onClick={handleLogout} className="logout-btn">Salir</button>
         </div>
-
+        
         <div className="progress-bar">
-          <div className="progress-fill" style={{ width: `${(userData.student.points % 100)}%` }}></div>
+          <ProgresoNivel userId={localStorage.getItem('userId')} />
         </div>
       </header>
 
       <div className="tabs">
-        <button
+        <button 
           className={`tab-btn ${activeTab === 'actividades' ? 'active' : ''}`}
           onClick={() => setActiveTab('actividades')}
         >
           🎯 Mis Actividades
         </button>
-        <button
+        <button 
           className={`tab-btn ${activeTab === 'logros' ? 'active' : ''}`}
           onClick={() => setActiveTab('logros')}
         >
           🏆 Mis Logros
         </button>
-        <button
+        <button 
           className={`tab-btn ${activeTab === 'info' ? 'active' : ''}`}
           onClick={() => setActiveTab('info')}
         >
@@ -109,7 +104,7 @@ const Profile = () => {
                     <p>{activity.date}</p>
                   </div>
                   {!activity.completed && (
-                    <button
+                    <button 
                       className="complete-btn"
                       onClick={() => completeActivity(index)}
                     >
@@ -143,7 +138,7 @@ const Profile = () => {
               <p><strong>Nombre:</strong> {userData.student.name} {userData.student.lastName}</p>
               <p><strong>Grado:</strong> {userData.student.grade}</p>
             </div>
-
+            
             <div className="info-card tutor-info">
               <h2>👩 Mi Tutor</h2>
               <p><strong>Nombre:</strong> {userData.tutor.name}</p>
@@ -155,6 +150,8 @@ const Profile = () => {
               <p>{userData.lastAccess}</p>
               <button className="config-btn" onClick={() => navigate('/configuracion')}>Configuración</button>
             </div>
+
+
           </section>
         )}
 
