@@ -52,50 +52,52 @@ const SingIn = () => {
   };
 
   return (
-    <div className="login-page">
-      <div className="singin-container">
-        <h2>Iniciar Sesión</h2>
-  
-        {error && <div className="error-message">{error}</div>}
-  
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="email">Correo Electrónico:</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-  
-          <div className="form-group">
-            <label htmlFor="password">Contraseña:</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-  
-          <button type="submit" className="login-button">
-            Iniciar Sesión
-          </button>
-        </form>
-  
-        <div className="register-link">
-          ¿Aún no tienes cuenta?{' '}
-          <span onClick={() => navigate('/Login')}>Regístrate</span>
-        </div>
-        <div className="forgot-password-link">
-          ¿Olvidaste tu contraseña?{' '}
-          <span onClick={() => navigate('/forgotPassword')}>Recuperar</span>
-        </div>
+  <div className="signin-page">
+  <div className="signin-container">
+    <h2>Iniciar Sesión</h2>
+
+    {error && <div className="signin-error">{error}</div>}
+
+    <form className="signin-form" onSubmit={handleSubmit}>
+      <div className="signin-form-group">
+        <label className="signin-form-label" htmlFor="email">Correo Electrónico:</label>
+        <input
+          className="signin-form-input"
+          type="email"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
       </div>
+
+      <div className="signin-form-group">
+        <label className="signin-form-label" htmlFor="password">Contraseña:</label>
+        <input
+          className="signin-form-input"
+          type="password"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+      </div>
+
+      <button type="submit" className="signin-button">Iniciar Sesión</button>
+    </form>
+
+    <div className="signin-register-link">
+      ¿Aún no tienes cuenta?{' '}
+      <span onClick={() => navigate('/Login')}>Regístrate</span>
     </div>
+
+    <div className="signin-forgot-password">
+      ¿Olvidaste tu contraseña?{' '}
+      <span onClick={() => navigate('/forgotPassword')}>Recuperar</span>
+    </div>
+  </div>
+</div>
+
   );
 };
 
