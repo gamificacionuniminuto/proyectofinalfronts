@@ -17,7 +17,7 @@ export default function FooterNavigation() {
   sx={{
     display: 'flex',
     flexDirection: 'column',
-    minHeight: '100%', // toda la altura visible
+    minHeight: '30vh', // toda la altura visible
   }}
 >
   {/* Contenido principal */}

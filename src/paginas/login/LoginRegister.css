@@ -1,5 +1,5 @@
 .app-container {
-margin-top: 50rem;
+margin-top: 60rem;
  
 
 
@@ -8,14 +8,14 @@ margin-top: 50rem;
   width: 50%;
   max-width: none;
   margin: 0 auto;
- 
   padding: 2rem;
   background: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-top: 10%;
-  transform: translateX(5%);
+  transform: translateX(4%);
+  transform: translateY(5%);
   flex-direction: center;
 }
 
