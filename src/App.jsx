@@ -13,9 +13,9 @@ import ForgotPassword from './paginas/forgotpassword/ForgotPassword.js';
 import NotFound from './NotFound.js';
 import ProtectedRoute from './componentes/ProtectedRoute.js';
 import Ejercicio1 from './paginas/primero/Ejercicio1.jsx';
-import Clases from './paginas/clases/clases.jsx';  // Corrige el nombre del import para Clases.jsx
+import Clases from './paginas/clases/clases.jsx'; 
 import ProgresoNivel from './componentes/ProgresoNivel.jsx';
-import JuegoNumeros from './paginas/juegos/JuegoNumeros.jsx'
+import JuegoNumeros from './paginas/juegos/JuegoNumeros.jsx';
 import EjercicioMatematicas from './paginas/EjercisiosMatematicos/EjercicioMatematicasSuma.jsx'
 
 function RutaConProgreso() {
@@ -55,9 +55,9 @@ function App() {
           <Route path="/forgotPassword" element={<ForgotPassword />} />
           <Route path="/Ejercicio1" element={<Ejercicio1 />} />
           <Route path="/clases" element={<Clases />} /> {/* Incluí la ruta para Clases */}
-          <Route path="*" element={<NotFound />} />
-          <Route path="/juegos" element={<JuegoNumeros/>} />
+          <Route path="/juegonumeros" element={<JuegoNumeros/>} />
           <Route path="/resta" element={<EjercicioMatematicas/>} />
+          <Route path="*" element={<NotFound />} />
 
         </Routes>
       </div>

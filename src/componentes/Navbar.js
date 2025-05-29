@@ -54,11 +54,18 @@ const Navbar = () => {
       </Link>
 
       <Link
-        to="/juegosNumeros" 
-        className={location.pathname === '/juegosNumeros' ? 'active' : ''}
+        to="/JuegoNumeros" 
+        className={location.pathname === '/JuegoNumeros' ? 'active' : ''}
       >
         Juegos de Números
       </Link>
+      <Link
+        to="/resta" 
+        className={location.pathname === '/resta' ? 'active' : ''}
+      >
+        Ejercicio de Matemáticas
+      </Link>
+    
         
 
     </nav>
