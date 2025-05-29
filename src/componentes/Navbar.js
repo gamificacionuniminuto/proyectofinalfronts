@@ -39,33 +39,12 @@ const Navbar = () => {
       >
         Configuración
        </Link> 
-<<<<<<< HEAD
-      
-       <Link 
-        to="/Ejercicio1" 
-        className={location.pathname === '/Ejercicio1' ? 'active' : ''}
-      >
-        Primero
-       </Link>
-       
-        <Link
-=======
        <Link
->>>>>>> cff46603474c6e9a78f5f03b9f9fbcef8b9c412f
         to="/clases" 
         className={location.pathname === '/clases' ? 'active' : ''}
         >
         Clases
         </Link>
-<<<<<<< HEAD
-        <Link 
-        to="/juegos" 
-        className={location.pathname === '/juegos' ? 'active' : ''}
-      >
-        juegos
-       </Link>
-
-=======
 
       <Link
         to="/EjerciciosP" 
@@ -81,7 +60,6 @@ const Navbar = () => {
         Juegos de Números
       </Link>
         
->>>>>>> cff46603474c6e9a78f5f03b9f9fbcef8b9c412f
 
     </nav>
   );

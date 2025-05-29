@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 import { generarEjerciciosSuma } from './helpers';
+import './Ejercicio1.css';
 
 const EjercicioMatematicasSuma = () => {
   const [ejercicios] = useState(generarEjerciciosSuma());
@@ -9,9 +11,49 @@ const EjercicioMatematicasSuma = () => {
   const [ejercicioActual, setEjercicioActual] = useState(
     ejercicios[Math.floor(Math.random() * ejercicios.length)]
   );
-
   const intentarOtroRef = useRef(null);
-  const inputRespuestaRef = useRef(null);
+  const inputRespuestaRef = useRef(null);  
+  const enviarPuntaje = async () => {
+  try {   
+    const userString = localStorage.getItem('user');
+    if (!userString) {
+      throw new Error('No se encontraron datos de usuario');
+    }
+    const userData = JSON.parse(userString);
+    const userId = userData?.id;
+    if (!userId) {
+      throw new Error('ID de usuario no disponible');
+    }    
+    const response = await axios.put(
+      `http://localhost:3001/api/users/${userId}/score`,
+      { numberToAdd: 2 },
+      {
+        baseURL: process.env.REACT_APP_API_URL,
+        headers: {
+          'Content-Type': 'application/json',
+          ...(localStorage.getItem('token') && {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          })
+        }
+      }
+    );   
+    try {
+      const updatedScore = (Number(userData.score) || 0) + 2;
+      const updatedUser = { ...userData, score: updatedScore };      
+      localStorage.setItem('user', JSON.stringify(updatedUser));      
+      console.log('Puntaje local actualizado a:', updatedScore);
+    } catch (localStorageError) {
+      console.warn('Error al actualizar localStorage:', localStorageError);
+    }
+    return response.data;    
+  } catch (error) {
+    console.error('Error en enviarPuntaje:', {
+      message: error.message,
+      response: error.response?.data
+    });
+    throw error;
+  }
+};
 
   const verificarRespuesta = () => {
     const respuestaUsuario = parseFloat(respuesta);
@@ -21,7 +63,11 @@ const EjercicioMatematicasSuma = () => {
     }
     const correcto = Math.abs(respuestaUsuario - ejercicioActual.respuestaCorrecta) < 0.0001;
     setEsCorrecto(correcto);
-    setMostrarResultado(true);
+    setMostrarResultado(true);  
+    
+    if (correcto) {
+      enviarPuntaje();
+    }
   };
 
   const reiniciarEjercicio = () => {
@@ -95,9 +141,15 @@ const EjercicioMatematicasSuma = () => {
       {mostrarResultado && (
         <div className={`resultado ${esCorrecto ? 'correcto' : 'incorrecto'}`}>
           {esCorrecto ? (
-            <p>¡Correcto! {ejercicioActual.pregunta} {ejercicioActual.respuestaCorrecta}</p>
+            <>
+              <p>¡Correcto! 🎉</p>
+              <p>{ejercicioActual.pregunta} = {ejercicioActual.respuestaCorrecta}</p>
+            </>
           ) : (
-            <p>Incorrecto. La respuesta correcta es {ejercicioActual.respuestaCorrecta}</p>
+            <>
+              <p>Incorrecto ❌</p>
+              <p>La respuesta correcta es: {ejercicioActual.respuestaCorrecta}</p>
+            </>
           )}
         </div>
       )}
