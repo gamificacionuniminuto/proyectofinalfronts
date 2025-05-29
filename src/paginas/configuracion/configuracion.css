@@ -1,7 +1,7 @@
 /* Estilos generales */
 .configuracion-container {
-    top: 50px; /* Espacio superior para evitar que el contenido quede detrás de la barra de navegación */
-    max-width: 800px;
+    margin-top: 100px; /* Espacio superior para evitar que el contenido quede detrás de la barra de navegación */
+    max-width: 1000px;
     margin: 0 auto;
     padding: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -9,7 +9,8 @@
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    translate: 25rem;
+    transform: translateX(-5%);
+    transform: translateY(10%);
 }
 
 .configuracion-title {
@@ -130,7 +131,7 @@
 }
 
 .form-input {
-    width: 100%;
+    width: 95%;
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 6px;
