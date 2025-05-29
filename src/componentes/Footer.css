@@ -13,6 +13,8 @@ footer.footer {
     backdrop-filter: blur(10px);
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
     color: rgb(15, 15, 15);
+    position: fixed;
+    bottom: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
@@ -24,15 +26,14 @@ footer.footer {
     box-sizing:  inherit; /* Asegura que el padding y el border se incluyan en el ancho y alto */
   }
   #root {
-  display: flex;
-  flex-direction: column;
-   min-height: 100vh;
+ display: flex;
+ flex-direction: column;
+ min-height: 100vh;
   /* Asegura que el contenido ocupe al menos toda la altura de la ventana */
 }
   /* Permite que el contenido se expanda y tenga scroll si es necesario */
   main {
     flex-grow: 1;
-    flex: 1;
     max-width: 100%;
     overflow-x: hidden;
     padding: 20px;
