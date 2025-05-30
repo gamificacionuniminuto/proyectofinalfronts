@@ -3,7 +3,8 @@ import EjercicioMatematicasSuma from './EjercicioMatematicasSuma';
 import EjercicioMatematicasResta from './EjercicioMatematicasResta';
 import EjercicioMatematicasMultiplicacion from './EjercicioMatematicasMultiplicacion';
 import EjercicioMatematicasDivision from './EjercicioMatematicasDivision';
-import './Ejercicio1.css'; // Asegúrate de tener un archivo CSS para estilos
+import './styles.css';  
+
 
 const EjercicioMatematicas = () => {
   const [operacionSeleccionada, setOperacionSeleccionada] = useState(null);
