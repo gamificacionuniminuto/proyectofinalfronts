@@ -1,152 +1,149 @@
 .main-content {
   max-width: none;
-  min-height: 10vh;
+  min-height: 7vh;
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  animation: popIn 1.5s ease-out;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.5) rotate(-5deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05) rotate(3deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
 }
 
 .game-container {
-  width: 80vh;
-  max-width: none;
+  align-content: center;
+  width: 60%;
   margin: 10rem auto;
-  padding: 4cqmax;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-top: 20%;
-  transform: translateX(30%);
-
-
+  padding: 7%;
+  background: radial-gradient(circle, #ebeae7, #f7f5f2);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  margin-top: 15%;
+  transform: translateX(1%);
+  animation: bubbleFadeIn 1.2s ease-in-out;
 }
 
-.title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-  gap: 10px;
-  margin-top: 20px;
+@keyframes bubbleFadeIn {
+  from {
+    transform: scale(0.8) translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
 }
 
 .number-btn {
-  padding: 15px;
+  padding: 10px;
+  width: 80px;
+  height: 80px;
+  justify-content: center;
+  align-items: center;
+  margin: 6px; /* <- AÑADIDO */
   font-size: 1.2rem;
   font-weight: bold;
   border: none;
-  border-radius: 8px;
-  background-color: #bee3f8;
+  border-radius: 50%;
+  background-color: #90cdf4;
+  color: #fff;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: transform 0.2s, background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  animation: bounceIn 0.8s ease;
 }
 
+
 .number-btn:hover {
-  background-color: #90cdf4;
+  background-color: #4299e1;
+  transform: scale(1.1) rotate(5deg);
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .correct {
-  background-color: #9ae6b4 !important;
-  cursor: default;
+  background-color: #48bb78 !important;
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
 }
 
 .incorrect {
-  background-color: #feb2b2 !important;
-  cursor: default;
-}
-
-.score {
-  margin-top: 25px;
-  font-size: 1.3rem;
-  font-weight: bold;
-  text-align: center;
+  background-color: #f56565 !important;
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
 }
 
 .feedback {
-  margin-top: 20px;
-  font-size: 1.2rem;
+  animation: fadeInOut 2s ease-in-out;
+  text-align: center;
+  font-size: 1.3rem;
   font-weight: bold;
   color: #2b6cb0;
-  animation: fadeInOut 1.5s ease-in-out;
-  text-align: center;
-}
-
-@keyframes fadeInOut {
-  0% { opacity: 0; transform: scale(0.95); }
-  30% { opacity: 1; transform: scale(1); }
-  70% { opacity: 1; }
-  100% { opacity: 0; transform: scale(0.95); }
 }
 
 .back-button {
-  background-color: #e97629;
+  background-color: #f6ad55;
   border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
+  padding: 12px 20px;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 1rem;
-  margin-bottom: 20px;
-  transition: background-color 0.3s;
+  font-size: 1.1rem;
+  transition: all 0.3s ease-in-out;
+  position: absolute; /* Posición absoluta */
+  top: 20px;
+  left: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+.back-button:hover {
+  background-color: #fbd38d;
+  transform: scale(1.05);
+}
+
+.retry-button {
+  background-color: #ed6863;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  margin-top: 20px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  transition: background-color 0.3s ease, transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.back-button:hover {
-  background-color: #cbd5e0;
+.retry-button:hover {
+  background-color: #4299e1;
+  transform: scale(1.05);
 }
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .game-container {
-    padding: 1.5rem;
-  }
-
-  .title {
-    font-size: 1.5rem;
-  }
-
-  .number-btn {
-    font-size: 1rem;
-    padding: 12px;
-  }
-
-  .score,
-  .feedback {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .title {
-    font-size: 1.3rem;
-  }
-
-  .number-btn {
-    font-size: 0.9rem;
-    padding: 10px;
-  }
-
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-  }
-
-  .score,
-  .feedback {
-    font-size: 1rem;
-  }
-
-  .back-button {
-    font-size: 0.95rem;
-    padding: 8px 14px;
-  }
-}
-
 

@@ -53,7 +53,9 @@ const Profile = () => {
   if (!userData) return <div>Cargando perfil...</div>;
 
   return (
-    <div className="kids-profile-container">
+    <div className="main-container">
+      <div className="background.imagen"></div>
+        <div className="kids-profile-container">
       {showConfetti && <Confetti recycle={false} numberOfPieces={200} />}
 
       <header className="kids-profile-header">
@@ -174,20 +176,20 @@ const Profile = () => {
               <i className="icon">📁</i>
               <span>Material</span>
             </button>
-            <button className="action-btn" onClick={() => navigate('/premios')}>
-              <i className="icon">🏆</i>
-              <span>Premios</span>
-            </button>
+       
           </div>
         </section>
-        <div className="bubble" style={{ top: '10%', left: '20%', width: '80px', height: '80px' }} />
+        <div className="bubble" style={{ top: '19%', left: '30%', width: '80px', height: '80px' }} />
         <div className="bubble" style={{ top: '40%', left: '70%', width: '100px', height: '100px' }} />
         <div className="bubble" style={{ top: '60%', left: '30%', width: '60px', height: '60px' }} />
         <div className="bubble" style={{ top: '75%', left: '80%', width: '50px', height: '50px' }} />
+        <div className="bubble" style={{ top: '15%', left: '10%', width: '70px', height: '70px' }} />
+        <div className="bubble" style={{ top: '5%', left: '50%', width: '90px', height: '90px' }} />
           <div className="bubble" style={{ top: '20%', left: '50%', width: '120px', height: '120px' }} />
 
       </div>
     </div>
+   </div> 
   );
 };
 

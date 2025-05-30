@@ -30,6 +30,12 @@ export default function EvenNumbersGame() {
     window.history.back();
   };
 
+  const restartGame = () => {
+    setSelected([]);
+    setScore(0);
+    setFeedback("");
+  };
+
   return (
     <div className="game-container">
       <button className="back-button" onClick={goBack}>⬅ Regresar</button>
@@ -57,8 +63,14 @@ export default function EvenNumbersGame() {
       {feedback && <div className="feedback">{feedback}</div>}
 
       <div className="score">Puntaje: {score}</div>
+
+      {/* Botón para reiniciar el juego */}
+      <button className="retry-button" onClick={restartGame}>
+        🔁 ¡Inténtalo de nuevo!
+      </button>
     </div>
   );
 }
+
 
 
