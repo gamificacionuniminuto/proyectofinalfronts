@@ -5,28 +5,19 @@ import './progreso.css'; // Asegúrate de tener este archivo CSS para los estilo
 const ProgresoNivel = ({ userId }) => {
   const [score, setScore] = useState(0);
   const [nivel, setNivel] = useState('Básico');
+  const [localUser, setLocalUser] = useState({});
 
   useEffect(() => {
-    const fetchScore = async () => {
-      try {
-        const res = await axios.get(`http://localhost:3001/scores/${userId}`);
-        const puntos = res.data.data.score;
-        setScore(puntos);
+    const localUser = JSON.parse(localStorage.getItem('user'));
+  
+  }
+  )
 
-        if (puntos >= 20) setNivel('Avanzado');
-        else if (puntos >= 10) setNivel('Medio');
-        else setNivel('Básico');
-      } catch (error) {
-        console.error('Error al obtener el puntaje:', error);
-      }
-    };
 
-    if (userId) fetchScore();
-  }, [userId]);
 
   return (
     <div className="barra-nivel-usuario">
-      <p><strong>Nivel:</strong> {nivel} • ⭐ {score} puntos</p>
+      <p><strong>Nivel:</strong> {nivel} • ⭐ {localUser.score} puntos</p>
       <div className="barra-externa">
         <div
              className={`barra-interna ${nivel === 'Básico' ? 'bajo' : nivel === 'Medio' ? 'medio' : 'alto'
