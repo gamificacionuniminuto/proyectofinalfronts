@@ -16,7 +16,7 @@ import Ejercicio1 from './paginas/primero/Ejercicio1.jsx';
 import Clases from './paginas/clases/clases.jsx'; 
 import ProgresoNivel from './componentes/ProgresoNivel.jsx';
 import JuegoNumeros from './paginas/juegos/JuegoNumeros.jsx';
-import EjercicioMatematicas from './paginas/EjercisiosMatematicos/EjercicioMatematicasSuma.jsx'
+import EjercicioMatematicas from './paginas/EjercisiosMatematicos/EjercicioMatematicasSuma.jsx';
 
 function RutaConProgreso() {
   const location = useLocation();
