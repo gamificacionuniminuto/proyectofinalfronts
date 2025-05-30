@@ -65,8 +65,13 @@ const Navbar = () => {
       >
         Ejercicio de Matemáticas
       </Link>
-    
-        
+      <Link
+        to="/contar50" 
+        className={location.pathname === '/contar50' ? 'active' : ''}
+      >
+        Contar hasta 50
+      </Link>
+           
 
     </nav>
   );
