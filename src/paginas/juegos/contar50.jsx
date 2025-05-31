@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Contar50.css';
+import Clases from '../clases/clases';
 
 const totalNumeros = 50;
 const numerosPorFila = 10;
@@ -60,60 +61,68 @@ const CuentaHasta50 = () => {
     }
   };
 
+  // Función para regresar a la página anterior
+  const goBack = () => {
+    window.location.href = '/Clases'; // Cambia la ruta según sea necesario
+   
+  };
+
   return (
-    <div className="contenedor-principal">
-      <h1 className="titulo-juego">Cuenta hasta 50 con el conejito 🐰</h1>
-      <div className="contenedor-camino">
-        {[...Array(totalNumeros)].map((_, i) => {
-          const fila = Math.floor(i / numerosPorFila);
-          const col = i % numerosPorFila;
-          const esNumeroActual = numeroActual === i + 1;
+   <div className="contenedor-principal">
+     1<div style={{ textAlign: 'left', marginBottom: '10px' }}>
+    <button className="boton-volver-pagina" onClick={goBack}>⬅ Regresar</button>
+  </div>
+  <h1 className="titulo-juego">Cuenta hasta 50 con el conejito 🐰</h1>
 
-          return (
-            <div
-              key={i}
-              className={`numero ${esNumeroActual ? 'activo' : ''}`}
-              style={{
-                gridRowStart: fila + 1,
-                gridColumnStart: col + 1,
-              }}
-            >
-              {i + 1}
-              {esNumeroActual && <span className="conejo">🐰</span>}
-            </div>
-          );
-        })}
-      </div>
+  {/* Botón de volver a la página anterior, bien posicionado */}
+ 
 
-      <div className="contenedor-respuesta-juego">
-        <input
-          ref={inputRef}
-          type="number"
-          value={respuesta}
-          onChange={(e) => setRespuesta(e.target.value)}
-          placeholder="Escribe el número donde está el conejo"
-          className="campo-respuesta"
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') {
-              verificarRespuesta();
-            }
+  <div className="contenedor-camino">
+    {[...Array(totalNumeros)].map((_, i) => {
+      const fila = Math.floor(i / numerosPorFila);
+      const col = i % numerosPorFila;
+      const esNumeroActual = numeroActual === i + 1;
+
+      return (
+        <div
+          key={i}
+          className={`numero ${esNumeroActual ? 'activo' : ''}`}
+          style={{
+            gridRowStart: fila + 1,
+            gridColumnStart: col + 1,
           }}
-        />
-        <button onClick={verificarRespuesta} className="boton-verificar" disabled={!respuesta}>
-          Verificar
-        </button>
-        <button onClick={regresarNumero} className="boton-regresar" disabled={numeroActual === 1}>
-          Regresar
-        </button>
-      </div>
+        >
+          {i + 1}
+          {esNumeroActual && <span className="conejo">🐰</span>}
+        </div>
+      );
+    })}
+  </div>
 
-      {mensaje && <div className="mensaje-juego">{mensaje}</div>}
-    </div>
+  <div className="contenedor-respuesta-juego">
+    <input
+      ref={inputRef}
+      type="number"
+      value={respuesta}
+      onChange={(e) => setRespuesta(e.target.value)}
+      placeholder="Escribe el número donde está el conejo"
+      className="campo-respuesta"
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') {
+          verificarRespuesta();
+        }
+      }}
+    />
+    <button onClick={verificarRespuesta} className="boton-verificar" disabled={!respuesta}>
+      Verificar
+    </button>
+    <button onClick={regresarNumero} className="boton-regresar" disabled={numeroActual === 1}>
+      Regresa y cuenta en reversa
+    </button>
+  </div>
+
+  {mensaje && <div className="mensaje-juego">{mensaje}</div>};
+</div>
   );
-};
-
+}
 export default CuentaHasta50;
-
-
-
-

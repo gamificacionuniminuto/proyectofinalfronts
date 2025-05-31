@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { numbers } from "./numbersData";
 import "./JuegoNumeros.css";
+import Clases from "../clases/clases";
 
 export default function EvenNumbersGame() {
   const [selected, setSelected] = useState([]);
@@ -27,7 +28,7 @@ export default function EvenNumbersGame() {
   };
 
   const goBack = () => {
-    window.history.back();
+    window.location.href = '/Clases'; 
   };
 
   const restartGame = () => {
@@ -68,6 +69,7 @@ export default function EvenNumbersGame() {
       <button className="retry-button" onClick={restartGame}>
         🔁 ¡Inténtalo de nuevo!
       </button>
+ 
     </div>
   );
 }

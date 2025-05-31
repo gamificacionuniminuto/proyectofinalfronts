@@ -122,5 +122,21 @@
   min-height: 30px;
   user-select: none;
 }
+.boton-volver-pagina {
+  background-color: #f58f0a;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #4e342e;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.boton-volver-pagina:hover {
+  background-color: #f0400a;
+  color: white;
+}
 
 
