@@ -4,7 +4,7 @@
 
 .barra-nivel-usuario {
   max-width: 600px;
-  margin: 80px auto;
+  margin: 90px auto;
   padding: 15px 25px;
   background: linear-gradient(135deg, #fff9e6, #fff3c4);
   border: 3px solid #ffd54f;
@@ -14,7 +14,7 @@
   text-align: center;
   user-select: none;
   box-sizing: border-box;
-  translate: 200px 0;
+  translate: 0px 0;
 }
 
 .barra-nivel-usuario p {

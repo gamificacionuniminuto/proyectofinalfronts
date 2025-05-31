@@ -1,5 +1,6 @@
 /* Estilos generales */
 .configuracion-container {
+   
 
     max-width: 1000px;
     margin: 0 auto;
@@ -10,7 +11,7 @@
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     transform: translateX(-5%);
-    transform: translateY(14%);
+    transform: translateY(2%);
 }
 
 .configuracion-title {

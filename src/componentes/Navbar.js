@@ -71,6 +71,13 @@ const Navbar = () => {
       >
         Contar hasta 50
       </Link>
+      <Link
+        to="/Contar20" 
+        className={location.pathname === '/Contar20' ? 'active' : ''}
+      >
+       Contar hasta 20
+      </Link>
+
            
 
     </nav>

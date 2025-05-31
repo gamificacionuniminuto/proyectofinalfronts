@@ -18,6 +18,7 @@ import ProgresoNivel from './componentes/ProgresoNivel.jsx';
 import JuegoNumeros from './paginas/juegos/JuegoNumeros.jsx';
 import EjercicioMatematicas from './paginas/EjercisiosMatematicos/EjercicioMatematicasSuma.jsx';
 import Contar50 from './paginas/juegos/contar50.jsx'; 
+import Contar20 from './paginas/juegos/Contar20.jsx'; // Asegúrate de que este componente exista
 
 function RutaConProgreso() {
   const location = useLocation();
@@ -60,6 +61,8 @@ function App() {
           <Route path="/resta" element={<EjercicioMatematicas/>} />
           <Route path="/contar50" element={<Contar50/>} />
           <Route path='/ejerciciosmatematicassuma' element={<EjercicioMatematicas />} />
+          <Route path="/contar20" element={<Contar20 />} /> 
+
 
           {/* Rutas protegidas */}
           <Route path="*" element={<NotFound />} />

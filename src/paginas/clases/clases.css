@@ -1,56 +1,127 @@
-.main-content {
-  max-width: none; 
-  min-height: 40vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  margin: 0px;
-  margin-top: 5%;
-}
-
-
-
 .contenedor-niveles {
-  margin: 0 auto;
-  margin-top: 1rem;
-  max-width: 120vh;
-  transform: translate(0%, 0);
-  width: 100%;
-  padding: 40px 10px;
-  background: #ffffff;
-  border-radius: 80px;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 60px;
-}
-
-/* Sección de nivel */
-.nivel-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Título */
-.titulo-nivel {
-  font-size: 3rem;
-  color: #ce5720;
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  border-bottom: 5px solid #fcbf49;
-  padding-bottom: 12px;
-  width: fit-content;
+  margin: auto;
+  padding: 50px 20px;
+  max-width: 1200px;
+  background: #ffffffaa;
+  border-radius: 60px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
   text-align: center;
 }
 
-/* Contenedor de tarjetas */
+/* Nubes decorativas funcionales */
+
+.contenedor-niveles::before,
+.contenedor-niveles::after {
+  content: "";
+  position: absolute;
+  background-image: url("./nube.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 60px;
+  opacity: 1;
+  z-index: 1;
+  top: 50px;
+ 
+}
+
+@keyframes moverNube {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.contenedor-niveles::before {
+  top: 20px;
+  left: 20px;
+}
+
+.contenedor-niveles::after {
+  top: 40px;
+  right: 20px;
+}
+
+
+.nube {
+  position: absolute;
+  background-image: url('./nube.png'); /* tu nube */
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 120px;
+  height: 70px;
+  opacity: 0.7;
+  animation-name: flotarNube;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: 0;
+  animation-fill-mode: forwards;
+}
+
+/* Animación para moverse de izquierda a derecha */
+@keyframes flotarNube {
+  0% {
+    transform: translateX(-200px);
+  }
+  100% {
+    transform: translateX(120vw);
+  }
+}
+
+/* Variaciones para cada nube */
+.nube1 {
+  top: 40px;
+  animation-duration: 60s;
+}
+
+.nube2 {
+  top: 100px;
+  left: -150px;
+  width: 90px;
+  height: 60px;
+  animation-duration: 45s;
+}
+
+.nube3 {
+  top: 160px;
+  left: -300px;
+  width: 130px;
+  height: 75px;
+  animation-duration: 80s;
+}
+
+.nube4 {
+  top: 220px;
+  left: -100px;
+  animation-duration: 55s;
+}
+
+.nube5 {
+  top: 80px;
+  left: -250px;
+  width: 100px;
+  height: 65px;
+  animation-duration: 50s;
+}
+
+
+
+/* Título centrado */
+.titulo-nivel {
+  font-size: 3rem;
+  background-color: #ffb703;
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 30px;
+  border: 4px solid #fb8500;
+  display: inline-block;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  z-index: 2;
+  position: relative;
+}
+
+/* Tarjetas */
 .tarjetas {
   display: flex;
   flex-wrap: wrap;
@@ -58,127 +129,62 @@
   gap: 35px;
 }
 
-/* Tarjeta */
 .tarjeta {
-  position: relative;
   width: 220px;
-  min-height: 20px;
-  background: #ffffff;
-  border-radius: 40px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
-  padding: 20px 25px 45px;
+  height: 260px;
+  background: #caf0f8;
+  border: 5px solid #90e0ef;
+  border-radius: 35px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
+  transition: transform 0.3s ease;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tarjeta:hover {
-  transform: translateY(-18px) scale(1.05);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
 }
 
-/* Icono */
+/* Ícono con efecto de flotación */
 .burbuja-icono {
-  z-index: 2;
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
+  background-color: #00b4d8;
   border-radius: 50%;
-  color: white;
-  font-size: 4rem;
+  color: #fff;
+  font-size: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
-  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.15);
-  user-select: none;
+  margin-bottom: 15px;
+  animation: flotar 3s ease-in-out infinite;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Nombre */
+/* Nombre y descripción */
 .nombre {
-  z-index: 2;
-  font-size: 1rem;
-  color: #264653;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 12px;
+  font-size: 1.4rem;
+  color: #0077b6;
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
-/* Descripción */
 .descripcion {
-  z-index: 2;
-  font-size: 1.1rem;
-  text-align: center;
+  font-size: 1rem;
   color: #555;
-  flex-grow: 1;
-  padding: 0 10px;
 }
 
-/* Estado completado */
-.tarjeta.completado .burbuja-icono {
-  background-color: #fcbf49;
-  color: #264653;
+/* Animación divertida */
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-/* Responsive: Tablets */
-@media (max-width: 1024px) {
-  .contenedor-niveles {
-    padding: 30px 15px;
-    gap: 80px;
-  }
-  .titulo-nivel {
-    font-size: 2.5rem;
-  }
-}
 
-/* Responsive: Móviles */
-@media (max-width: 768px) {
-  .contenedor-niveles {
-    gap: 60px;
-  }
-  .tarjeta {
-    width: 80%;
-    min-height: 250px;
-    padding: 25px 20px 35px;
-  }
-  .burbuja-icono {
-    width: 75px;
-    height: 75px;
-    font-size: 3rem;
-    margin-bottom: 15px;
-  }
-  .nombre {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-  }
-  .descripcion {
-    font-size: 1rem;
-    padding: 0 8px;
-  }
-}
 
-/* Responsive: Pantallas pequeñas */
-@media (max-width: 480px) {
-  .titulo-nivel {
-    font-size: 2rem;
-  }
-  .tarjeta {
-    width: 90%;
-    padding: 20px 15px 30px;
-  }
-  .burbuja-icono {
-    width: 65px;
-    height: 65px;
-    font-size: 2.5rem;
-  }
-  .nombre {
-    font-size: 1rem;
-  }
-  .descripcion {
-    font-size: 0.95rem;
-  }
-}
 
 
 

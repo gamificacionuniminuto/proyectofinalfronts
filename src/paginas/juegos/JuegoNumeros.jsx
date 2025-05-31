@@ -39,7 +39,7 @@ export default function EvenNumbersGame() {
 
   return (
     <div className="game-container">
-      <button className="back-button" onClick={goBack}>⬅ Regresar</button>
+      <button className="back-button4" onClick={goBack}>⬅ Regresar</button>
 
       <h2 className="title">Haz clic en los números pares del 1 al 50</h2>
 
