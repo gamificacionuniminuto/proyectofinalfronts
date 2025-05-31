@@ -3,24 +3,23 @@
   text-align: center;
   padding: 60px;
   font-family: 'Comic Sans MS', cursive;
-  font-size: 30px;
   background-color: #96fd519a;
   border-radius: 15px;
   width: 999px;
   margin: 8rem auto;
-  position: inherit;
+  position: relative;
 }
 
 .animals {
   margin: 50px 0;
-  font-size: 4rem;
+  font-size: 7rem;
 }
 
 .animal {
-  margin: 0 4%;
+  margin: 0 8%;
 }
 
-.input {
+input {
   padding: 20px;
   font-size: 1.2rem;
   border-radius: 8px;
@@ -40,16 +39,14 @@
 
 .feedback {
   margin-top: 10px;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   font-weight: bold;
 }
 .nav-buttons {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
-.back-button2 {
-  margin: -50px auto; 
-  left: 180px ;
+.back-button {
   background-color: #f4a261;
   border: none;
   padding: 10px 20px;
@@ -57,7 +54,6 @@
   border-radius: 8px;
   cursor: pointer;
   color: white;
-  position: absolute; 
 }
 
 .back-button:hover {
