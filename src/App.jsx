@@ -59,6 +59,7 @@ function App() {
           <Route path="/juegonumeros" element={<JuegoNumeros/>} />
           <Route path="/resta" element={<EjercicioMatematicas/>} />
           <Route path="/contar50" element={<Contar50/>} />
+          <Route path='/ejerciciosmatematicassuma' element={<EjercicioMatematicas />} />
 
           {/* Rutas protegidas */}
           <Route path="*" element={<NotFound />} />

@@ -25,14 +25,15 @@
 .game-container {
   align-content: center;
   width: 60%;
-  margin: 10rem auto;
+  margin: 5rem auto;
   padding: 7%;
   background: radial-gradient(circle, #ebeae7, #f7f5f2);
   border-radius: 20px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
   font-family: 'Comic Sans MS', cursive, sans-serif;
   margin-top: 15%;
-  transform: translateX(1%);
+  transform: translateX(5%);
+  transform: translate(0px);
   animation: bubbleFadeIn 1.2s ease-in-out;
 }
 

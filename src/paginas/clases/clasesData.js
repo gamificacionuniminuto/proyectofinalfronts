@@ -32,7 +32,7 @@ const ClasesData = [
   {
     id: 4,
     nombre: "Contar hasta 50",
-    descripcion: "Contar hasta 50 con canciones y juegos.",
+    descripcion: "Contar hasta 50.",
     nivel: "Nivel 1",
     completado: false,
     icono: "🔢",
@@ -124,12 +124,13 @@ const ClasesData = [
   {
    id: 13,
     nombre: "Sumas básicas",
-    descripcion: "Aprende a sumar con objetos visuales.",
+    descripcion: "Aprende a sumar.",
     nivel: "Nivel 2",
     completado: false,
     icono: "➕",
     forma: "cuadrado",
     color: "#e76f51", // naranja
+    LINK: "/resta", // Asegúrate de que esta ruta esté definida en tu aplicación
   },
   {
     id: 14,
