@@ -28,9 +28,7 @@ const NumerosGame = () => {
         user.score = newScore;
         localStorage.setItem('user', JSON.stringify(user));    
                 setScore(newScore);
-      }
-
-    
+      }    
       const response = await axios.put(
         `http://localhost:3001/api/users/${userId}/score`,
         { numberToAdd: 1 },
@@ -57,21 +55,18 @@ const NumerosGame = () => {
         setScore(previousScore);
       }
     }
-  };
-
-  
+  };  
   const generateNumber = () => {
     const newNumber = Math.floor(Math.random() * 10) + 1;
     setTargetNumber(newNumber);
     
     const optionsArray = [newNumber];
     while (optionsArray.length < 3) {
-      const randomOption = Math.floor(Math.random() * 10) + 1;
+      const randomOption = Math.floor(Math.random() * 20) + 1;
       if (!optionsArray.includes(randomOption)) {
         optionsArray.push(randomOption);
       }
-    }
-    
+    }    
     setOptions(optionsArray.sort(() => Math.random() - 0.5));
     setRound(prev => prev + 1);
     speakNumber(newNumber);

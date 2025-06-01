@@ -8,6 +8,7 @@ const ClasesData = [
     icono: "🔢",
     forma: "circulo",
     color: "#264653", // azul oscuro
+    link: "/Contar20", 
   },
   {
     id: 2,
@@ -18,16 +19,18 @@ const ClasesData = [
     icono: "🔤",
     forma: "nube",
     color: "#2a9d8f", // azul claro
+    link: "/numerosvoz",
   },
   {
     id: 3,
-    nombre: "Relaciona números y objetos",
+    nombre: "Relaciona números y figuras",
     descripcion: "Asocia números con objetos cotidianos.",
     nivel: "Nivel 1",
     completado: false,
     icono: "🔗",
     forma: "estrella",
     color: "#fcbf49", // amarillo
+    link: "/figurecounter",
   },
   {
     id: 4,
@@ -49,17 +52,18 @@ const ClasesData = [
     icono: "🎨",
     forma: "estrella",
     color: "#fcbf49", // amarillo
+
   },
-  {
-  id: 6,
-  nombre:"Relacion espacial (arriba, abajo, delante, detrás)",
-  descripcion: "Entiende la relación espacial de objetos.",
-  nivel: "Nivel 1",
-  completado: false,
-  icono: "📍",
-  forma: "cuadrado",
-  color: "#e76f51", // naranja
-  },
+  // {
+  // id: 6,
+  // nombre:"Relacion espacial (arriba, abajo, delante, detrás)",
+  // descripcion: "Entiende la relación espacial de objetos.",
+  // nivel: "Nivel 1",
+  // completado: false,
+  // icono: "📍",
+  // forma: "cuadrado",
+  // color: "#e76f51", // naranja
+  // },
   {
   id: 7,
   nombre:"Conteo ascendente y descendente",
@@ -69,6 +73,7 @@ const ClasesData = [
   icono: "🔼🔽",
   forma: "nube",
   color: "#2a9d8f", // azul claro
+  link: "/animalcounterds", // Asegúrate de que esta ruta esté definida en tu aplicación
   },
   {
     id: 8,
@@ -79,6 +84,7 @@ const ClasesData = [
     icono: "➗",
     forma: "circulo",
     color: "#264653", // azul oscuro
+    link: "/juegosNumeros", // Asegúrate de que esta ruta esté definida en tu aplicación
   },
     {
     id: 9,
@@ -89,17 +95,18 @@ const ClasesData = [
     icono: "🔢",
     forma: "circulo",
     color: "#264653", // azul oscuro
+    link: "/cuentahasta100", // Asegúrate de que esta ruta esté definida en tu aplicación
   },
-    {
-    id: 10,
-    nombre: "Medidas simples",
-    descripcion: "Explora conceptos de largo, peso y volumen.",
-    nivel: "Nivel 2",
-    completado: false,
-    icono: "📏",
-    forma: "circulo",
-    color: "#264653",
-  },  
+  //   {
+  //   id: 10,
+  //   nombre: "Medidas simples",
+  //   descripcion: "Explora conceptos de largo, peso y volumen.",
+  //   nivel: "Nivel 2",
+  //   completado: false,
+  //   icono: "📏",
+  //   forma: "circulo",
+  //   color: "#264653",
+  // },  
 {
   id:11,
   nombre: "Numeros impares",

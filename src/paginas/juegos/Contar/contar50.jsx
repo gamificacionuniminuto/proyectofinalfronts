@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Contar50.css';
-import Clases from '../clases/clases';
+
 
 const totalNumeros = 50;
 const numerosPorFila = 10;

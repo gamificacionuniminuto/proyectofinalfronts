@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { numbers } from "./numbersData";
 import "./JuegoNumeros.css";
-import Clases from "../clases/clases";
+
 
 export default function EvenNumbersGame() {
   const [selected, setSelected] = useState([]);

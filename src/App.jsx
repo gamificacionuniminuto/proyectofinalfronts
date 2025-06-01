@@ -17,8 +17,12 @@ import Clases from './paginas/clases/clases.jsx';
 import ProgresoNivel from './componentes/ProgresoNivel.jsx';
 import JuegoNumeros from './paginas/juegos/JuegoNumeros.jsx';
 import EjercicioMatematicas from './paginas/EjercisiosMatematicos/EjercicioMatematicasSuma.jsx';
-import Contar50 from './paginas/juegos/contar50.jsx'; 
-import Contar20 from './paginas/juegos/Contar20.jsx'; // Asegúrate de que este componente exista
+import Contar50 from './paginas/juegos/Contar/contar50.jsx'; 
+import Contar20 from './paginas/juegos/Contar/Contar20.jsx'; // Asegúrate de que este componente exista
+import NumerosGame from './paginas/JuegoVoz/NumerosVoz.jsx'; // Asegúrate de que este componente exista
+import FigureCounter from './paginas/juegos/RelacionNumerosFiguras/RelacionFiguras.jsx'; // Asegúrate de que este componente exista
+import AnimalCounterDs from './paginas/juegos/ContarFormaAsyds/ContarAsyds.jsx'; // Asegúrate de que este componente exista
+import CuentaHasta100 from './paginas/juegos/Contar/Contar100.jsx'; // Asegúrate de que este componente exista
 
 function RutaConProgreso() {
   const location = useLocation();
@@ -60,12 +64,16 @@ function App() {
           <Route path="/clases" element={<Clases />} /> {/* Incluí la ruta para Clases */}
           <Route path="/juegonumeros" element={<JuegoNumeros/>} />
           <Route path="/resta" element={<EjercicioMatematicas/>} />
-          <Route path="/juegosNumeros" element={<JuegoNumeros />} />
-          {/* //<Route path="/numerosVoz" element={<NumerosGame />} /> */}
+          <Route path="/juegosnumeros" element={<JuegoNumeros />} />
+          <Route path="/numerosvoz" element={<NumerosGame />} />
           {/* Asegúrate de que la ruta sea correcta para el componente de juego de números */}
           <Route path="/contar50" element={<Contar50/>} />
           <Route path='/ejerciciosmatematicassuma' element={<EjercicioMatematicas />} />
           <Route path="/contar20" element={<Contar20 />} /> 
+          <Route path="/figurecounter" element={<FigureCounter />} />
+          <Route path="/animalcounterds" element={<AnimalCounterDs />} />
+          <Route path="/cuentahasta100" element={<CuentaHasta100 />} />
+       
 
 
           {/* Rutas protegidas */}
