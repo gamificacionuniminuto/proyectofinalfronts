@@ -15,6 +15,9 @@ import ProtectedRoute from './componentes/ProtectedRoute.js';
 import Ejercicio1 from './paginas/primero/Ejercicio1.jsx';
 import Clases from './paginas/clases/clases.jsx'; 
 import ProgresoNivel from './componentes/ProgresoNivel.jsx';
+import JuegoNumeros from './paginas/juegos/JuegoNumeros.jsx'
+import EjercicioMatematicas from './paginas/EjercisiosMatematicos/EjercicioMatematicasSuma.jsx'
+import JuegoFiguras from './paginas/JuegoFiguras/JuegoFiguras.jsx'
 import JuegoNumeros from './paginas/juegos/JuegoNumeros.jsx';
 import EjercicioMatematicas from './paginas/EjercisiosMatematicos/EjercicioMatematicasSuma.jsx';
 import Contar50 from './paginas/juegos/contar50.jsx'; 
@@ -60,6 +63,7 @@ function App() {
           <Route path="/clases" element={<Clases />} /> {/* Incluí la ruta para Clases */}
           <Route path="/juegonumeros" element={<JuegoNumeros/>} />
           <Route path="/resta" element={<EjercicioMatematicas/>} />
+          <Route path="/JuegoFiguras" element={<JuegoFiguras/>} />
           <Route path="/juegosNumeros" element={<JuegoNumeros />} />
           {/* //<Route path="/numerosVoz" element={<NumerosGame />} /> */}
           {/* Asegúrate de que la ruta sea correcta para el componente de juego de números */}
