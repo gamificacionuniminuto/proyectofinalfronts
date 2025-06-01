@@ -13,11 +13,15 @@ import ForgotPassword from './paginas/forgotpassword/ForgotPassword.js';
 import NotFound from './NotFound.js';
 import ProtectedRoute from './componentes/ProtectedRoute.js';
 import Ejercicio1 from './paginas/primero/Ejercicio1.jsx';
-import Clases from './paginas/clases/clases.jsx';  // Corrige el nombre del import para Clases.jsx
+import Clases from './paginas/clases/clases.jsx'; 
 import ProgresoNivel from './componentes/ProgresoNivel.jsx';
 import JuegoNumeros from './paginas/juegos/JuegoNumeros.jsx'
 import EjercicioMatematicas from './paginas/EjercisiosMatematicos/EjercicioMatematicasSuma.jsx'
 import JuegoFiguras from './paginas/JuegoFiguras/JuegoFiguras.jsx'
+import JuegoNumeros from './paginas/juegos/JuegoNumeros.jsx';
+import EjercicioMatematicas from './paginas/EjercisiosMatematicos/EjercicioMatematicasSuma.jsx';
+import Contar50 from './paginas/juegos/contar50.jsx'; 
+import Contar20 from './paginas/juegos/Contar20.jsx'; // Asegúrate de que este componente exista
 
 function RutaConProgreso() {
   const location = useLocation();
@@ -38,6 +42,7 @@ function RutaConProgreso() {
 
 function App() {
   return (
+    
     <Router>
       <Navbar />
 
@@ -56,16 +61,26 @@ function App() {
           <Route path="/forgotPassword" element={<ForgotPassword />} />
           <Route path="/Ejercicio1" element={<Ejercicio1 />} />
           <Route path="/clases" element={<Clases />} /> {/* Incluí la ruta para Clases */}
-          <Route path="*" element={<NotFound />} />
-          <Route path="/juegos" element={<JuegoNumeros/>} />
+          <Route path="/juegonumeros" element={<JuegoNumeros/>} />
           <Route path="/resta" element={<EjercicioMatematicas/>} />
           <Route path="/JuegoFiguras" element={<JuegoFiguras/>} />
+          <Route path="/juegosNumeros" element={<JuegoNumeros />} />
+          {/* //<Route path="/numerosVoz" element={<NumerosGame />} /> */}
+          {/* Asegúrate de que la ruta sea correcta para el componente de juego de números */}
+          <Route path="/contar50" element={<Contar50/>} />
+          <Route path='/ejerciciosmatematicassuma' element={<EjercicioMatematicas />} />
+          <Route path="/contar20" element={<Contar20 />} /> 
+
+
+          {/* Rutas protegidas */}
+          <Route path="*" element={<NotFound />} />
 
         </Routes>
       </div>
 
       <Footer />
     </Router>
+    
   );
 }
 

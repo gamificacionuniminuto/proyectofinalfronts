@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { generarEjerciciosDivision } from './helpers';
+import './styles.css'; // Asegúrate de tener un archivo CSS para estilos
 
 const EjercicioMatematicasDivision = () => {
   const [ejercicios] = useState(generarEjerciciosDivision());

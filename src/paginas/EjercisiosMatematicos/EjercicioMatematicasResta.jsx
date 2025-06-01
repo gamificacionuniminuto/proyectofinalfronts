@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { generarEjerciciosResta } from './helpers';
+import './styles.css'; // Asegúrate de tener un archivo CSS para estilos
 
 const EjercicioMatematicasResta = () => {
   const [ejercicios] = useState(generarEjerciciosResta());

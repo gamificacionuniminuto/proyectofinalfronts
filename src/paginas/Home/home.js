@@ -1,6 +1,6 @@
 import React from 'react';
 import './home.css';
-import logo from './logosinfondo.png';
+import logo from './logosinfondo.png'; // Asegúrate de que la ruta sea correcta
 import QuienesSomos from './QuienesSomos';
 import Mision from './Mision';
 import Vision from './Vision'; 

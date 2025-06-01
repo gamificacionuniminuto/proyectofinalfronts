@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { generarEjerciciosSuma } from './helpers';
-import './Ejercicio1.css';
+import './styles.css'; // Asegúrate de tener un archivo CSS para estilos
 
 const EjercicioMatematicasSuma = () => {
   const [ejercicios] = useState(generarEjerciciosSuma());
