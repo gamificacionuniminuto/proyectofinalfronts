@@ -18,8 +18,8 @@ import ProgresoNivel from './componentes/ProgresoNivel.jsx';
 import JuegoNumeros from './paginas/juegos/JuegoNumeros.jsx'
 import EjercicioMatematicas from './paginas/EjercisiosMatematicos/EjercicioMatematicasSuma.jsx'
 import JuegoFiguras from './paginas/JuegoFiguras/JuegoFiguras.jsx'
-import JuegoNumeros from './paginas/juegos/JuegoNumeros.jsx';
-import EjercicioMatematicas from './paginas/EjercisiosMatematicos/EjercicioMatematicasSuma.jsx';
+// import JuegoNumeros from './paginas/juegos/JuegoNumeros.jsx';
+// import EjercicioMatematicas from './paginas/EjercisiosMatematicos/EjercicioMatematicasSuma.jsx';
 import Contar50 from './paginas/juegos/Contar/contar50.jsx'; 
 import Contar20 from './paginas/juegos/Contar/Contar20.jsx'; // Asegúrate de que este componente exista
 import NumerosGame from './paginas/JuegoVoz/NumerosVoz.jsx'; // Asegúrate de que este componente exista
