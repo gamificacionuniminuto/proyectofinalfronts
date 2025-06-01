@@ -11,7 +11,7 @@
 
 /* Caja del formulario */
 .signin-container {
-  transform: translate(30%, 40%);
+  transform: translate(6%, 40%);
   width: 50vh;
   max-width: none;
   margin: 6rem auto;
@@ -29,9 +29,10 @@
 .signin-container h2 {
   margin-bottom: 1.5rem;
   color: #333;
+  justify-items: center;
+  text-align: center;
 }
 
-/* Mensaje de error */
 .signin-error {
   color: #e74c3c;
   margin-bottom: 1rem;
@@ -87,6 +88,7 @@
   margin-top: 1rem;
   color: #555;
   font-size: 0.95rem;
+  text-align: center;
 }
 
 .signin-register-link span,

@@ -1,0 +1,63 @@
+.counter-container {
+
+  text-align: center;
+  padding: 60px;
+  font-family: 'Comic Sans MS', cursive;
+  background-color: #96fd519a;
+  border-radius: 15px;
+  width: 999px;
+  margin: 8rem auto;
+  position: relative;
+}
+
+.animals {
+  margin: 50px 0;
+  font-size: 7rem;
+}
+
+.animal {
+  margin: 0 8%;
+}
+
+input {
+  padding: 20px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  border: 2px solid #2a9d8f;
+  margin-right: 10px;
+}
+
+.button {
+  padding: 20px 20px;
+  font-size: 1rem;
+  background-color: #2a9d8f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.feedback {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.nav-buttons {
+  margin-top: 20px;
+}
+
+.back-button {
+  background-color: #f4a261;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+}
+
+.back-button:hover {
+  background-color: #e76f51;
+}
+
+

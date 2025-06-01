@@ -32,6 +32,11 @@ const Clases = () => {
           </div>
         </section>
       ))}
+      <div className="nube nube1"></div>
+      <div className="nube nube2"></div>
+      <div className="nube nube3"></div>
+      <div className="nube nube4"></div>
+      <div className="nube nube5"></div>  
     </div>
   );
 };

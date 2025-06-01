@@ -1,89 +1,168 @@
-/* General Styles */
+/* Fondo con animalitos suaves */
 
+/* Contenedor principal */
 .ejercicio-matematicas {
-  width: 50vh;
-  max-width: none;
-  margin: 90rem auto;
-  padding: 2rem;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-top: 8%;
-}
-
-/* Título */
-.titulo-ejercicio {
-  font-size: 24px;
-  margin-bottom: 10px;
+  top: 15rem;
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 40px;
+  background-color: #ffffffdd;
+  border-radius: 30px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
-  color: #ff5a0e;
+  position: relative;
+  z-index: 1;
 }
 
-/* Campo de respuesta */
+/* Título con iconito */
+
+
+.enunciado {
+  font-size: 3rem;
+  color: #5d4037;
+  margin-bottom: 80px;
+  font-weight: bold;
+  align-items: center;
+}
+
+/* Estilo del input */
 .campo-respuesta {
-  margin-top: 10px;
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
+  padding: 15px 20px;
+  font-size: 1.3rem;
+  border: 3px solid #ffab91;
+  border-radius: 15px;
+  outline: none;
+  width: 80%;
+  max-width: 300px;
+  transition: border-color 0.3s ease;
 }
 
-/* Botón de verificación */
-.boton-verificar {
-  width: 100%;
-  padding: 12px;
+.campo-respuesta:focus {
+  border-color: #ff7043;
+  box-shadow: 0 0 10px rgba(255, 112, 67, 0.5);
+ 
+
+}
+
+/* Botones divertidos */
+.boton-verificar, .boton-reiniciar {
+  margin-left: 10px;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
   border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  margin-top: 15px;
-  background-color: #ff5a0e;
-  color: white;
+  border-radius: 25px;
+  background-color: #ffca28;
+  color: #e3e6dd;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.boton-verificar:hover {
-  background-color: #e64a04;
+.boton-verificar:hover, .boton-reiniciar:hover {
+  background-color: #72cf34;
+  transform: scale(1.05);
 }
 
-/* Footer */
-.footer {
-  margin-top: 10vh;
-  text-align: center;
-  font-size: 14px;
-  color: #888;
+/* Resultado visual */
+.resultado {
+  margin-top: 60px;
+  padding: 20px;
+  border-radius: 20px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  animation: popIn 0.5s ease;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-  .ejercicio-matematicas {
-    padding: 1.5rem;
-  }
-
-  .titulo-ejercicio {
-    font-size: 20px;
-  }
-
-  .boton-verificar {
-    font-size: 15px;
-    padding: 10px;
-  }
+.resultado.correcto {
+  background-color: #c8e6c9;
+  color: #2e7d32;
+  border: 2px dashed #66bb6a;
 }
 
-@media (max-width: 480px) {
-  .titulo-ejercicio {
-    font-size: 18px;
-  }
+.resultado.incorrecto {
+  background-color: #ffcdd2;
+  color: #c62828;
+  border: 2px dashed #ef5350;
+}
 
-  .boton-verificar {
-    font-size: 14px;
-    padding: 8px;
-  }
+/* Animación de aparición */
+@keyframes popIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
 
-  .campo-respuesta {
-    font-size: 14px;
-  }
+/* Contenedor de respuesta */
+.contenedor-respuesta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Añade una mascota animada en la esquina */
+/* Conejos animados */
+.ejercicio-matematicas::before,
+.ejercicio-matematicas::after,
+.conejito-1,
+.conejito-2,
+.conejito-3,
+.conejito-4 {
+  content: "🐰";
+  position: absolute;
+  font-size: 6rem;
+  animation: flotar 4s ease-in-out infinite;
+  opacity: 0.8;
+  z-index: 0;
+}
+
+/* Conejitos flotantes con distintas posiciones */
+.ejercicio-matematicas::before {
+  top: -30px;
+  left: -30px;
+  color: #ff8a80;
+  animation-delay: 0s;
+}
+
+.ejercicio-matematicas::after {
+  bottom: -20px;
+  right: -20px;
+  color: #81d4fa;
+  animation-delay: 1s;
+}
+
+.conejito-1 {
+  top: 10%;
+  right: 10%;
+  color: #aed581;
+  animation-delay: 2s;
+}
+
+.conejito-2 {
+  bottom: 20%;
+  left: 15%;
+  color: #f48fb1;
+  animation-delay: 3s;
+}
+
+.conejito-3 {
+  top: 10%;
+  left: -20px;
+  color: #ce93d8;
+  animation-delay: 4s;
+}
+.conejito-4 {
+  bottom: 10%;
+  right: -30px;
+  color: #ffb74d;
+  animation-delay: 5s;
+}
+/* Animación de flotación para los conejitos */
+
+
+/* Animación suave de flotación */
+@keyframes flotar {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  50%  { transform: translateY(-15px) rotate(5deg); }
+  60% { transform: translateY(0px) rotate(6deg); }
 }

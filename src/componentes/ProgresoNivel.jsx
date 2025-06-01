@@ -39,7 +39,7 @@ const ProgresoNivel = ({ userId }) => {
                   ? 'alto' 
                   : 'experto'
           }`}
-          style={{ width: `${Math.min(100, (localUser.score || 0) / 6)}%` }} // Ajusta el cálculo según tus necesidades
+         // Ajusta el cálculo según tus necesidades
         />
       </div>
     </div>
@@ -47,3 +47,7 @@ const ProgresoNivel = ({ userId }) => {
 };
 
 export default ProgresoNivel;
+
+
+
+

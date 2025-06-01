@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { numbers } from "./numbersData";
 import "./JuegoNumeros.css";
+import Clases from "../clases/clases";
 
 export default function EvenNumbersGame() {
   const [selected, setSelected] = useState([]);
@@ -27,12 +28,18 @@ export default function EvenNumbersGame() {
   };
 
   const goBack = () => {
-    window.history.back();
+    window.location.href = '/Clases'; 
+  };
+
+  const restartGame = () => {
+    setSelected([]);
+    setScore(0);
+    setFeedback("");
   };
 
   return (
     <div className="game-container">
-      <button className="back-button" onClick={goBack}>⬅ Regresar</button>
+      <button className="back-button4" onClick={goBack}>⬅ Regresar</button>
 
       <h2 className="title">Haz clic en los números pares del 1 al 50</h2>
 
@@ -57,8 +64,15 @@ export default function EvenNumbersGame() {
       {feedback && <div className="feedback">{feedback}</div>}
 
       <div className="score">Puntaje: {score}</div>
+
+      {/* Botón para reiniciar el juego */}
+      <button className="retry-button" onClick={restartGame}>
+        🔁 ¡Inténtalo de nuevo!
+      </button>
+ 
     </div>
   );
 }
+
 
 
