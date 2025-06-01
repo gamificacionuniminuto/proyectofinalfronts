@@ -1,167 +1,104 @@
-/* Ejercicio1.css */
+/* Fondo con burbujas animadas */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comic Sans MS', 'Poppins', cursive, sans-serif;
+  background: linear-gradient(to right, #d1c4e9, #b2ebf2);
+  overflow-x: hidden;
+  position: relative;
+}
 
-/* Contenedor padre */
+/* Estilo de burbujas animadas */
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 20% 20%, #ffffff55 10px, transparent 12px),
+                    radial-gradient(circle at 70% 70%, #ffffff44 15px, transparent 16px),
+                    radial-gradient(circle at 50% 30%, #ffffff33 20px, transparent 21px);
+  animation: floatBubbles 10s infinite linear;
+  z-index: 0;
+}
+
+@keyframes floatBubbles {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100px); }
+}
+
 .contenedor-ejercicios {
-  padding: 2rem;
-  max-width: 800px; /* Reducimos el ancho, ya que solo mostramos una caja */
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column; /* Alineamos todo en columna */
-  align-items: center; /* Centramos los elementos */
+  position: relative;
+  z-index: 1;
+  padding: 40px 20px;
+  text-align: center;
 }
 
 .titulo-principal {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #333;
+  font-size: 3rem;
+  color: #4a148c;
+  margin-bottom: 10px;
+  text-shadow: 3px 3px #81d4fa;
+  animation: bounceIn 1s ease;
 }
 
-/* Estilos para el menú de selección */
+@keyframes bounceIn {
+  0%   { transform: scale(0.5); opacity: 0; }
+  60%  { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+.mensaje-seleccion {
+  font-size: 1.4rem;
+  color: #263238;
+  margin-bottom: 30px;
+}
+
 .menu-operaciones {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
   justify-content: center;
-  flex-wrap: wrap; /* Permitimos que los botones se ajusten en pantallas pequeñas */
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-bottom: 40px;
 }
 
 .boton-seleccion {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  background-color: #6c757d; /* Color gris por defecto */
+  background: linear-gradient(145deg, #4dd0e1, #00bcd4);
   color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 2px solid #00acc1;
+  border-radius: 30px;
+  padding: 15px 30px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.1s;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25);
 }
 
 .boton-seleccion:hover {
-  background-color: #5a6268; /* Gris más oscuro al pasar el mouse */
-  transform: scale(1.05); /* Efecto de escala al pasar el mouse */
+  transform: scale(1.1);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.3);
 }
 
 .boton-seleccion.activo {
-  background-color: #007bff; /* Color azul para el botón activo */
+  background: linear-gradient(145deg, #ffd54f, #ffca28);
+  color: #000;
+  border-color: #fbc02d;
 }
 
-/* Contenedor de la caja seleccionada */
 .contenedor-caja {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px 30px;
+  border-radius: 25px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  min-height: 320px;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Estilos para las cajas de ejercicios */
-.ejercicio-matematicas {
-  width: 100%;
-  max-width: 400px; /* Aumentamos el ancho, ya que solo hay una caja visible */
-  min-height: 300px;
-  margin: 0 auto;
-  padding: 1.5rem;
-  background-color: rgb(72, 121, 253);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.titulo-ejercicio {
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 0.5rem;
-  flex: 0 0 auto;
-}
-
-.enunciado {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  flex: 0 0 auto;
-}
-
-.contenedor-respuesta {
-  display: flex;
-  gap: 1rem; /* Restauramos el gap original */
-  justify-content: center;
-  margin-bottom: 1rem;
-  flex: 0 0 auto;
-}
-
-.campo-respuesta {
-  padding: 0.5rem 0.75rem;
-  font-size: 1rem; /* Restauramos el tamaño de fuente */
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 190px; /* Restauramos el ancho original */
-  box-sizing: border-box;
-}
-
-.campo-respuesta::placeholder {
-  color: #888;
-  font-size: 1rem;
-  opacity: 1;
-}
-
-.campo-respuesta:disabled {
-  background-color: #f5f5f5;
-  cursor: not-allowed;
-}
-
-.campo-respuesta:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  outline: none;
-}
-
-.boton-verificar,
-.boton-reiniciar {
-  padding: 0.5rem 1rem; /* Restauramos el padding original */
-  font-size: 1rem; /* Restauramos el tamaño de fuente */
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.boton-verificar {
-  background-color: #28a745;
-  color: white;
-}
-
-.boton-verificar:disabled {
-  background-color: #6c757d;
-  cursor: not-allowed;
-}
-
-.boton-reiniciar {
-  background-color: #007bff;
-  color: white;
-}
-
-.boton-verificar:hover:not(:disabled),
-.boton-reiniciar:hover {
-  opacity: 0.9;
-}
-
-.resultado {
-  padding: 1rem; /* Restauramos el padding original */
-  border-radius: 4px;
-  font-size: 1rem; /* Restauramos el tamaño de fuente */
-  flex: 0 0 auto;
-}
-
-.correcto {
-  background-color: #d4edda;
-  color: #155724;
-}
-
-.incorrecto {
-  background-color: #f8d7da;
-  color: #721c24;
-}
 
 /* Eliminamos los estilos de .ejercicio-seccion, ya que ya no se usa */

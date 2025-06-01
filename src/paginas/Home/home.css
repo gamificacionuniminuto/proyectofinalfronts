@@ -6,6 +6,7 @@
     background-position: center;
     width: 100wh;
     margin: 0;
+    margin-top: 30px;    /* Espacio superior */
      /* Permite que el contenido se expanda y tenga scroll si es necesario */
 
  
@@ -20,7 +21,7 @@
    } 
    /* Fondo blanco con opacidad */
 .logo  {
-    margin-top: 80px;
+    margin-top: 170px;
     left: 25%;
     transition: transform 0.3s ease-in-out;
     animation: glow 2s infinite alternate;
@@ -30,6 +31,7 @@
 }
 
 .logo img {
+    margin-top: 35px;
     width: 200px; /* Ajusta el tamaño del icono */
     height: auto;
     display: block;

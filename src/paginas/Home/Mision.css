@@ -1,47 +1,51 @@
+/* Mision.css */
+
 .mission {
-    text-align: center;
-    color: #333;
-    padding: 40px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 30px;
-    width: 100%;
-    max-width: 800px;
-    translate: 3rem 0;
-    background-color: rgba(255, 255, 255, 0.8); 
-    
+  background: linear-gradient(135deg, #fceabb4f, #f8b500);
+  margin: 40px auto;
+  padding: 40px 30px;
+  border-radius: 25px;
+  box-shadow: 0 15px 30px rgba(248, 181, 0, 0.4);
+  text-align: center;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #4a342e;
+  position: relative;
+  overflow: hidden;
+  transform: translateX(-20px);
+}
+.mission p:hover {
+  color: #3674c4;
+  transform: scale(1.03);
+  transition: all 0.3s ease;
 }
 
+
+
 .mission h1 {
-    font-size: 2.5rem;
-    color: #ff9a00;
+  font-size: 3.5rem;
+  color: #1207ac;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 6px #fbc02d;
+  text-align: center;
+ 
+}
+
+.mission h1::before {
+  content: "🚀";
+  font-size: 3.5rem;
+  position: absolute;
+  left: -50px;
+  top: 0;
 }
 
 .mission p {
-    font-size: 1.2rem;
-    color: #444;
-    line-height: 1.6;
-    margin-top: 20px;
-    text-align: justify;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+  user-select: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+  cursor: default;
 }
 
-@media (max-width: 768px) {
-    .mission h1 {
-        font-size: 2rem;
-    }
-
-    .mission p {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .mission h1 {
-        font-size: 1.5rem;
-    }
-
-    .mission p {
-        font-size: 0.9rem;
-    }
-}
