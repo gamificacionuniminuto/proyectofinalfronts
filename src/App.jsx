@@ -17,6 +17,7 @@ import Clases from './paginas/clases/clases.jsx';  // Corrige el nombre del impo
 import ProgresoNivel from './componentes/ProgresoNivel.jsx';
 import JuegoNumeros from './paginas/juegos/JuegoNumeros.jsx'
 import EjercicioMatematicas from './paginas/EjercisiosMatematicos/EjercicioMatematicasSuma.jsx'
+import JuegoFiguras from './paginas/JuegoFiguras/JuegoFiguras.jsx'
 
 function RutaConProgreso() {
   const location = useLocation();
@@ -58,6 +59,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/juegos" element={<JuegoNumeros/>} />
           <Route path="/resta" element={<EjercicioMatematicas/>} />
+          <Route path="/JuegoFiguras" element={<JuegoFiguras/>} />
 
         </Routes>
       </div>

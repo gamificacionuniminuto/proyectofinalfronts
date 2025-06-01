@@ -60,6 +60,12 @@ const Navbar = () => {
         Juegos de Números
       </Link>
         
+        <Link
+        to="/JuegoFiguras" 
+        className={location.pathname === '/JuegoFiguras' ? 'active' : ''}
+      >
+        Juegos de Figuras
+      </Link>
 
     </nav>
   );
