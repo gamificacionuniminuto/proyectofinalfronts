@@ -1,0 +1,51 @@
+/* Mision.css */
+
+.mission {
+  background: linear-gradient(135deg, #fceabb4f, #f8b500);
+  margin: 40px auto;
+  padding: 40px 30px;
+  border-radius: 25px;
+  box-shadow: 0 15px 30px rgba(248, 181, 0, 0.4);
+  text-align: center;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #4a342e;
+  position: relative;
+  overflow: hidden;
+  transform: translateX(-20px);
+}
+.mission p:hover {
+  color: #3674c4;
+  transform: scale(1.03);
+  transition: all 0.3s ease;
+}
+
+
+
+.mission h1 {
+  font-size: 3.5rem;
+  color: #1207ac;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 6px #fbc02d;
+  text-align: center;
+ 
+}
+
+.mission h1::before {
+  content: "🚀";
+  font-size: 3.5rem;
+  position: absolute;
+  left: -50px;
+  top: 0;
+}
+
+.mission p {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+  user-select: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+  cursor: default;
+}
+

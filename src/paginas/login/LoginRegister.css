@@ -1,16 +1,24 @@
-/* LoginRegister.css */
-/* LoginRegister.css */
+.app-container {
+margin-top: 60rem;
+ 
 
+
+} 
 .login-register-container {
-  max-width: 700px;
-  margin: 2rem auto;
+  width: 50%;
+  max-width: none;
+  margin: 0 auto;
   padding: 2rem;
   background: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-top: 8%;
+  margin-top: 10%;
+  transform: translateX(4%);
+  transform: translateY(5%);
+  flex-direction: center;
 }
+
 
 .login-register-container h2 {
   text-align: center;
@@ -19,32 +27,33 @@
   font-size: 1.8rem;
 }
 
-fieldset {
+.login-register-container fieldset {
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
-legend {
+.login-register-container legend {
   padding: 0 10px;
   font-weight: 600;
   color: #3498db;
 }
 
-.form-group {
+.login-register-container .form-group {
   margin-bottom: 1.2rem;
 }
 
-label {
+.login-register-container label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
   color: #34495e;
 }
 
-input, select {
-  width: 100%;
+.login-register-container input,
+.login-register-container select {
+  width: 98%;
   padding: 0.8rem;
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -52,20 +61,21 @@ input, select {
   transition: border 0.3s ease;
 }
 
-input:focus, select:focus {
+.login-register-container input:focus,
+.login-register-container select:focus {
   outline: none;
   border-color: #3498db;
   box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
 }
 
-.error {
+.login-register-container .error {
   color: #e74c3c;
   font-size: 0.85rem;
   margin-top: 0.2rem;
   display: block;
 }
 
-.submit-btn {
+.login-register-container .submit-btn {
   background-color: #3498db;
   color: white;
   padding: 0.8rem 1.5rem;
@@ -78,13 +88,13 @@ input:focus, select:focus {
   width: 100%;
 }
 
-.submit-btn:hover {
+.login-register-container .submit-btn:hover {
   background-color: #2980b9;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .login-register-container {
-      padding: 1.5rem;
-      margin: 1rem;
+    padding: 1.5rem;
+    margin: 1rem;
   }
 }

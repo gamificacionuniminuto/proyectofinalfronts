@@ -1,0 +1,94 @@
+/* Vision.css */
+
+.vision {
+  background: linear-gradient(135deg, #a8ede977, #fed6e3);
+  margin: 40px auto;
+  padding: 40px 30px;
+  border-radius: 25px;
+  box-shadow: 0 15px 30px rgba(255, 182, 193, 0.5);
+  text-align: center;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #3e3e3e;
+  position: relative;
+  overflow: hidden;
+}
+
+.vision h1 {
+
+  font-size: 3.5rem;
+  color: #ff6f61;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 6px #fcd1c8;
+  position: relative;
+}
+
+.vision h1::before {
+  content: "🌟";
+  font-size: 3.5rem;
+  position: absolute;
+  left: -50px;
+  top: 0;
+}
+
+.vision p {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+  user-select: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+  cursor: default;
+}
+
+.vision p:hover {
+  color: #ff6f61;
+  transform: scale(1.05);
+}
+
+/* Animación de pequeñas estrellas flotantes alrededor */
+.vision::before,
+.vision::after {
+  content: "✨🌈🎈";
+  font-size: 2rem;
+  position: absolute;
+  opacity: 0.15;
+  animation: floatStars 10s linear infinite;
+  user-select: none;
+}
+
+.vision::before {
+  top: 15px;
+  left: 15px;
+  animation-delay: 0s;
+}
+
+.vision::after {
+  bottom: 15px;
+  right: 15px;
+  animation-delay: 5s;
+}
+
+@keyframes floatStars {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); }
+  50% { transform: translateY(-15px) translateX(10px) rotate(15deg); }
+  100% { transform: translateY(0) translateX(0) rotate(0deg); }
+}
+
+/* Responsivo para móviles */
+@media (max-width: 600px) {
+  .vision {
+    padding: 30px 15px;
+  }
+  .vision h1 {
+    font-size: 2.5rem;
+  }
+  .vision h1::before {
+    font-size: 2.5rem;
+    left: -40px;
+  }
+  .vision p {
+    font-size: 1.3rem;
+  }
+}
+

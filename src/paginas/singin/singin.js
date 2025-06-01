@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './singin.css';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const SingIn = () => {
   const [email, setEmail] = useState('');
@@ -24,21 +25,21 @@ const SingIn = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3001/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+      const response = await axios.post('http://localhost:3006/api/login', {
+        email,
+        password,
       });
 
-      const data = await response.json();
+      const data = response.data; // Axios devuelve la respuesta en 'data'
 
       if (data.status === 'success') {
         // Guardar token y datos del usuario en localStorage
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.data.user));
+        window.location.reload(true);
 
-        // Redirigir al home
-        navigate('/home');
+        // Redirigir al perfil
+        navigate('/perfil');
       } else {
         setError(data.message || 'Correo electrónico o contraseña incorrectos');
         setTimeout(() => setError(''), 3000);
@@ -51,44 +52,52 @@ const SingIn = () => {
   };
 
   return (
-    <div className="singin-container">
-      <h2>Iniciar Sesión</h2>
+  <div className="signin-page">
+  <div className="signin-container">
+    <h2>Iniciar Sesión</h2>
 
-      {error && <div className="error-message">{error}</div>}
+    {error && <div className="signin-error">{error}</div>}
 
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="email">Correo Electrónico:</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="password">Contraseña:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-
-        <button type="submit" className="login-button">
-          Iniciar Sesión
-        </button>
-      </form>
-
-      <div className="register-link">
-        ¿Aún no tienes cuenta?{' '}
-        <span onClick={() => navigate('/LoginRegister')}>Regístrate</span>
+    <form className="signin-form" onSubmit={handleSubmit}>
+      <div className="signin-form-group">
+        <label className="signin-form-label" htmlFor="email">Correo Electrónico:</label>
+        <input
+          className="signin-form-input"
+          type="email"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
       </div>
+
+      <div className="signin-form-group">
+        <label className="signin-form-label" htmlFor="password">Contraseña:</label>
+        <input
+          className="signin-form-input"
+          type="password"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+      </div>
+
+      <button type="submit" className="signin-button">Iniciar Sesión</button>
+    </form>
+
+    <div className="signin-register-link">
+      ¿Aún no tienes cuenta?{' '}
+      <span onClick={() => navigate('/Login')}>Regístrate</span>
     </div>
+
+    <div className="signin-forgot-password">
+      ¿Olvidaste tu contraseña?{' '}
+      <span onClick={() => navigate('/forgotPassword')}>Recuperar</span>
+    </div>
+  </div>
+</div>
+
   );
 };
 

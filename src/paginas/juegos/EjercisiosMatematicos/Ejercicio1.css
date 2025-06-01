@@ -1,0 +1,104 @@
+/* Fondo con burbujas animadas */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comic Sans MS', 'Poppins', cursive, sans-serif;
+  background: linear-gradient(to right, #d1c4e9, #b2ebf2);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Estilo de burbujas animadas */
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 20% 20%, #ffffff55 10px, transparent 12px),
+                    radial-gradient(circle at 70% 70%, #ffffff44 15px, transparent 16px),
+                    radial-gradient(circle at 50% 30%, #ffffff33 20px, transparent 21px);
+  animation: floatBubbles 10s infinite linear;
+  z-index: 0;
+}
+
+@keyframes floatBubbles {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100px); }
+}
+
+.contenedor-ejercicios {
+  position: relative;
+  z-index: 1;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.titulo-principal {
+  font-size: 3rem;
+  color: #4a148c;
+  margin-bottom: 10px;
+  text-shadow: 3px 3px #81d4fa;
+  animation: bounceIn 1s ease;
+}
+
+@keyframes bounceIn {
+  0%   { transform: scale(0.5); opacity: 0; }
+  60%  { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+.mensaje-seleccion {
+  font-size: 1.4rem;
+  color: #263238;
+  margin-bottom: 30px;
+}
+
+.menu-operaciones {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.boton-seleccion {
+  background: linear-gradient(145deg, #4dd0e1, #00bcd4);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 2px solid #00acc1;
+  border-radius: 30px;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25);
+}
+
+.boton-seleccion:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.3);
+}
+
+.boton-seleccion.activo {
+  background: linear-gradient(145deg, #ffd54f, #ffca28);
+  color: #000;
+  border-color: #fbc02d;
+}
+
+.contenedor-caja {
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px 30px;
+  border-radius: 25px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  min-height: 320px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Eliminamos los estilos de .ejercicio-seccion, ya que ya no se usa */

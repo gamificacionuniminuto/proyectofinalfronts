@@ -1,22 +1,37 @@
-body {
-    background-image: url('./fondo.jpg'); /* Ruta de la imagen */
-    background-size: cover, border-box; /* Ajusta la imagen para cubrir todo el fondo */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    margin: 0; /* Elimina el margen predeterminado del body */
-   /* Ancho del body */
- /* Altura del body (100% del viewport) */
-  }
+.body {
+    background-image: url('./fondo.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100vh, auto;
+    background-position: center;
+    width: 100wh;
+    margin: 0;
+    margin-top: 30px;    /* Espacio superior */
+     /* Permite que el contenido se expanda y tenga scroll si es necesario */
+
+ 
+    overflow-y: auto; 
+}
+  .home-container {
+  
+    padding: 1px;
+
+
+   
+   } 
+   /* Fondo blanco con opacidad */
 .logo  {
-    position: absolute;
-    top: 50px;;
-    left: 35%;
+    margin-top: 170px;
+    left: 25%;
     transition: transform 0.3s ease-in-out;
     animation: glow 2s infinite alternate;
     box-sizing: border-box;
   
+  
 }
 
 .logo img {
+    margin-top: 35px;
     width: 200px; /* Ajusta el tamaño del icono */
     height: auto;
     display: block;
@@ -24,12 +39,12 @@ body {
     z-index: 1;
     animation:  float 3s ease-in-out infinite; /* Aplica la animación directamente a la imagen */
     transition: transform 0.3s ease-in-out;
-  
+      
 }
 .logo::before {
     content: '';
     position: absolute;
-    top: 50%;
+    top: 10%;
     left: 50%;
     transform: translate(-540%, -50%);
     width: 250px; /* Tamaño del resplandor */
@@ -103,3 +118,4 @@ body {
 .logo:hover {
     transform: translate(50px, 20px)  scale(1.2);
 }
+
