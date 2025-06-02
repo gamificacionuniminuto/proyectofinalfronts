@@ -2,6 +2,8 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+const {REACT_APP_API
+} = process.env;
 
 const AuthContext = createContext();
 
@@ -41,7 +43,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (credentials) => {
     try {
-      const response = await axios.post('http://localhost:3001/api/login', credentials);
+      const response = await axios.post(`${process.env.REACT_APP_API}/api/login`, credentials);
       console.log(response)
       
       localStorage.setItem('token', response.data.token);
