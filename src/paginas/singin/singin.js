@@ -43,7 +43,7 @@ const SingIn = () => {
         window.location.reload(true);
 
         // Redirigir al perfil
-        navigate('/perfil');
+        //navigate('/perfil');
       } else {
         setError(data.message || 'Correo electrónico o contraseña incorrectos');
         setTimeout(() => setError(''), 3000);

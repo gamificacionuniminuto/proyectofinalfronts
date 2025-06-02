@@ -74,7 +74,7 @@ const FigureCounter = () => {
       <div className="nav-buttons">
         <button className="back-button2" onClick={() => navigate(-1)}>🔙 Regresar</button>
       </div>
-      <h2>🐾 ¿Cuántos animalitos hay?</h2>
+      <h2>🐾 ¿Cuenta las figuras?</h2>
       <p className="score">Aciertos: {score}</p>
 
       {!gameEnded && (

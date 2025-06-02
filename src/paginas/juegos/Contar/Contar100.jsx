@@ -72,7 +72,7 @@ const CuentaHasta100 = () => {
      1<div style={{ textAlign: 'left', marginBottom: '10px' }}>
     <button className="boton-volver-pagina" onClick={goBack}>⬅ Regresar</button>
   </div>
-  <h1 className="titulo-juego">Cuenta hasta 50 con el conejito 🐰</h1>
+  <h1 className="titulo-juego">Cuenta hasta 100 con el conejito 🐰</h1>
 
   {/* Botón de volver a la página anterior, bien posicionado */}
  

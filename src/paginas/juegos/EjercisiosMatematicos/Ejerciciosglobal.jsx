@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-const {REACT_APP_API
-} = process.env;
+import './styles.css';
+
+const { REACT_APP_API } = process.env;
 
 const EjercicioMatematicasBase = ({ ejercicios, nivelDificultad, tipoOperacion }) => {
   const [respuesta, setRespuesta] = useState('');
@@ -12,7 +14,8 @@ const EjercicioMatematicasBase = ({ ejercicios, nivelDificultad, tipoOperacion }
   );
   const intentarOtroRef = useRef(null);
   const inputRespuestaRef = useRef(null);
-  
+  const navigate = useNavigate();
+
   const puntosPorNivel = {
     basico: 2,
     medio: 5,
@@ -27,7 +30,7 @@ const EjercicioMatematicasBase = ({ ejercicios, nivelDificultad, tipoOperacion }
   };
 
   const enviarPuntaje = async () => {
-    try {   
+    try {
       const userString = localStorage.getItem('user');
       if (!userString) {
         throw new Error('No se encontraron datos de usuario');
@@ -36,13 +39,12 @@ const EjercicioMatematicasBase = ({ ejercicios, nivelDificultad, tipoOperacion }
       const userId = userData?.id;
       if (!userId) {
         throw new Error('ID de usuario no disponible');
-      }    
-      
+      }
+
       const puntos = puntosPorNivel[nivelDificultad] || 2;
-      
+
       const response = await axios.put(
         `${process.env.REACT_APP_API}/api/users/${userId}/score`,
-        
         { numberToAdd: puntos },
         {
           baseURL: process.env.REACT_APP_API_URL,
@@ -53,17 +55,18 @@ const EjercicioMatematicasBase = ({ ejercicios, nivelDificultad, tipoOperacion }
             })
           }
         }
-      );   
-      
+      );
+
       try {
         const updatedScore = (Number(userData.score) || 0) + puntos;
-        const updatedUser = { ...userData, score: updatedScore };      
-        localStorage.setItem('user', JSON.stringify(updatedUser));      
+        const updatedUser = { ...userData, score: updatedScore };
+        localStorage.setItem('user', JSON.stringify(updatedUser));
         console.log('Puntaje local actualizado a:', updatedScore);
       } catch (localStorageError) {
         console.warn('Error al actualizar localStorage:', localStorageError);
       }
-      return response.data;    
+
+      return response.data;
     } catch (error) {
       console.error('Error en enviarPuntaje:', {
         message: error.message,
@@ -79,14 +82,13 @@ const EjercicioMatematicasBase = ({ ejercicios, nivelDificultad, tipoOperacion }
       alert('Por favor, ingresa un número válido.');
       return;
     }
-    
-    // Para divisiones, permitimos margen de error por decimales
+
     const margenError = tipoOperacion === 'division' ? 0.01 : 0.0001;
     const correcto = Math.abs(respuestaUsuario - ejercicioActual.respuestaCorrecta) < margenError;
-    
+
     setEsCorrecto(correcto);
-    setMostrarResultado(true);  
-    
+    setMostrarResultado(true);
+
     if (correcto) {
       enviarPuntaje();
     }
@@ -97,7 +99,7 @@ const EjercicioMatematicasBase = ({ ejercicios, nivelDificultad, tipoOperacion }
     setMostrarResultado(false);
     setEsCorrecto(false);
     setEjercicioActual(ejercicios[Math.floor(Math.random() * ejercicios.length)]);
-    
+
     if (inputRespuestaRef.current) {
       inputRespuestaRef.current.focus();
     }
@@ -129,6 +131,15 @@ const EjercicioMatematicasBase = ({ ejercicios, nivelDificultad, tipoOperacion }
       <h1 className="titulo-ejercicio">
         {tipoOperacion.charAt(0).toUpperCase() + tipoOperacion.slice(1)} {nivelDificultad}
       </h1>
+
+      {/* Botón para regresar a clases */}
+      <button
+        className="boton-regresar"
+        onClick={() => navigate('/clases')}
+      >
+        ⬅ Regresar a clases
+      </button>
+
       <p className="enunciado">{ejercicioActual.pregunta}</p>
 
       <div className="contenedor-respuesta">

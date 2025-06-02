@@ -192,7 +192,7 @@
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.89);
   transform: perspective(999px) translateZ(10px);
-  z-index: 1;
+  z-index: 1000;
   }
 /* Burbujas estilo vidrio */
 .kids-profile-header::before,
