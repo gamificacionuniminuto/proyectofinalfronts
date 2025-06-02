@@ -116,18 +116,19 @@ const ClasesData = [
   icono: "➗",
   forma: "cuadrado",
   color: "#e76f51", // naranja
+  link: "/oddnumbersgame",
 
 },
-{
- id: 12,
- nombre:"Comparación de números",
- descripcion: "Compara números usando objetos visuales.",
- nivel: "Nivel 2",
- completado: false,
- icono: "🔍",
- forma: "estrella",
- color: "#fcbf49", // amarillo
- },
+// {
+//  id: 12,
+//  nombre:"Comparación de números",
+//  descripcion: "Compara números usando objetos visuales.",
+//  nivel: "Nivel 2",
+//  completado: false,
+//  icono: "🔍",
+//  forma: "estrella",
+//  color: "#fcbf49", // amarillo
+//  },
   {
    id: 13,
     nombre: "Sumas básicas",
@@ -137,7 +138,7 @@ const ClasesData = [
     icono: "➕",
     forma: "cuadrado",
     color: "#e76f51", // naranja
-    LINK: "/resta", // Asegúrate de que esta ruta esté definida en tu aplicación
+    link: "/ejerciciosumasbasicas", // Asegúrate de que esta ruta esté definida en tu aplicación
   },
   {
     id: 14,
@@ -148,16 +149,18 @@ const ClasesData = [
     icono: "➖",
     forma: "nube",
     color: "#2a9d8f", // azul claro
+    link: "/ejerciciosrestas", // Asegúrate de que esta ruta esté definida en tu aplicación
   },
   {
     id: 15,
     nombre: "Comparación (Mas que, menos que, igual a)",
-    descripcion: "Compara números usando objetos visuales.",
+    descripcion: "Compara números.",
     nivel: "Nivel 2",
     completado: false,
     icono: "🔍",
     forma: "triangulo",
     color: "#d62828", // rojo
+    link: "/juegocomparacion", // Asegúrate de que esta ruta esté definida en tu aplicación
 
   },
   
@@ -169,29 +172,31 @@ const ClasesData = [
     completado:false,
     icono:"🔁",
     forma:"estrella",
-    color:"#fcbf49", 
+    color:"#fcbf49",
+    link: "/juegopatrones", // Asegúrate de que esta ruta esté definida en tu aplicación
+
     
   },
-{
-  id:17,
-  nombre: "Dias de la semana",
-  descripcion: "Aprende los días y secuencias Temporales.",
-  nivel: "Nivel 2",
-  completado: false,
-  icono: "🗓️",
-  forma: "circulo",
-  color: "#264653",
-},
-{
-id: 18,
-nombre: "Los numeros grandes y su descomposición",
-descripcion: "Comprende los números grandes y su descomposición.",
-nivel: "Nivel 3",
-completado: false,
-icono: "🔢",
-forma: "cuadrado",
-color: "#e76f51", // naranja
-},
+//{
+//   id:17,
+//   nombre: "Dias de la semana",
+//   descripcion: "Aprende los días y secuencias Temporales.",
+//   nivel: "Nivel 2",
+//   completado: false,
+//   icono: "🗓️",
+//   forma: "circulo",
+//   color: "#264653",
+// },
+// {
+// id: 18,
+// nombre: "Los numeros grandes y su descomposición",
+// descripcion: "Comprende los números grandes y su descomposición.",
+// nivel: "Nivel 3",
+// completado: false,
+// icono: "🔢",
+// forma: "cuadrado",
+// color: "#e76f51", // naranja
+// },
 {
   id: 19,
   nombre:"Sumas llevando",

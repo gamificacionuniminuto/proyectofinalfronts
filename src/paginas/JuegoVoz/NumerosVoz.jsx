@@ -8,7 +8,8 @@ const NumerosGame = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [round, setRound] = useState(0);
   const [userId, setUserId] = useState(null);
- 
+ const {REACT_APP_API
+} = process.env;
   useEffect(() => {
     const userData = localStorage.getItem('user');
     if (userData) {
@@ -30,7 +31,7 @@ const NumerosGame = () => {
                 setScore(newScore);
       }    
       const response = await axios.put(
-        `http://localhost:3001/api/users/${userId}/score`,
+        `${process.env.REACT_APP_API}/api/users/${userId}/score`,
         { numberToAdd: 1 },
         {
           headers: {

@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Ilustracion from './Ilustracion.png'
 
+const {REACT_APP_API
+} = process.env;
+
 const SingIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -26,7 +29,7 @@ const SingIn = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:3006/api/login', {
+      const response = await axios.post(`${process.env.REACT_APP_API}/api/login`, {
         email,
         password,
       });

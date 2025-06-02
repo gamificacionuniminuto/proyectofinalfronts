@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import { generarEjerciciosSuma } from './helpers';
-import './styles.css'; // Asegúrate de tener un archivo CSS para estilos
+const {REACT_APP_API
+} = process.env;
 
-const EjercicioMatematicasSuma = () => {
-  const [ejercicios] = useState(generarEjerciciosSuma());
+const EjercicioMatematicasBase = ({ ejercicios, nivelDificultad, tipoOperacion }) => {
   const [respuesta, setRespuesta] = useState('');
   const [mostrarResultado, setMostrarResultado] = useState(false);
   const [esCorrecto, setEsCorrecto] = useState(false);
@@ -12,48 +11,67 @@ const EjercicioMatematicasSuma = () => {
     ejercicios[Math.floor(Math.random() * ejercicios.length)]
   );
   const intentarOtroRef = useRef(null);
-  const inputRespuestaRef = useRef(null);  
+  const inputRespuestaRef = useRef(null);
+  
+  const puntosPorNivel = {
+    basico: 2,
+    medio: 5,
+    avanzado: 10
+  };
+
+  const simbolosOperacion = {
+    suma: '+',
+    resta: '-',
+    multiplicacion: '×',
+    division: '÷'
+  };
+
   const enviarPuntaje = async () => {
-  try {   
-    const userString = localStorage.getItem('user');
-    if (!userString) {
-      throw new Error('No se encontraron datos de usuario');
-    }
-    const userData = JSON.parse(userString);
-    const userId = userData?.id;
-    if (!userId) {
-      throw new Error('ID de usuario no disponible');
-    }    
-    const response = await axios.put(
-      `http://localhost:3001/api/users/${userId}/score`,
-      { numberToAdd: 2 },
-      {
-        baseURL: process.env.REACT_APP_API_URL,
-        headers: {
-          'Content-Type': 'application/json',
-          ...(localStorage.getItem('token') && {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-          })
-        }
+    try {   
+      const userString = localStorage.getItem('user');
+      if (!userString) {
+        throw new Error('No se encontraron datos de usuario');
       }
-    );   
-    try {
-      const updatedScore = (Number(userData.score) || 0) + 2;
-      const updatedUser = { ...userData, score: updatedScore };      
-      localStorage.setItem('user', JSON.stringify(updatedUser));      
-      console.log('Puntaje local actualizado a:', updatedScore);
-    } catch (localStorageError) {
-      console.warn('Error al actualizar localStorage:', localStorageError);
+      const userData = JSON.parse(userString);
+      const userId = userData?.id;
+      if (!userId) {
+        throw new Error('ID de usuario no disponible');
+      }    
+      
+      const puntos = puntosPorNivel[nivelDificultad] || 2;
+      
+      const response = await axios.put(
+        `${process.env.REACT_APP_API}/api/users/${userId}/score`,
+        
+        { numberToAdd: puntos },
+        {
+          baseURL: process.env.REACT_APP_API_URL,
+          headers: {
+            'Content-Type': 'application/json',
+            ...(localStorage.getItem('token') && {
+              'Authorization': `Bearer ${localStorage.getItem('token')}`
+            })
+          }
+        }
+      );   
+      
+      try {
+        const updatedScore = (Number(userData.score) || 0) + puntos;
+        const updatedUser = { ...userData, score: updatedScore };      
+        localStorage.setItem('user', JSON.stringify(updatedUser));      
+        console.log('Puntaje local actualizado a:', updatedScore);
+      } catch (localStorageError) {
+        console.warn('Error al actualizar localStorage:', localStorageError);
+      }
+      return response.data;    
+    } catch (error) {
+      console.error('Error en enviarPuntaje:', {
+        message: error.message,
+        response: error.response?.data
+      });
+      throw error;
     }
-    return response.data;    
-  } catch (error) {
-    console.error('Error en enviarPuntaje:', {
-      message: error.message,
-      response: error.response?.data
-    });
-    throw error;
-  }
-};
+  };
 
   const verificarRespuesta = () => {
     const respuestaUsuario = parseFloat(respuesta);
@@ -61,7 +79,11 @@ const EjercicioMatematicasSuma = () => {
       alert('Por favor, ingresa un número válido.');
       return;
     }
-    const correcto = Math.abs(respuestaUsuario - ejercicioActual.respuestaCorrecta) < 0.0001;
+    
+    // Para divisiones, permitimos margen de error por decimales
+    const margenError = tipoOperacion === 'division' ? 0.01 : 0.0001;
+    const correcto = Math.abs(respuestaUsuario - ejercicioActual.respuestaCorrecta) < margenError;
+    
     setEsCorrecto(correcto);
     setMostrarResultado(true);  
     
@@ -104,7 +126,9 @@ const EjercicioMatematicasSuma = () => {
 
   return (
     <div className="ejercicio-matematicas">
-      <h1 className="titulo-ejercicio">{ejercicioActual.titulo}</h1>
+      <h1 className="titulo-ejercicio">
+        {tipoOperacion.charAt(0).toUpperCase() + tipoOperacion.slice(1)} {nivelDificultad}
+      </h1>
       <p className="enunciado">{ejercicioActual.pregunta}</p>
 
       <div className="contenedor-respuesta">
@@ -117,6 +141,7 @@ const EjercicioMatematicasSuma = () => {
           placeholder="Escribe tu respuesta"
           className="campo-respuesta"
           disabled={mostrarResultado}
+          step={tipoOperacion === 'division' ? '0.01' : '1'}
         />
 
         {!mostrarResultado ? (
@@ -149,6 +174,9 @@ const EjercicioMatematicasSuma = () => {
             <>
               <p>Incorrecto ❌</p>
               <p>La respuesta correcta es: {ejercicioActual.respuestaCorrecta}</p>
+              {ejercicioActual.explicacion && (
+                <p className="explicacion">{ejercicioActual.explicacion}</p>
+              )}
             </>
           )}
         </div>
@@ -157,4 +185,4 @@ const EjercicioMatematicasSuma = () => {
   );
 };
 
-export default EjercicioMatematicasSuma;
+export default EjercicioMatematicasBase;

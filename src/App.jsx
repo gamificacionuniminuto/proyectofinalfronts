@@ -15,8 +15,8 @@ import ProtectedRoute from './componentes/ProtectedRoute.js';
 import Ejercicio1 from './paginas/primero/Ejercicio1.jsx';
 import Clases from './paginas/clases/clases.jsx'; 
 import ProgresoNivel from './componentes/ProgresoNivel.jsx';
-import JuegoNumeros from './paginas/juegos/JuegoNumeros.jsx'
-import EjercicioMatematicas from './paginas/EjercisiosMatematicos/EjercicioMatematicasSuma.jsx'
+import JuegoNumeros from './paginas/juegos/NumerosImparesPares/JuegoNumeros.jsx'
+// import EjercicioMatematicas from './paginas/EjercisiosMatematicos/EjercicioMatematicasSuma.jsx'
 import JuegoFiguras from './paginas/JuegoFiguras/JuegoFiguras.jsx'
 // import JuegoNumeros from './paginas/juegos/JuegoNumeros.jsx';
 // import EjercicioMatematicas from './paginas/EjercisiosMatematicos/EjercicioMatematicasSuma.jsx';
@@ -26,7 +26,11 @@ import NumerosGame from './paginas/JuegoVoz/NumerosVoz.jsx'; // Asegúrate de qu
 import FigureCounter from './paginas/juegos/RelacionNumerosFiguras/RelacionFiguras.jsx'; // Asegúrate de que este componente exista
 import AnimalCounterDs from './paginas/juegos/ContarFormaAsyds/ContarAsyds.jsx'; // Asegúrate de que este componente exista
 import CuentaHasta100 from './paginas/juegos/Contar/Contar100.jsx'; // Asegúrate de que este componente exista
-
+import OddNumbersGame from './paginas/juegos/NumerosImparesPares/Numerosimpares.jsx'; // Asegúrate de que este componente exista
+import EjercicioSuma from './paginas/juegos/EjercisiosMatematicos/sumaBasica.jsx'; // Asegúrate de que este componente exista
+import EjercicioResta from './paginas/juegos/EjercisiosMatematicos/restaBasica.jsx'; // Asegúrate de que este componente exista
+import JuegoComparacion from './paginas/juegos/Comparacion/mayormenor.jsx'; // Asegúrate de que este componente exista
+import JuegoPatrones from './paginas/juegos/Patrones/patrones.jsx'; // Asegúrate de que este componente exista
 function RutaConProgreso() {
   const location = useLocation();
   const rutasConProgreso = ['/clases'];
@@ -66,7 +70,7 @@ function App() {
           <Route path="/Ejercicio1" element={<Ejercicio1 />} />
           <Route path="/clases" element={<Clases />} /> {/* Incluí la ruta para Clases */}
           <Route path="/juegonumeros" element={<JuegoNumeros/>} />
-          <Route path="/resta" element={<EjercicioMatematicas/>} />
+          {/* <Route path="/resta" element={<EjercicioMatematicas/>} /> */}
           <Route path="/juegosnumeros" element={<JuegoNumeros />} />
           <Route path="/numerosvoz" element={<NumerosGame />} />
           <Route path="/JuegoFiguras" element={<JuegoFiguras/>} />
@@ -74,11 +78,18 @@ function App() {
           {/* //<Route path="/numerosVoz" element={<NumerosGame />} /> */}
           {/* Asegúrate de que la ruta sea correcta para el componente de juego de números */}
           <Route path="/contar50" element={<Contar50/>} />
-          <Route path='/ejerciciosmatematicassuma' element={<EjercicioMatematicas />} />
+          {/* <Route path='/ejerciciosmatematicassuma' element={<EjercicioMatematicas />} /> */}
           <Route path="/contar20" element={<Contar20 />} /> 
           <Route path="/figurecounter" element={<FigureCounter />} />
           <Route path="/animalcounterds" element={<AnimalCounterDs />} />
           <Route path="/cuentahasta100" element={<CuentaHasta100 />} />
+          <Route path="/oddnumbersgame" element={<OddNumbersGame />} /> {/* Ruta para el juego de números impares */}
+          <Route path="/ejerciciosumasbasicas" element={<EjercicioSuma />} /> {/* Ruta para el ejercicio de suma básica */}
+          <Route path="/ejerciciosrestas" element={<EjercicioResta />} /> {/* Ruta para el ejercicio de resta */}
+          <Route path="/juegocomparacion" element={<JuegoComparacion />} /> {/* Ruta para el juego de comparación */}
+          <Route path="/juegopatrones" element={<JuegoPatrones />} /> {/* Ruta para el juego de patrones */}
+          
+
        
 
 
