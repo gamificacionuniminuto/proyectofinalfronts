@@ -1,11 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
+import { useAuth } from "./AuthContext";
 import "./Navbar.css"; 
 
 const Navbar = () => {
   const location = useLocation();
-  const hiddenRoutes = ['/perfil', '/configuracion']
-  // Oculta completamente el navbar en la ruta /perfil
-   if (hiddenRoutes.includes(location.pathname)) return null;;
+  const { user, logout } = useAuth();
+
+  // Eliminamos la condición que oculta el navbar en ciertas rutas
+  // if (hiddenRoutes.includes(location.pathname)) return null;
 
   return (    
     <nav className="navbar">
@@ -15,81 +17,52 @@ const Navbar = () => {
       >
         Inicio
       </Link>
-      <Link 
-        to="/singin" 
-        className={location.pathname === '/singin' ? 'active' : ''}
-      >
-        Iniciar Sesión
-      </Link>
-      <Link 
-        to="/login" 
-        className={location.pathname === '/login' ? 'active' : ''}
-      >
-        Registro
-      </Link>
-      <Link 
-        to="/perfil" 
-        className={location.pathname === '/perfil' ? 'active' : ''}
-      >
-        Perfil
-      </Link>
-      <Link 
-        to="/configuracion" 
-        className={location.pathname === '/configuracion' ? 'active' : ''}
-      >
-        Configuración
-       </Link> 
-       <Link
-        to="/clases" 
-        className={location.pathname === '/clases' ? 'active' : ''}
-        >
-        Clases
-        </Link>
-
-      <Link
-        to="/EjerciciosP" 
-        className={location.pathname === '/EjerciciosP' ? 'active' : ''}
-      >
-        Ejercicio Primero
-      </Link>
-
-      <Link
-        to="/JuegoNumeros" 
-        className={location.pathname === '/JuegoNumeros' ? 'active' : ''}
-      >
-        Juegos de Números
-      </Link>
-        
-        <Link
-        to="/JuegoFiguras" 
-        className={location.pathname === '/JuegoFiguras' ? 'active' : ''}
-      >
-        Juegos de Figuras
-      </Link>
-      <Link
-        to="/resta" 
-        className={location.pathname === '/resta' ? 'active' : ''}
-      >
-        Ejercicio de Matemáticas
-      </Link>
-      <Link
-        to="/contar50" 
-        className={location.pathname === '/contar50' ? 'active' : ''}
-      >
-        Contar hasta 50
-      </Link>
-      <Link
-        to="/Contar20" 
-        className={location.pathname === '/Contar20' ? 'active' : ''}
-      >
-       Contar hasta 20
-      </Link>
-
-           
-
+      
+      {/* Mostrar Iniciar Sesión y Registro solo si NO hay usuario logueado */}
+      {!user && (
+        <>
+          <Link 
+            to="/singin" 
+            className={location.pathname === '/singin' ? 'active' : ''}
+          >
+            Iniciar Sesión
+          </Link>
+          <Link 
+            to="/login" 
+            className={location.pathname === '/login' ? 'active' : ''}
+          >
+            Registro
+          </Link>
+        </>
+      )}
+      
+      {/* Mostrar enlaces protegidos solo si HAY usuario logueado */}
+      {user && (
+        <>
+          <Link 
+            to="/perfil" 
+            className={location.pathname === '/perfil' ? 'active' : ''}
+          >
+            Perfil
+          </Link>
+          <Link 
+            to="/configuracion" 
+            className={location.pathname === '/configuracion' ? 'active' : ''}
+          >
+            Configuración
+          </Link>
+          <button 
+            onClick={logout}
+            className="logout-button"
+          >
+            Cerrar Sesión
+          </button>
+        </>
+      )}
+      
+   
     </nav>
   );
 };
 
-// Corrige el nombre al exportar (de "NAvbar" a "Navbar")
-export default Navbar; 
+export default Navbar;

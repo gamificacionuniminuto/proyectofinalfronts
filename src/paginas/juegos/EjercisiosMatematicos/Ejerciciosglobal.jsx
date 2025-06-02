@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+const {REACT_APP_API
+} = process.env;
 
 const EjercicioMatematicasBase = ({ ejercicios, nivelDificultad, tipoOperacion }) => {
   const [respuesta, setRespuesta] = useState('');
@@ -39,7 +41,8 @@ const EjercicioMatematicasBase = ({ ejercicios, nivelDificultad, tipoOperacion }
       const puntos = puntosPorNivel[nivelDificultad] || 2;
       
       const response = await axios.put(
-        `http://localhost:3001/api/users/${userId}/score`,
+        `${process.env.REACT_APP_API}/api/users/${userId}/score`,
+        
         { numberToAdd: puntos },
         {
           baseURL: process.env.REACT_APP_API_URL,
