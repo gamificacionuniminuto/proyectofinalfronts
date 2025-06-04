@@ -84,9 +84,30 @@ const Navbar = () => {
       >
        Contar hasta 20
       </Link>
-
-           
-
+      <Link
+        to="/JuegoDescomposicion" 
+        className={location.pathname === '/JuegoDescomposicion' ? 'active' : ''}
+      >
+       Juego Descomposición
+      </Link>
+      <Link
+        to="/JuegoFracciones" 
+        className={location.pathname === '/JuegoFracciones' ? 'active' : ''}
+      >
+       Juego Fracciones
+      </Link>
+      <Link
+        to="/JuegoTiempo" 
+        className={location.pathname === '/JuegoTiempo' ? 'active' : ''}
+      >
+       Juego Medición del Tiempo
+      </Link>     
+      <Link
+        to="/JuegoMedidas" 
+        className={location.pathname === '/JuegoMedidas' ? 'active' : ''}
+      >
+       Juego Unidades de medida
+      </Link>
     </nav>
   );
 };

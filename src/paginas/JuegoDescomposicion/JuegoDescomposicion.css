@@ -1,0 +1,66 @@
+/* Fondo general del body */
+body {
+  margin: 0;
+  background-color: #f0f8ff; /* Color de fondo opcional */
+  height: 1;
+  width: 1;
+}
+
+/* Contenedor principal que centra el juego */
+.juego-numeros {
+  text-align: center;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color: #e3f2fd;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 500px;
+  width: 90%;
+  margin: 100px auto 30px auto; /* Agregamos margen superior para evitar el solapamiento */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Título */
+h2 {
+  font-size: 28px;
+  color: #1976d2;
+}
+
+/* Número grande */
+.numero-grande {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 20px 0;
+  color: #d32f2f;
+}
+
+/* Campo de texto */
+input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: 2px solid #64b5f6;
+  margin-bottom: 10px;
+}
+
+/* Botones */
+button {
+  background-color: #64b5f6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #42a5f5;
+}
+
+/* Mensaje */
+p {
+  font-size: 20px;
+  color: #4a148c;
+}

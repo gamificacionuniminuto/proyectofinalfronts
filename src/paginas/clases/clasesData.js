@@ -191,6 +191,7 @@ completado: false,
 icono: "🔢",
 forma: "cuadrado",
 color: "#e76f51", // naranja
+LINK: "/JuegoDescomposicion",
 },
 {
   id: 19,

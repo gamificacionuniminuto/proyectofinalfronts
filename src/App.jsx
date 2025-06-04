@@ -26,6 +26,10 @@ import NumerosGame from './paginas/JuegoVoz/NumerosVoz.jsx'; // Asegúrate de qu
 import FigureCounter from './paginas/juegos/RelacionNumerosFiguras/RelacionFiguras.jsx'; // Asegúrate de que este componente exista
 import AnimalCounterDs from './paginas/juegos/ContarFormaAsyds/ContarAsyds.jsx'; // Asegúrate de que este componente exista
 import CuentaHasta100 from './paginas/juegos/Contar/Contar100.jsx'; // Asegúrate de que este componente exista
+import JuegoDescomposicion from './paginas/JuegoDescomposicion/JuegoDescomposicion.jsx';
+import JuegoFracciones from './paginas/JuegoFracciones/JuegoFracciones.jsx';
+import JuegoTiempo from './paginas/JuegoTiempo/JuegoTiempo.jsx';
+import JuegoMedidas from './paginas/JuegoMedidas/JuegoMedidas.jsx';
 
 function RutaConProgreso() {
   const location = useLocation();
@@ -79,7 +83,10 @@ function App() {
           <Route path="/figurecounter" element={<FigureCounter />} />
           <Route path="/animalcounterds" element={<AnimalCounterDs />} />
           <Route path="/cuentahasta100" element={<CuentaHasta100 />} />
-       
+          <Route path="/JuegoDescomposicion" element={<JuegoDescomposicion />} />
+          <Route path="/JuegoFracciones" element={<JuegoFracciones />} />
+          <Route path="/JuegoTiempo" element={<JuegoTiempo />} />
+          <Route path="/JuegoMedidas" element={<JuegoMedidas />} />
 
 
           {/* Rutas protegidas */}
