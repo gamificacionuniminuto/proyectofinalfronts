@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Contar/Contar20.css'; // Asegúrate de que la ruta sea correcta
+import axios from 'axios';
+const { REACT_APP_API } = process.env;
+
 
 const animalList = ['🦊', '🐰', '🦉', '🦝', '🐻', '🦔'];
 
@@ -19,6 +22,8 @@ const getRandomAnimals = (count) => {
   }
   return result;
 };
+
+
 
 const AnimalCounterDs = () => {
   const [number, setNumber] = useState(1);

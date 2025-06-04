@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Contar/Contar20.css'; 
+import axios from 'axios';
+const { REACT_APP_API } = process.env;
 
 const animalList = ['🔺', '🔵', '⚫', '⬛', '⬜', '🔶', '🔷'];
 
@@ -19,6 +21,52 @@ const getRandomAnimals = (count) => {
   }
   return result;
 };
+const enviarPuntaje = async () => {
+    try {
+      const userString = localStorage.getItem('user');
+      if (!userString) {
+        throw new Error('No se encontraron datos de usuario');
+      }
+      const userData = JSON.parse(userString);
+      const userId = userData?.id;
+      if (!userId) {
+        throw new Error('ID de usuario no disponible');
+      }
+
+      const puntos = 1;
+
+      const response = await axios.put(
+        `${process.env.REACT_APP_API}/api/users/${userId}/score`,
+        { numberToAdd: puntos },
+        {
+          baseURL: process.env.REACT_APP_API_URL,
+          headers: {
+            'Content-Type': 'application/json',
+            ...(localStorage.getItem('token') && {
+              'Authorization': `Bearer ${localStorage.getItem('token')}`
+            })
+          }
+        }
+      );
+
+      try {
+        const updatedScore = (Number(userData.score) || 0) + puntos;
+        const updatedUser = { ...userData, score: updatedScore };
+        localStorage.setItem('user', JSON.stringify(updatedUser));
+        console.log('Puntaje local actualizado a:', updatedScore);
+      } catch (localStorageError) {
+        console.warn('Error al actualizar localStorage:', localStorageError);
+      }
+
+      return response.data;
+    } catch (error) {
+      console.error('Error en enviarPuntaje:', {
+        message: error.message,
+        response: error.response?.data
+      });
+      throw error;
+    }
+  };
 
 const FigureCounter = () => {
   const [input, setInput] = useState('');
@@ -62,6 +110,7 @@ const FigureCounter = () => {
       setFeedback('✅ ¡Muy bien!');
       setScore(score + 1);
       speak('¡Muy bien!');
+      enviarPuntaje()
       setTimeout(nextQuestion, 1000);
     } else {
       setFeedback(`❌ Intenta otra vez. Hay ${animals.length} animalitos.`);

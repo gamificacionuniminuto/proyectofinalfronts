@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './JuegoFiguras.css';
 import confetti from 'canvas-confetti';
+import axios from 'axios';
+const { REACT_APP_API } = process.env;
 
 const figuras = [
   { id: 1, tipo: 'círculo' },
@@ -11,6 +13,52 @@ const figuras = [
   { id: 6, tipo: 'rombo' },
   { id: 7, tipo: 'estrella' },
 ];
+const enviarPuntaje = async () => {
+    try {
+      const userString = localStorage.getItem('user');
+      if (!userString) {
+        throw new Error('No se encontraron datos de usuario');
+      }
+      const userData = JSON.parse(userString);
+      const userId = userData?.id;
+      if (!userId) {
+        throw new Error('ID de usuario no disponible');
+      }
+
+      const puntos = 1;
+
+      const response = await axios.put(
+        `${process.env.REACT_APP_API}/api/users/${userId}/score`,
+        { numberToAdd: puntos },
+        {
+          baseURL: process.env.REACT_APP_API_URL,
+          headers: {
+            'Content-Type': 'application/json',
+            ...(localStorage.getItem('token') && {
+              'Authorization': `Bearer ${localStorage.getItem('token')}`
+            })
+          }
+        }
+      );
+
+      try {
+        const updatedScore = (Number(userData.score) || 0) + puntos;
+        const updatedUser = { ...userData, score: updatedScore };
+        localStorage.setItem('user', JSON.stringify(updatedUser));
+        console.log('Puntaje local actualizado a:', updatedScore);
+      } catch (localStorageError) {
+        console.warn('Error al actualizar localStorage:', localStorageError);
+      }
+
+      return response.data;
+    } catch (error) {
+      console.error('Error en enviarPuntaje:', {
+        message: error.message,
+        response: error.response?.data
+      });
+      throw error;
+    }
+  };
 
 const JuegoFiguras = () => {
   const [figuraActual, setFiguraActual] = useState(figuras[Math.floor(Math.random() * figuras.length)]);
@@ -65,6 +113,7 @@ const JuegoFiguras = () => {
       setMensaje('🎉 ¡Correcto!');
       sonidoCorrecto.current.play();
       setAnimacion('acierto');
+      enviarPuntaje()
       setPuntaje(prev => prev + 1);
 
       const nuevaFigura = figuraCorrecta;
