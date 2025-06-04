@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './singin.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Ilustracion from './Ilustracion.png'
 
 const {REACT_APP_API
 } = process.env;
@@ -42,7 +43,7 @@ const SingIn = () => {
         window.location.reload(true);
 
         // Redirigir al perfil
-        navigate('/perfil');
+        //navigate('/perfil');
       } else {
         setError(data.message || 'Correo electrónico o contraseña incorrectos');
         setTimeout(() => setError(''), 3000);
@@ -98,9 +99,14 @@ const SingIn = () => {
       ¿Olvidaste tu contraseña?{' '}
       <span onClick={() => navigate('/forgotPassword')}>Recuperar</span>
     </div>
+    
+
+    <div className="login-right">
+        {/* Cambia esta imagen por tu fondo infantil ideal */}
+        <img src={Ilustracion} alt="Ilustración" className="login-image" />
+     </div>   
   </div>
 </div>
-
   );
 };
 

@@ -1,22 +1,25 @@
 .counter-container {
 
   text-align: center;
-  padding: 60px;
+  justify-content: baseline;
+  padding: 120px;
   font-family: 'Comic Sans MS', cursive;
   background-color: #96fd519a;
   border-radius: 15px;
   width: 999px;
-  margin: 8rem auto;
+  margin: 10rem auto;
   position: relative;
 }
 
 .animals {
   margin: 50px 0;
-  font-size: 7rem;
+  font-size: 6rem;
+  
 }
 
 .animal {
-  margin: 0 8%;
+  margin: -1%;
+  display: fixed;
 }
 
 input {

@@ -35,7 +35,7 @@ const AnimalCounterDs = () => {
   // Hablar pregunta solo cuando cambia number y no se ha hablado antes para ese número
   useEffect(() => {
     if (!gameEnded && spokenNumberRef.current !== number) {
-      speak('¿Cuántos animalitos hay?');
+      speak('¿Cuenta las figuras?');
       spokenNumberRef.current = number;
     }
   }, [number, gameEnded]);
