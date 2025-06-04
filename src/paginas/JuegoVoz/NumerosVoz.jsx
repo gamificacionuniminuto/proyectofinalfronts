@@ -10,6 +10,8 @@ const NumerosGame = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [round, setRound] = useState(0);
   const [userId, setUserId] = useState(null);
+  const {REACT_APP_API
+} = process.env;
 
   const navigate = useNavigate(); // hook para navegar
 
