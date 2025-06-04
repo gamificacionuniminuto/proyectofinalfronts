@@ -178,6 +178,27 @@ const ClasesData = [
 
     
   },
+{
+  id:17,
+  nombre: "Dias de la semana",
+  descripcion: "Aprende los días y secuencias Temporales.",
+  nivel: "Nivel 2",
+  completado: false,
+  icono: "🗓️",
+  forma: "circulo",
+  color: "#264653",
+},
+{
+id: 18,
+nombre: "Los numeros grandes y su descomposición",
+descripcion: "Comprende los números grandes y su descomposición.",
+nivel: "Nivel 3",
+completado: false,
+icono: "🔢",
+forma: "cuadrado",
+color: "#e76f51", // naranja
+LINK: "/JuegoDescomposicion",
+},
 //{
 //   id:17,
 //   nombre: "Dias de la semana",
