@@ -26,6 +26,11 @@ import NumerosGame from './paginas/JuegoVoz/NumerosVoz.jsx'; // Asegúrate de qu
 import FigureCounter from './paginas/juegos/RelacionNumerosFiguras/RelacionFiguras.jsx'; // Asegúrate de que este componente exista
 import AnimalCounterDs from './paginas/juegos/ContarFormaAsyds/ContarAsyds.jsx'; // Asegúrate de que este componente exista
 import CuentaHasta100 from './paginas/juegos/Contar/Contar100.jsx'; // Asegúrate de que este componente exista
+import JuegoDescomposicion from './paginas/JuegoDescomposicion/JuegoDescomposicion.jsx';
+import JuegoFracciones from './paginas/JuegoFracciones/JuegoFracciones.jsx';
+import JuegoTiempo from './paginas/JuegoTiempo/JuegoTiempo.jsx';
+import JuegoMedidas from './paginas/JuegoMedidas/JuegoMedidas.jsx';
+
 import OddNumbersGame from './paginas/juegos/NumerosImparesPares/Numerosimpares.jsx'; // Asegúrate de que este componente exista
 import EjercicioSuma from './paginas/juegos/EjercisiosMatematicos/sumaBasica.jsx'; // Asegúrate de que este componente exista
 import EjercicioResta from './paginas/juegos/EjercisiosMatematicos/restaBasica.jsx'; // Asegúrate de que este componente exista
@@ -83,6 +88,10 @@ function App() {
           <Route path="/figurecounter" element={<FigureCounter />} />
           <Route path="/animalcounterds" element={<AnimalCounterDs />} />
           <Route path="/cuentahasta100" element={<CuentaHasta100 />} />
+          <Route path="/JuegoDescomposicion" element={<JuegoDescomposicion />} />
+          <Route path="/JuegoFracciones" element={<JuegoFracciones />} />
+          <Route path="/JuegoTiempo" element={<JuegoTiempo />} />
+          <Route path="/JuegoMedidas" element={<JuegoMedidas />} />
           <Route path="/oddnumbersgame" element={<OddNumbersGame />} /> {/* Ruta para el juego de números impares */}
           <Route path="/ejerciciosumasbasicas" element={<EjercicioSuma />} /> {/* Ruta para el ejercicio de suma básica */}
           <Route path="/ejerciciosrestas" element={<EjercicioResta />} /> {/* Ruta para el ejercicio de resta */}

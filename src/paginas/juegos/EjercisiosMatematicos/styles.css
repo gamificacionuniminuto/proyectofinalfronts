@@ -2,9 +2,9 @@
 
 /* Contenedor principal */
 .ejercicio-matematicas {
-  top: 15rem;
+ 
   max-width: 800px;
-  margin: 60px auto;
+  margin: 150px ;
   padding: 40px;
   background-color: #ffffffdd;
   border-radius: 30px;
@@ -15,10 +15,12 @@
 }
 
 /* Título con iconito */
-
+.titulo-ejercicio {
+  font-size: 3rem;
+}
 
 .enunciado {
-  font-size: 3rem;
+  font-size: 4rem;
   color: #5d4037;
   margin-bottom: 80px;
   font-weight: bold;
@@ -165,4 +167,21 @@
   0%   { transform: translateY(0px) rotate(0deg); }
   50%  { transform: translateY(-15px) rotate(5deg); }
   60% { transform: translateY(0px) rotate(6deg); }
+}
+.boton-regresar {
+  background-color: #db6844;
+  width: 20%;
+  border: none;
+  padding: 8px 10px;
+  font-size: 16px;
+  margin-bottom: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #050505;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.boton-regresar:hover {
+  background-color: #b2ebf2;
 }

@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  background-color: #e0f7fa; /* Fondo general */
+  height: 1;
+  width: 1;
+}
+
+.juego-fracciones {
+  text-align: center;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 500px;
+  width: 90%;
+  margin: 100px auto 30px auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.intro-mensaje {
+  font-size: 18px;
+  color: #00796b; /* Verde suave */
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #b2dfdb; /* Verde agua */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h2 {
+  font-size: 28px;
+  color: #0288d1; /* Azul brillante */
+}
+
+.figura {
+  width: 200px;
+  height: 200px;
+  margin: 20px auto;
+  position: relative;
+  background-color: #fff9c4; /* Amarillo suave */
+  border: 3px solid #0288d1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.partes-2 {
+  background: conic-gradient(#ff8a65 0% 50%, transparent 50% 100%);
+}
+
+.partes-3 {
+  background: conic-gradient(#ba68c8 0% 33.33%, transparent 33.33% 100%);
+}
+
+.partes-4 {
+  background: conic-gradient(#4db6ac 0% 25%, transparent 25% 100%);
+}
+
+.opciones button {
+  background-color: #81d4fa; /* Azul claro */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.opciones button:hover {
+  background-color: #4fc3f7;
+}
+
+p {
+  font-size: 20px;
+  color: #6a1b9a; /* Violeta */
+}
+
+button {
+  background-color: #81d4fa;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #4fc3f7;
+}

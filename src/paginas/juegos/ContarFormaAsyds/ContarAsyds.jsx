@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Contar/Contar20.css'; // Asegúrate de que la ruta sea correcta
+import axios from 'axios';
+const { REACT_APP_API } = process.env;
+
 
 const animalList = ['🦊', '🐰', '🦉', '🦝', '🐻', '🦔'];
 
@@ -20,6 +23,8 @@ const getRandomAnimals = (count) => {
   return result;
 };
 
+
+
 const AnimalCounterDs = () => {
   const [number, setNumber] = useState(1);
   const [input, setInput] = useState('');
@@ -35,7 +40,7 @@ const AnimalCounterDs = () => {
   // Hablar pregunta solo cuando cambia number y no se ha hablado antes para ese número
   useEffect(() => {
     if (!gameEnded && spokenNumberRef.current !== number) {
-      speak('¿Cuántos animalitos hay?');
+      speak('¿Cuenta las figuras?');
       spokenNumberRef.current = number;
     }
   }, [number, gameEnded]);
