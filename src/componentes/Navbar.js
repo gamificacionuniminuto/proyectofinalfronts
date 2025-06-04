@@ -1,11 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
+import { useAuth } from "./AuthContext";
 import "./Navbar.css"; 
 
 const Navbar = () => {
   const location = useLocation();
-  const hiddenRoutes = ['/perfil', '/configuracion']
-  // Oculta completamente el navbar en la ruta /perfil
-   if (hiddenRoutes.includes(location.pathname)) return null;;
+  const { user, logout } = useAuth();
+
+  // Eliminamos la condición que oculta el navbar en ciertas rutas
+  // if (hiddenRoutes.includes(location.pathname)) return null;
 
   return (    
     <nav className="navbar">
@@ -108,9 +110,52 @@ const Navbar = () => {
       >
        Juego Unidades de medida
       </Link>
+      
+      {/* Mostrar Iniciar Sesión y Registro solo si NO hay usuario logueado */}
+      {!user && (
+        <>
+          <Link 
+            to="/singin" 
+            className={location.pathname === '/singin' ? 'active' : ''}
+          >
+            Iniciar Sesión
+          </Link>
+          <Link 
+            to="/login" 
+            className={location.pathname === '/login' ? 'active' : ''}
+          >
+            Registro
+          </Link>
+        </>
+      )}
+      
+      {/* Mostrar enlaces protegidos solo si HAY usuario logueado */}
+      {user && (
+        <>
+          <Link 
+            to="/perfil" 
+            className={location.pathname === '/perfil' ? 'active' : ''}
+          >
+            Perfil
+          </Link>
+          <Link 
+            to="/configuracion" 
+            className={location.pathname === '/configuracion' ? 'active' : ''}
+          >
+            Configuración
+          </Link>
+          <button 
+            onClick={logout}
+            className="logout-button"
+          >
+            Cerrar Sesión
+          </button>
+        </>
+      )}
+      
+   
     </nav>
   );
 };
 
-// Corrige el nombre al exportar (de "NAvbar" a "Navbar")
-export default Navbar; 
+export default Navbar;
