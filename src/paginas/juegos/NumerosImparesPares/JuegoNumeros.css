@@ -1,26 +1,3 @@
-.main-content {
-  max-width: none;
-  min-height: 7vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  animation: popIn 1.5s ease-out;
-}
-
-@keyframes popIn {
-  0% {
-    transform: scale(0.5) rotate(-5deg);
-    opacity: 0;
-  }
-  60% {
-    transform: scale(1.05) rotate(3deg);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1) rotate(0deg);
-  }
-}
 
 .game-container {
   align-content: center;
@@ -34,19 +11,9 @@
   margin-top: 15%;
   transform: translateX(4%);
   transform: translateY(-100px);
-  animation: bubbleFadeIn 1.2s ease-in-out;
+
 }
 
-@keyframes bubbleFadeIn {
-  from {
-    transform: scale(0.8) translateY(50px);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1) translateY(0);
-    opacity: 1;
-  }
-}
 
 .number-btn {
   padding: 10px;

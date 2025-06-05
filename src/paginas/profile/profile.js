@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Confetti from 'react-confetti';
+
 import './profile.css';
 
 const Profile = () => {
@@ -168,9 +169,9 @@ const Profile = () => {
               <i className="icon">📚</i>
               <span>Clases</span>
             </button>
-            <button className="action-btn" onClick={() => navigate('/juegos')}>
+            <button className="action-btn" onClick={() => navigate('/Chatbot')}>
               <i className="icon">🎮</i>
-              <span>Juegos</span>
+              <span>Asistente Virtual</span>
             </button>
             <button className="action-btn" onClick={() => navigate('/material')}>
               <i className="icon">📁</i>

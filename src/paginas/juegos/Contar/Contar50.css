@@ -1,7 +1,7 @@
 /* Contenedor principal centrado */
 .contenedor-principal {
   max-width: 1000px;
-  margin: 5rem auto;
+  margin: 10rem auto;
   padding: 30px 20px;
   background: #fffdf5;
   border-radius: 30px;
@@ -115,7 +115,7 @@
 
 /* Mensaje de feedback */
 .mensaje-juego {
-  margin-top: 20px;
+  margin-top: 30px;
   font-size: 1.4rem;
   font-weight: bold;
   color: #5d4037;
@@ -131,7 +131,7 @@
   font-size: 1rem;
   color: #4e342e;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+ 
 }
 
 .boton-volver-pagina:hover {
