@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const ClasesData = [
   {
     id: 1,
@@ -197,7 +199,7 @@ completado: false,
 icono: "🔢",
 forma: "cuadrado",
 color: "#e76f51", // naranja
-LINK: "/JuegoDescomposicion",
+link: "/JuegoDescomposicion",
 },
 //{
 //   id:17,

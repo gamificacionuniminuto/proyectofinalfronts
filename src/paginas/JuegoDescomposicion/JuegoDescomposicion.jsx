@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './JuegoDescomposicion.css';
+import { useNavigate } from 'react-router-dom';
 
 const generarNumero = () => {
   const digitos = Math.floor(Math.random() * 3) + 3; // Entre 3 y 5 dígitos
@@ -20,6 +21,7 @@ const descomponerNumero = (numero) => {
 };
 
 const JuegoDescomposicion = () => {
+  const navigate = useNavigate();
   const [numero, setNumero] = useState(generarNumero());
   const [respuesta, setRespuesta] = useState('');
   const [mensaje, setMensaje] = useState('');
@@ -37,6 +39,9 @@ const JuegoDescomposicion = () => {
     setNumero(generarNumero());
     setRespuesta('');
     setMensaje('');
+  };
+  const regresarAClases = () => {
+    navigate('/clases'); // <-- Redirección al presionar el botón
   };
 
   return (
@@ -56,10 +61,12 @@ const JuegoDescomposicion = () => {
       <div>
         <button onClick={verificarRespuesta}>Verificar</button>
         <button onClick={siguienteNumero}>Siguiente número</button>
+        <button onClick={regresarAClases}>Regresar a clases</button> {/* Botón agregado */}
       </div>
       <p>{mensaje}</p>
     </div>
   );
 };
+
 
 export default JuegoDescomposicion;
