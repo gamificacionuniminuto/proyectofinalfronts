@@ -117,7 +117,7 @@ const CuentaHasta50 = () => {
 
   return (
    <div className="contenedor-principal">
-     1<div style={{ textAlign: 'left', marginBottom: '10px' }}>
+     1<div>
     <button className="boton-volver-pagina" onClick={goBack}>⬅ Regresar</button>
   </div>
   <h1 className="titulo-juego">Cuenta hasta 50 con el conejito 🐰</h1>
@@ -135,10 +135,7 @@ const CuentaHasta50 = () => {
         <div
           key={i}
           className={`numero ${esNumeroActual ? 'activo' : ''}`}
-          style={{
-            gridRowStart: fila + 1,
-            gridColumnStart: col + 1,
-          }}
+     
         >
           {i + 1}
           {esNumeroActual && <span className="conejo">🐰</span>}

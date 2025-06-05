@@ -40,10 +40,10 @@ const SingIn = () => {
         // Guardar token y datos del usuario en localStorage
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.data.user));
+        navigate('/perfil');
         window.location.reload(true);
 
         // Redirigir al perfil
-        //navigate('/perfil');
       } else {
         setError(data.message || 'Correo electrónico o contraseña incorrectos');
         setTimeout(() => setError(''), 3000);

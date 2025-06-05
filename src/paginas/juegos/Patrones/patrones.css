@@ -1,7 +1,7 @@
 .juego-patrones {
   max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 14rem auto;
+  padding: 30px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   background-color: #f9f9f9;
@@ -9,7 +9,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.juego-patrones h1 {
+.juego-patrones  {
   color: #2c3e50;
   margin-bottom: 20px;
 }
@@ -23,10 +23,7 @@
   justify-content: center;
   gap: 10px;
   margin-bottom: 20px;
-}
-
-.niveles button {
-  padding: 10px 20px;
+    padding: 10px 20px;
   border: none;
   border-radius: 8px;
   background-color: #e0e0e0;
@@ -35,20 +32,14 @@
   transition: all 0.3s;
 }
 
-.niveles button.activo {
+
+
+.niveles.activo {
   background-color: #3498db;
   color: white;
 }
 
-.niveles button:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
 
-.niveles button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
 
 .iniciar {
   padding: 12px 25px;
