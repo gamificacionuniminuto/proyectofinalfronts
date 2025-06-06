@@ -1,21 +1,16 @@
-.app-container {
-margin-top: 60rem;
- 
 
-
-} 
 .login-register-container {
-  width: 200%;
+  width: 50%;
 
   max-width: none;
-  margin: 0 auto;
+  margin:  auto;
   padding: 2rem;
   background: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-top: 40%;
-  transform: translate(20rem);
+  margin-top: 10%;
+  transform: translate(-2rem);
   flex-direction: center;
 }
 
