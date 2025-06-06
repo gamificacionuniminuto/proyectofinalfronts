@@ -537,4 +537,44 @@
 
 
   }
+.icono-conejo {
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  animation: saludoConejo 1.5s ease-in-out infinite;
+  transform-origin: bottom center; /* para que rote como si estuviera saludando */
+}
+
+@keyframes saludoConejo {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(15deg); }
+  40% { transform: rotate(-15deg); }
+  60% { transform: rotate(10deg); }
+  80% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.burbuja-texto {
+  position: absolute;
+  top: -30px;
+  left: 90px;
+  background: #fff3b0;
+  padding: 8px 12px;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 14px;
+  color: #333;
+  white-space: nowrap;
+  animation: aparecer 1s ease-out;
+}
+
+/* Opcional: animación de aparición */
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 
