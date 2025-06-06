@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ClasesData from "./clasesData";
 import "./clases.css";
-import { Link } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import ProgresoNivel from "../../componentes/ProgresoNivel.jsx"; // Asegúrate de importar el componente
 
 const Clases = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const niveles = [...new Set(ClasesData.map((clase) => clase.nivel))];
+  const [forceUpdate, setForceUpdate] = useState(false);
+
+  // Forzar actualización cuando la ubicación cambie
+  useEffect(() => {
+    setForceUpdate(prev => !prev);
+  }, [location.key]);
 
   return (
-    <div className="contenedor-niveles">
+    <div className="contenedor-niveles" key={location.key}>
+      <ProgresoNivel userId="id-del-usuario" key={`progreso-${location.key}`} />
+      
       {niveles.map((nivel) => (
         <section key={nivel} className="nivel-section">
           <h2 className="titulo-nivel">{nivel}</h2>
@@ -16,6 +27,7 @@ const Clases = () => {
               <div
                 key={clase.id}
                 className={`tarjeta ${clase.completado ? "completado" : ""}`}
+                onClick={() => navigate(clase.link, { state: { fromClases: true } })}
               >
                 <div className={`forma fondo-${clase.forma}`} />
                 <div className="burbuja-icono" style={{ backgroundColor: clase.color }}>
@@ -23,15 +35,13 @@ const Clases = () => {
                 </div>
                 <h3 className="nombre">{clase.nombre}</h3>
                 <p className="descripcion">{clase.descripcion}</p>
-                <Link to={clase.link} className="prueba">
-                  {/* Aquí puedes poner el texto que quieras que aparezca en el enlace */}
-                  Ver más
-                </Link>
               </div>
             ))}
           </div>
         </section>
       ))}
+      
+      {/* Elementos decorativos */}
       <div className="nube nube1"></div>
       <div className="nube nube2"></div>
       <div className="nube nube3"></div>
@@ -41,7 +51,7 @@ const Clases = () => {
   );
 };
 
-export default Clases;
+export default React.memo(Clases);
 
 
 

@@ -2,8 +2,10 @@
 
 .mission {
   background: linear-gradient(135deg, #fceabb4f, #f8b500);
-  margin: 40px auto;
-  padding: 40px 30px;
+  transform: translate(15rem);
+  width: 100vh;
+  margin: 30px auto;
+  padding: 20px 2dvb;
   border-radius: 25px;
   box-shadow: 0 15px 30px rgba(248, 181, 0, 0.4);
   text-align: center;
@@ -11,15 +13,13 @@
   color: #4a342e;
   position: relative;
   overflow: hidden;
-  transform: translateX(-20px);
+  
 }
 .mission p:hover {
   color: #3674c4;
   transform: scale(1.03);
   transition: all 0.3s ease;
 }
-
-
 
 .mission h1 {
   font-size: 3.5rem;
