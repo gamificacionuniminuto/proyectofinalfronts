@@ -2,6 +2,7 @@
 
 .team-section {
   max-width: 900px;
+  transform: translate(1rem);
   margin: 40px auto;
   padding: 30px 20px;
   background: linear-gradient(135deg, #a8edea, #fed6e3);
