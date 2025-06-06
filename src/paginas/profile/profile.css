@@ -558,8 +558,7 @@
 
 .burbuja-texto {
   position: absolute;
-  top: -30px;
-  left: 90px;
+  transform: translate(5rem);
   background: #fff3b0;
   padding: 8px 12px;
   border-radius: 20px;
@@ -573,8 +572,8 @@
 
 /* Opcional: animación de aparición */
 @keyframes aparecer {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0px); }
 }
 
 
