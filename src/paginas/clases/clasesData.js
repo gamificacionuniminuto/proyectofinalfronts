@@ -52,6 +52,7 @@ const ClasesData = [
     icono: "🎨",
     forma: "estrella",
     color: "#fcbf49", // amarillo
+    link: "/JuegoFiguras", // Asegúrate de que esta ruta esté definida en tu aplicación
 
   },
   // {

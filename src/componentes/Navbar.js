@@ -15,7 +15,7 @@ const Navbar = () => {
         to="/home" 
         className={location.pathname === '/home' ? 'active' : ''}
       >
-        Inicio
+        Quienes Somos
       </Link>
       
       {/* Mostrar Iniciar Sesión y Registro solo si NO hay usuario logueado */}

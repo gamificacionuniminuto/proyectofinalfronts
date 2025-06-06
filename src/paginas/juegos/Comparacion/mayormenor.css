@@ -1,6 +1,6 @@
 .juego-comparacion {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 8rem auto;
   padding: 20px;
   font-family: 'Arial', sans-serif;
   text-align: center;
@@ -9,7 +9,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.juego-comparacion h1 {
+.juego-comparacion  {
   color: #2c3e50;
   margin-bottom: 20px;
 }
@@ -21,7 +21,7 @@
   margin-bottom: 20px;
 }
 
-.controles-nivel button {
+.controles-nivel {
   padding: 8px 16px;
   border: none;
   border-radius: 5px;
@@ -30,12 +30,12 @@
   transition: all 0.3s;
 }
 
-.controles-nivel button.activo {
+.controles-nivel.activo {
   background-color: #3498db;
   color: white;
 }
 
-.controles-nivel button:hover {
+.controles-nivel:hover {
   background-color: #2980b9;
   color: white;
 }
@@ -45,7 +45,7 @@
   font-size: 1.2em;
 }
 
-.puntaje-racha span {
+.puntaje-racha  {
   font-weight: bold;
   color: #27ae60;
 }
@@ -146,7 +146,7 @@
 
 .incorrecto {
   background-color: #f8d7da;
-  color: #721c24;
+  color: #da2134;
 }
 
 .explicacion {
@@ -158,7 +158,7 @@
 .boton-sonido {
   margin-top: 20px;
   padding: 10px 15px;
-  background-color: #9b59b6;
+  background-color: #db687b;
   color: white;
   border: none;
   border-radius: 5px;
@@ -167,7 +167,7 @@
 }
 
 .boton-sonido:hover {
-  background-color: #8e44ad;
+  background-color: #1a1b58;
 }
 
 /* Responsive */
@@ -180,4 +180,28 @@
     flex-direction: column;
     align-items: center;
   }
+}
+.boton-regresar2 {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.boton-regresar2:hover {
+  background-color: #5a6268;
+}
+
+/* Asegúrate de que los controles de nivel tengan buen espaciado */
+.controles-nivel {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  align-items: center;
 }

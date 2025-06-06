@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './../login/LoginRegister.css';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+const { REACT_APP_API } = process.env;
 
 const LoginRegister = () => {
   const [formData, setFormData] = useState({
@@ -90,7 +91,7 @@ const LoginRegister = () => {
     }
     
     try {
-     await axios.post("http://localhost:3001/api/user", formData, {
+     await axios.post(`${process.env.REACT_APP_API}/api/user`, formData, {
         headers: {
           "Content-Type": "application/json",
         },
