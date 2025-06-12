@@ -1,4 +1,5 @@
 import React from 'react';
+import ChatBot from './componentes/ChatBot';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './componentes/Navbar.js'; 
 import Footer from './componentes/Footer.js'; 
@@ -106,6 +107,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
 
         </Routes>
+        <ChatBot />
       </div>
 
       <Footer />
