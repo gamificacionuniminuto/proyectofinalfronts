@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../singin/singin.css';
+import '../login/LoginRegister.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -25,7 +25,7 @@ const SingIn = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3001/api/newpassword', {
+      const response = await fetch(`${process.env.REACT_APP_API}/api/newpassword`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password, clave }),
@@ -40,7 +40,7 @@ const SingIn = () => {
           timer: 2000,
           timerProgressBar: true,  
         }).then(() => {
-          navigate('/login');  
+          navigate('/singin');  
         });
       } else {
         setError(data.message || 'No se pudo actualizar la contraseña. Verifica los campos ingresados.');
@@ -54,7 +54,7 @@ const SingIn = () => {
     };
 
   return (
-    <div className="singin-container">
+    <div className="login-register-container">
       <h2>Actualización de Contraseña</h2>
 
       {error && <div className="error-message">{error}</div>}

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import './ForgotPassword.css'; // Asegúrate de que la ruta sea correcta
+import '../login/LoginRegister.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+const { REACT_APP_API } = process.env;
 
 const SingIn = () => {
   const [email, setEmail] = useState('');  
@@ -23,7 +24,8 @@ const SingIn = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3001/api/olvide-password', {
+      const response = await fetch(`${process.env.REACT_APP_API}/api/olvide-password`, {
+       
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email}),
@@ -52,7 +54,7 @@ const SingIn = () => {
     };
 
   return (
-    <div className="singin-container">
+    <div className="login-register-container">
       <h2>Recupera tu cuenta</h2>
 
       {error && <div className="error-message">{error}</div>}
