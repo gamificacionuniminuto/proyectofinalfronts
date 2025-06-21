@@ -1,24 +1,22 @@
 .counter-container {
-
   text-align: center;
   justify-content: baseline;
-  padding: 120px;
+  padding: 100px;
   font-family: 'Comic Sans MS', cursive;
   background-color: #96fd519a;
   border-radius: 15px;
   width: 999px;
-  margin: 10rem auto;
+  margin: 9rem auto;
   position: relative;
 }
 
 .animals {
-  margin: 50px 0;
-  font-size: 6rem;
-  
+  margin: 40px 0;
+  font-size: 2rem;
 }
 
 .animal {
-  margin: -1%;
+  margin: 1%;
   display: fixed;
 }
 
@@ -27,7 +25,8 @@ input {
   font-size: 1.2rem;
   border-radius: 8px;
   border: 2px solid #2a9d8f;
-  margin-right: 10px;
+  margin-right: -10px;
+  width: 35px;
 }
 
 .button {
@@ -45,6 +44,7 @@ input {
   font-size: 1.2rem;
   font-weight: bold;
 }
+
 .nav-buttons {
   margin-top: 20px;
 }
@@ -57,10 +57,71 @@ input {
   border-radius: 8px;
   cursor: pointer;
   color: white;
+  width: 15% ;
 }
 
 .back-button:hover {
   background-color: #e76f51;
 }
 
+/* ----------- RESPONSIVE DESIGN ----------- */
 
+/* Tablets */
+@media (max-width: 1024px) {
+  .counter-container {
+    width: 90%;
+    padding: 80px 40px;
+    
+  }
+
+  .animals {
+    font-size: 3rem;
+    display: flex;
+    
+
+  }
+
+  input,
+  .button {
+    width: 20%;
+    margin: 10px 0;
+    font-size: 1rem;
+    padding: 15px;
+  }
+
+  .nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .counter-container {
+    width: 100%;
+    padding: 60px 20px;
+    margin: 4rem auto;
+  }
+
+  .animals {
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+  input,
+  .button {
+    font-size: 1rem;
+    padding: 8px;
+    width: 15%;
+  }
+
+  .back-button {
+    width: 10%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
