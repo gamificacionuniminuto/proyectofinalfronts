@@ -64,7 +64,6 @@ const CuentaHasta100 = () => {
   // Función para regresar a la página anterior
   const goBack = () => {
     window.location.href = '/Clases'; // Cambia la ruta según sea necesario
-   
   };
 
   return (
