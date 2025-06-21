@@ -87,8 +87,8 @@
 }
 
 .login-image {
-  width: 200%;
-  max-width: 680px;
+  width: 400%;
+  max-width: 760px;
   height: auto;
   object-fit: cover;
 }
