@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import ChatBot from './componentes/Chatgpt.jsx';
 //import './componentes/
 import Navbar from './componentes/Navbar.js'; 
-import Footer from './componentes/Footer.js'; 
+
 import Home from './paginas/Home/home.js';
 import './paginas/Home/home.css'; 
 import Login from './paginas/login/LoginRegister.js';  
@@ -93,7 +93,6 @@ function App() {
           </Routes>
         </div>
 
-        <Footer />
       </Router>
     </div>
   );

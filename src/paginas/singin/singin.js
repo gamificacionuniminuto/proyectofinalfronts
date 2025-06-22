@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import './singin.css';
+import './singin.css'; // Asegúrate de que se llame correctamente "signin.css"
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Ilustracion from './Ilustracion.png'
+import Ilustracion from './Ilustracion.png';
 
-const {REACT_APP_API
-} = process.env;
+const { REACT_APP_API } = process.env;
 
 const SingIn = () => {
   const [email, setEmail] = useState('');
@@ -17,7 +16,6 @@ const SingIn = () => {
     e.preventDefault();
     setError('');
 
-    // Validaciones básicas
     if (!email || !password) {
       setError('Por favor completa todos los campos');
       return;
@@ -29,21 +27,18 @@ const SingIn = () => {
     }
 
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API}/api/login`, {
+      const response = await axios.post(`${REACT_APP_API}/api/login`, {
         email,
         password,
       });
 
-      const data = response.data; // Axios devuelve la respuesta en 'data'
+      const data = response.data;
 
       if (data.status === 'success') {
-        // Guardar token y datos del usuario en localStorage
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.data.user));
         navigate('/perfil');
         window.location.reload(true);
-
-        // Redirigir al perfil
       } else {
         setError(data.message || 'Correo electrónico o contraseña incorrectos');
         setTimeout(() => setError(''), 3000);
@@ -56,58 +51,55 @@ const SingIn = () => {
   };
 
   return (
-  <div className="signin-page">
-  <div className="signin-container">
-    <h2>Iniciar Sesión</h2>
+    <div className="signin-container">
+      <div className="signin-left">
+        <h2>Iniciar Sesión</h2>
 
-    {error && <div className="signin-error">{error}</div>}
+        {error && <div className="signin-error">{error}</div>}
 
-    <form className="signin-form" onSubmit={handleSubmit}>
-      <div className="signin-form-group">
-        <label className="signin-form-label" htmlFor="email">Correo Electrónico:</label>
-        <input
-          className="signin-form-input"
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+        <form className="signin-form" onSubmit={handleSubmit}>
+          <div className="signin-form-group">
+            <label htmlFor="email">Correo Electrónico:</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="signin-form-group">
+            <label htmlFor="password">Contraseña:</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+
+          <button type="submit" className="signin-button">Iniciar Sesión</button>
+        </form>
+
+        <div className="signin-register-link">
+          ¿Aún no tienes cuenta?{' '}
+          <span onClick={() => navigate('/Login')}>Regístrate</span>
+        </div>
+
+        <div className="signin-forgot-password">
+          ¿Olvidaste tu contraseña?{' '}
+          <span onClick={() => navigate('/forgotPassword')}>Recuperar</span>
+        </div>
       </div>
 
-      <div className="signin-form-group">
-        <label className="signin-form-label" htmlFor="password">Contraseña:</label>
-        <input
-          className="signin-form-input"
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
-
-      <button type="submit" className="signin-button">Iniciar Sesión</button>
-    </form>
-
-    <div className="signin-register-link">
-      ¿Aún no tienes cuenta?{' '}
-      <span onClick={() => navigate('/Login')}>Regístrate</span>
-    </div>
-
-    <div className="signin-forgot-password">
-      ¿Olvidaste tu contraseña?{' '}
-      <span onClick={() => navigate('/forgotPassword')}>Recuperar</span>
-    </div>
-    
-
-    <div className="login-right">
-        {/* Cambia esta imagen por tu fondo infantil ideal */}
+      <div className="signin-right">
         <img src={Ilustracion} alt="Ilustración" className="login-image" />
-     </div>   
-  </div>
-</div>
+      </div>
+    </div>
   );
 };
 
 export default SingIn;
+
