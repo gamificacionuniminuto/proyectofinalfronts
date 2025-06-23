@@ -11,7 +11,15 @@ const SingIn = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
-
+  React.useEffect(() => {
+    document.querySelector('meta[name="viewport"]') ||
+      (() => {
+        const meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, initial-scale=1.0';
+        document.head.appendChild(meta);
+      })();
+  }, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
