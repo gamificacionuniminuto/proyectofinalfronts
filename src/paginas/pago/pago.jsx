@@ -1,73 +1,74 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const PaymentPage = () => {
-  const handlePayment = () => {
-    window.location.href = "https://checkout.wompi.co/p/?public-key=pub_test_1234567890&currency=COP&amount-in-cents=3500000&reference=curso-123&redirect-url=https://tusitio.com/gracias";
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handlePayment = async () => {
+    setIsLoading(true);
+    setError(null);
+    
+    try {
+      // Llamar a tu API para crear la orden (sin enviar body)
+      const response = await fetch('http://localhost:3001/api/crear-orden', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al crear la orden de pago');
+      }
+
+      const data = await response.json();
+      
+      // Verificar que la respuesta contiene una URL
+      if (data.url) {
+        // Abrir la URL de pago en una nueva pestaña
+        window.open(data.url, '_blank');
+      } else {
+        throw new Error('No se recibió una URL de pago válida');
+      }
+    } catch (err) {
+      setError(err.message);
+      console.error('Error en el pago:', err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  // Estilos responsivos básicos usando JavaScript
+  // Estilos responsivos (igual que en tu código original)
   const getResponsiveStyles = () => {
     const screenWidth = window.innerWidth;
 
-    // Ajustes para móviles
     if (screenWidth < 600) {
       return {
-        container: {
-          padding: '1rem',
-        },
-        card: {
-          width: '100%',
-          padding: '1.5rem',
-        },
-        title: {
-          fontSize: '1.5rem',
-        },
-        price: {
-          fontSize: '1.2rem',
-        },
-        button: {
-          fontSize: '1rem',
-          padding: '0.7rem 1.5rem',
-        }
+        container: { padding: '1rem' },
+        card: { width: '100%', padding: '1.5rem' },
+        title: { fontSize: '1.5rem' },
+        price: { fontSize: '1.2rem' },
+        button: { fontSize: '1rem', padding: '0.7rem 1.5rem' },
+        error: { fontSize: '0.9rem' }
       };
     }
 
-    // Ajustes para tablets
     if (screenWidth < 1024) {
       return {
-        card: {
-          width: '80%',
-          padding: '2rem',
-        },
-        title: {
-          fontSize: '2rem',
-        },
-        price: {
-          fontSize: '1.4rem',
-        },
-        button: {
-          fontSize: '1.1rem',
-          padding: '0.9rem 2rem',
-        }
+        card: { width: '80%', padding: '2rem' },
+        title: { fontSize: '2rem' },
+        price: { fontSize: '1.4rem' },
+        button: { fontSize: '1.1rem', padding: '0.9rem 2rem' },
+        error: { fontSize: '1rem' }
       };
     }
 
-    // Por defecto para pantallas grandes
     return {
-      card: {
-        width: '400px',
-        padding: '2rem',
-      },
-      title: {
-        fontSize: '2rem',
-      },
-      price: {
-        fontSize: '1.5rem',
-      },
-      button: {
-        fontSize: '1rem',
-        padding: '0.8rem 2rem',
-      }
+      card: { width: '400px', padding: '2rem' },
+      title: { fontSize: '2rem' },
+      price: { fontSize: '1.5rem' },
+      button: { fontSize: '1rem', padding: '0.8rem 2rem' },
+      error: { fontSize: '1rem' }
     };
   };
 
@@ -76,7 +77,6 @@ const PaymentPage = () => {
   const baseStyles = {
     container: {
       minHeight: '100vh',
-      
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -106,7 +106,17 @@ const PaymentPage = () => {
       borderRadius: '8px',
       cursor: 'pointer',
       transition: 'background 0.3s',
-      ...responsive.button
+      ...responsive.button,
+      ...(isLoading && { opacity: 0.7, cursor: 'not-allowed' })
+    },
+    error: {
+      color: '#d32f2f',
+      marginTop: '1rem',
+      ...responsive.error
+    },
+    loading: {
+      marginTop: '1rem',
+      color: '#1e88e5'
     }
   };
 
@@ -117,12 +127,16 @@ const PaymentPage = () => {
         <p style={baseStyles.price}>$35.000 COP</p>
         <button
           style={baseStyles.button}
-          onMouseOver={(e) => e.target.style.background = '#1565c0'}
-          onMouseOut={(e) => e.target.style.background = '#1e88e5'}
+          onMouseOver={(e) => !isLoading && (e.target.style.background = '#1565c0')}
+          onMouseOut={(e) => !isLoading && (e.target.style.background = '#1e88e5')}
           onClick={handlePayment}
+          disabled={isLoading}
         >
-          Pagar Ahora
+          {isLoading ? 'Procesando...' : 'Pagar Ahora'}
         </button>
+        
+        {isLoading && <p style={baseStyles.loading}>Cargando...</p>}
+        {error && <p style={baseStyles.error}>{error}</p>}
       </div>
     </div>
   );
