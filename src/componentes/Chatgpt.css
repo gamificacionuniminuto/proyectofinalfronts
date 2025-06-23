@@ -1,0 +1,142 @@
+/* Contenedor general */
+.container-mt-5 {
+  max-width: 900px;
+  margin: 10rem auto;
+  transform: translate(2rem);
+  background: linear-gradient(135deg, #a7e9af98, #6bc1ff);
+  border-radius: 20px;
+  box-shadow: 0 30px 20px rgba(0,0,0,0.15);
+  padding: 25px 30px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #054a29;
+}
+
+/* Título */
+h2 {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #fd2617;
+  text-shadow: 1px 1px 2px #fff;
+  margin-bottom: 10px;
+}
+
+/* Texto pequeño */
+.text-muted {
+  text-align: center;
+  font-style: italic;
+  font-weight: 600;
+  color: #276749;
+  margin-bottom: 20px;
+}
+
+/* Input */
+.form-control {
+  font-size: 1.2rem;
+  width: 50rem;
+  padding: 12px 15px;
+  border: 3px solid #38b2ac;
+  border-radius: 15px;
+  transition: border-color 0.3s ease;
+  background-color: #e0fff4;
+  color: #054a29;
+  box-shadow: 0 2px 6px rgba(56, 178, 172, 0.4);
+
+}
+
+.form-control:focus {
+  border-color: #2c7a7b;
+  outline: none;
+  background-color: #c4f1f9;
+  box-shadow: 0 0 10px #2c7a7b;
+}
+
+/* Botón */
+.btn-success {
+  background: linear-gradient(45deg, #ff8a00, #e52e71);
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.25rem;
+  border-radius: 25px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(229, 46, 113, 0.6);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-success:hover:not(:disabled) {
+  background: linear-gradient(45deg, #e52e71, #ff8a00);
+  transform: scale(1.05);
+}
+
+.btn-success:disabled {
+  background: #bbb;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Contenedor de la respuesta */
+.mt-3 {
+  margin-top: 1.5rem;
+}
+
+/* Burbuja chat (suponiendo que BurbujaChat usa esta clase o similar) */
+.burbuja-chat {
+  background: linear-gradient(135deg, #ffddc1, #ffb347);
+  border-radius: 25px 25px 25px 5px;
+  padding: 15px 20px;
+  color: #662e1c;
+  font-size: 1.1rem;
+  box-shadow: 3px 5px 8px rgba(204, 97, 0, 0.4);
+  max-width: 100%;
+  position: relative;
+  animation: aparecerBurbuja 0.5s ease forwards;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  user-select: text;
+}
+
+/* Flecha burbuja */
+.burbuja-chat::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-top-color: #ffb347;
+  border-bottom: 0;
+  margin-left: -15px;
+  margin-bottom: -15px;
+}
+
+/* Animación de aparición */
+@keyframes aparecerBurbuja {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilo para el mensaje de advertencia (HTML en respuesta) */
+.advertencia {
+  color: #d53f8c;
+  font-weight: 700;
+  background-color: #ffe1f0;
+  border: 2px solid #d53f8c;
+  border-radius: 15px;
+  padding: 12px 18px;
+  font-size: 1.1rem;
+  max-width: 100%;
+  margin: 10px 0;
+}
+.nombre-mati {
+  color: #ff6f61; /* color divertido y alegre */
+  font-weight: 900;
+  text-shadow: 1px 1px 2px #fff8f0;
+}

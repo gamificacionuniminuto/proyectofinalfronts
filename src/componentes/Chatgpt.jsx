@@ -1,26 +1,66 @@
-import React, { useState } from 'react';
-import {marked} from 'marked';
-
+import React, { useState, useEffect } from 'react';
+import { marked } from 'marked';
+import BurbujaChat from './BurbujaChat';
+import './Chatgpt.css';
 
 const ChatBot = () => {
   const [input, setInput] = useState('');
   const [respuesta, setRespuesta] = useState('');
   const [cargando, setCargando] = useState(false);
+  const [voces, setVoces] = useState([]);
+
+  // Cargar voces disponibles al inicio
+  useEffect(() => {
+    const cargarVoces = () => {
+      const vocesDisponibles = window.speechSynthesis.getVoices();
+      setVoces(vocesDisponibles);
+    };
+
+    cargarVoces();
+    // Algunos navegadores cargan las voces asincrónicamente
+    window.speechSynthesis.onvoiceschanged = cargarVoces;
+  }, []);
 
   const palabrasClave = [
-    'matemática', 'matemáticas', 'calcular', 'resolver', 
-    'ecuación', 'álgebra', 'geometría', 'trigonometría', 
-    'cálculo', 'estadística', 'probabilidad', 'derivada', 
-    'integral', 'matriz', 'función', 'teorema', 'fórmula', 
-    'gráfico', 'gráfica', 'número', 'ángulo', 'área', 
-    'volumen', 'porcentaje', 'fracción', 'raíz', 'cuadrado', 
-    'cubo', 'logaritmo', 'exponente', 'variable', 'polinomio', 
-    'cuadrático', 'lineal', 'triángulo', 'círculo', 'esfera', 
-    'pitágoras', 'primo', 'factor', 'suma', 'producto', 
-    'resta', 'división', 'cociente', 'residuo', 'dividir', 
+    'matemática', 'matemáticas', 'calcular', 'resolver',
+    'ecuación', 'álgebra', 'geometría', 'trigonometría',
+    'cálculo', 'estadística', 'probabilidad', 'derivada',
+    'integral', 'matriz', 'función', 'teorema', 'fórmula',
+    'gráfico', 'gráfica', 'número', 'ángulo', 'área',
+    'volumen', 'porcentaje', 'fracción', 'raíz', 'cuadrado',
+    'cubo', 'logaritmo', 'exponente', 'variable', 'polinomio',
+    'cuadrático', 'lineal', 'triángulo', 'círculo', 'esfera',
+    'pitágoras', 'primo', 'factor', 'suma', 'producto',
+    'resta', 'división', 'cociente', 'residuo', 'dividir',
     'multiplicar', 'sumar', 'restar', 'más', 'menos', 'por',
     'pi', 'sen', 'cos', 'tan', 'log', 'ln', 'sumo','resto','multiplico', 'divido'
   ];
+
+  const hablarTexto = (texto) => {
+    if (!window.speechSynthesis) return;
+
+    window.speechSynthesis.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(texto);
+
+    // Buscar una voz infantil o femenina en español
+    const vozNiño = voces.find(voz =>
+      (voz.lang.startsWith('es') &&
+        (voz.name.toLowerCase().includes('child') ||
+         voz.name.toLowerCase().includes('niño') ||
+         voz.name.toLowerCase().includes('male') ||
+         voz.name.toLowerCase().includes('young')))
+    ) || voces.find(voz => voz.lang.startsWith('es')) || voces[0];
+
+    if (vozNiño) {
+      utterance.voice = vozNiño;
+    }
+
+    utterance.rate = 0.9;   // velocidad un poco más lenta
+    utterance.pitch = 1.3;  // tono más agudo para voz infantil
+
+    window.speechSynthesis.speak(utterance);
+  };
 
   const enviarMensaje = async () => {
     if (!input) {
@@ -28,9 +68,8 @@ const ChatBot = () => {
       return;
     }
 
-    // Verificar si la pregunta es de matemáticas
-    const esPreguntaMatematica = palabrasClave.some(palabra => 
-      input.toLowerCase().includes(palabra)) || 
+    const esPreguntaMatematica = palabrasClave.some(palabra =>
+      input.toLowerCase().includes(palabra)) ||
       /\d+[\+\-\*\/\^]\d+/.test(input);
 
     if (!esPreguntaMatematica) {
@@ -54,12 +93,12 @@ const ChatBot = () => {
           },
           body: JSON.stringify({
             model: 'deepseek/deepseek-r1-0528-qwen3-8b:free',
-            messages: [{ 
-              role: 'system', 
+            messages: [{
+              role: 'system',
               content: 'Eres un asistente experto en matemáticas. Solo responde preguntas relacionadas con matemáticas. Si te preguntan sobre otros temas, responde que solo puedes ayudar con preguntas matemáticas.'
-            }, { 
-              role: 'user', 
-              content: input 
+            }, {
+              role: 'user',
+              content: input
             }],
           }),
         }
@@ -68,6 +107,10 @@ const ChatBot = () => {
       const data = await response.json();
       const textoMarkdown = data.choices?.[0]?.message?.content || 'No se recibió respuesta.';
       setRespuesta(marked(textoMarkdown));
+
+      // Leer en voz alta texto plano sin markdown
+      hablarTexto(textoMarkdown.replace(/[#_*`]/g, ''));
+
     } catch (error) {
       setRespuesta('Error: ' + error.message);
     } finally {
@@ -76,10 +119,12 @@ const ChatBot = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <h2>ChatBot de Matemáticas</h2>
-      <p className="text-muted">Solo responde preguntas relacionadas con matemáticas</p>
-      
+    <div className="container-mt-5">
+      <h2>¡Hola! Soy <span className="nombre-mati">Mati</span>, tu ayudante matemático 🐰✨</h2>
+      <p className="text-muted">
+        ¡Pregúntame cualquier cosa sobre matemáticas y juntos lo resolveremos! 📚💡
+      </p>
+
       <div className="form-group">
         <input
           type="text"
@@ -90,20 +135,20 @@ const ChatBot = () => {
           disabled={cargando}
         />
       </div>
-      
-      <button 
+
+      <button
         className="btn btn-success mt-2"
         onClick={enviarMensaje}
         disabled={cargando}
       >
         {cargando ? 'Procesando...' : 'Preguntar'}
       </button>
-      
-      <div 
-        id="response"
-        className="mt-3 p-3 border rounded"
-        dangerouslySetInnerHTML={{ __html: respuesta }}
-      />
+
+      {respuesta && (
+        <div className="mt-3">
+          <BurbujaChat mensaje={respuesta} />
+        </div>
+      )}
     </div>
   );
 };

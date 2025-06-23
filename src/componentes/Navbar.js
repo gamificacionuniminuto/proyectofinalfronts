@@ -50,10 +50,16 @@ const Navbar = () => {
             className={location.pathname === '/configuracion' ? 'active' : ''}
           >
             Configuración
+
           </Link>
-          <button 
-            onClick={logout}
-            className="logout-button"
+          <Link
+            to="/pago"
+            className={location.pathname === '/pago' ? 'active' : ''}
+          >
+            Pagar curso
+
+          </Link>
+          <button onClick={logout} className="logout-button"
           >
             Cerrar Sesión
           </button>
