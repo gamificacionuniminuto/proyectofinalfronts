@@ -57,7 +57,12 @@ const Navbar = () => {
             className={location.pathname === '/pago' ? 'active' : ''}
           >
             Pagar curso
-
+          </Link>
+          <Link
+            to="/formulario"
+            className={location.pathname === '/formulario' ? 'active' : ''}
+          >
+            Formulario
           </Link>
           <button onClick={logout} className="logout-button"
           >

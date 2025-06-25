@@ -17,6 +17,7 @@ import ProtectedRoute from './componentes/ProtectedRoute.js';
 import Ejercicio1 from './paginas/primero/Ejercicio1.jsx';
 import Clases from './paginas/clases/clases.jsx'; 
 import Pago from './paginas/pago/pago.jsx'; // Asegúrate de que este componente exista
+import Formulario from './paginas/pago/formulario.jsx'; // Asegúrate de que este componente exista
 
 import JuegoNumeros from './paginas/juegos/NumerosImparesPares/JuegoNumeros.jsx'
 // import EjercicioMatematicas from './paginas/EjercisiosMatematicos/EjercicioMatematicasSuma.jsx'
@@ -59,6 +60,8 @@ function App() {
             <Route path="/perfil" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
             <Route path="/Chatbot" element={<ProtectedRoute><ChatBot/></ProtectedRoute>} />
             <Route path="/pago" element={<Pago />} /> {/* Asegúrate de que este componente exista */}
+            <Route path="/formulario" element={<Formulario />} /> {/* Asegúrate de que este componente exista */}
+            
             
             <Route path="/configuracion" element={<ProtectedRoute><Configuracion /></ProtectedRoute>} />
             <Route path="/newPassword" element={<NewPassword />} />
