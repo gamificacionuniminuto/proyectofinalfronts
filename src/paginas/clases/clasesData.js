@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { link } from "react-router-dom";
 
 const ClasesData = [
   {
@@ -321,6 +321,7 @@ color: "#fcbf49", // amarillo
   icono: "📘",
   forma: "nube",
   color: "#2a9d8f", // azul claro
+  link: "/ProblemasSimples",
 },
 {
 id: 29,

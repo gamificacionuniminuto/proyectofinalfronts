@@ -13,7 +13,7 @@ const obtenerFraccionAleatoria = () => {
 };
 
 const JuegoFracciones = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [fraccionActual, setFraccionActual] = useState(obtenerFraccionAleatoria());
   const [respuesta, setRespuesta] = useState('');
   const [mensaje, setMensaje] = useState('');
@@ -31,9 +31,11 @@ const JuegoFracciones = () => {
     setRespuesta('');
     setMensaje('');
   };
-const regresarAClases = () => {
-    navigate('/clases'); // <-- Redirección al presionar el botón
-    
+
+  const regresarAClases = () => {
+    navigate('/clases');
+  };
+
   return (
     <div className="contenedor-fraccion">
       <h2>¡Identifica la fracción!</h2>
@@ -55,6 +57,9 @@ const regresarAClases = () => {
       </div>
       <button className="nueva" onClick={nuevaFraccion}>
         Nueva figura
+      </button>
+      <button className="regresar" onClick={regresarAClases}>
+        Regresar a clases
       </button>
       <p className="mensaje">{mensaje}</p>
     </div>

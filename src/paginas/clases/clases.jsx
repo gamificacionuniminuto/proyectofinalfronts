@@ -23,6 +23,7 @@ const Clases = () => {
                 </div>
                 <h3 className="nombre">{clase.nombre}</h3>
                 <p className="descripcion">{clase.descripcion}</p>
+                console.log(clase); // TEMPORAL para depurar
                 <Link to={clase.link} className="prueba">
                   {/* Aquí puedes poner el texto que quieras que aparezca en el enlace */}
                   Ver más

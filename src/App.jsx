@@ -31,7 +31,7 @@ import JuegoDescomposicion from './paginas/JuegoDescomposicion/JuegoDescomposici
 import JuegoFracciones from './paginas/JuegoFracciones/JuegoFracciones.jsx';
 import JuegoTiempo from './paginas/JuegoTiempo/JuegoTiempo.jsx';
 //import JuegoMedidas from './paginas/JuegoMedidas/JuegoMedidas.jsx';
-
+import ProblemasSimples from './paginas/juegos/ProblemasSimples/ProblemasSimples.jsx';
 import OddNumbersGame from './paginas/juegos/NumerosImparesPares/Numerosimpares.jsx'; // Asegúrate de que este componente exista
 import EjercicioSuma from './paginas/juegos/EjercisiosMatematicos/sumaBasica.jsx'; // Asegúrate de que este componente exista
 import EjercicioResta from './paginas/juegos/EjercisiosMatematicos/restaBasica.jsx'; // Asegúrate de que este componente exista
@@ -98,7 +98,7 @@ function App() {
           <Route path="/ejerciciosrestas" element={<EjercicioResta />} /> {/* Ruta para el ejercicio de resta */}
           <Route path="/juegocomparacion" element={<JuegoComparacion />} /> {/* Ruta para el juego de comparación */}
           <Route path="/juegopatrones" element={<JuegoPatrones />} /> {/* Ruta para el juego de patrones */}
-          
+          <Route path="/ProblemasSimples" element={<ProblemasSimples />}/>
 
        
 
