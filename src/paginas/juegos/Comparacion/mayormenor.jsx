@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './mayormenor.css';
+import { useNavigate } from 'react-router-dom';
 
 const JuegoComparacion = () => {
   // Estados del juego
@@ -10,6 +11,7 @@ const JuegoComparacion = () => {
   const [mostrarFeedback, setMostrarFeedback] = useState(false);
   const [intentos, setIntentos] = useState(0);
   const [aciertosConsecutivos, setAciertosConsecutivos] = useState(0);
+    const navigate = useNavigate();
 
   // Generar un nuevo ejercicio
   function generarEjercicio(nivelActual) {
@@ -172,6 +174,12 @@ const JuegoComparacion = () => {
         }}
       >
         🔊 Repetir Pregunta
+      </button>
+         <button 
+        className="boton-regresar2"
+        onClick={() => navigate('/clases')}
+      >
+        ← Regresar a Clases
       </button>
     </div>
   );

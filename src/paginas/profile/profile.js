@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Confetti from 'react-confetti';
+import Conejo from './conejo-icon.svg';
+
+
+
 import './profile.css';
 
 const Profile = () => {
@@ -168,10 +172,13 @@ const Profile = () => {
               <i className="icon">📚</i>
               <span>Clases</span>
             </button>
-            <button className="action-btn" onClick={() => navigate('/juegos')}>
-              <i className="icon">🎮</i>
-              <span>Juegos</span>
+            <button className="action-btn" onClick={() => navigate('/Chatbot')}>
+              <img src={Conejo} alt="Icono de conejo" className="icono-conejo" />
+                <div class="burbuja-texto">¡Soy Mati!</div>
+             <span>Asistente Virtual</span>
             </button>
+            
+
             <button className="action-btn" onClick={() => navigate('/material')}>
               <i className="icon">📁</i>
               <span>Material</span>
@@ -188,7 +195,9 @@ const Profile = () => {
           <div className="bubble" style={{ top: '20%', left: '50%', width: '120px', height: '120px' }} />
 
       </div>
+      
     </div>
+    
    </div> 
   );
 };

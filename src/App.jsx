@@ -1,8 +1,10 @@
 import React from 'react';
 import ChatBot from './componentes/ChatBot';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import ChatBot from './componentes/Chatgpt.jsx';
+//import './componentes/
 import Navbar from './componentes/Navbar.js'; 
-import Footer from './componentes/Footer.js'; 
+
 import Home from './paginas/Home/home.js';
 import './paginas/Home/home.css'; 
 import Login from './paginas/login/LoginRegister.js';  
@@ -15,7 +17,8 @@ import NotFound from './NotFound.js';
 import ProtectedRoute from './componentes/ProtectedRoute.js';
 import Ejercicio1 from './paginas/primero/Ejercicio1.jsx';
 import Clases from './paginas/clases/clases.jsx'; 
-import ProgresoNivel from './componentes/ProgresoNivel.jsx';
+import Pago from './paginas/pago/pago.jsx'; // Asegúrate de que este componente exista
+
 import JuegoNumeros from './paginas/juegos/NumerosImparesPares/JuegoNumeros.jsx'
 // import EjercicioMatematicas from './paginas/EjercisiosMatematicos/EjercicioMatematicasSuma.jsx'
 import JuegoFiguras from './paginas/JuegoFiguras/JuegoFiguras.jsx'
@@ -37,29 +40,20 @@ import EjercicioSuma from './paginas/juegos/EjercisiosMatematicos/sumaBasica.jsx
 import EjercicioResta from './paginas/juegos/EjercisiosMatematicos/restaBasica.jsx'; // Asegúrate de que este componente exista
 import JuegoComparacion from './paginas/juegos/Comparacion/mayormenor.jsx'; // Asegúrate de que este componente exista
 import JuegoPatrones from './paginas/juegos/Patrones/patrones.jsx'; // Asegúrate de que este componente exista
-function RutaConProgreso() {
-  const location = useLocation();
-  const rutasConProgreso = ['/clases'];
 
-  const mostrarProgreso = rutasConProgreso.includes(location.pathname);
 
-  return (
-    <>
-      {mostrarProgreso && (
-        <div style={{ padding: '20px' }}>
-          <ProgresoNivel userId={"id-del-usuario"} />
-        </div>
-      )}
-    </>
-  );
-}
+
+
 
 function App() {
   return (
+    <div className="App">
+   
     
-    <Router>
-      <Navbar />
+      <Router>
+        <Navbar />
 
+<<<<<<< HEAD
       {/* Componente que controla cuándo mostrar el progreso */}
       <RutaConProgreso />
 
@@ -101,18 +95,64 @@ function App() {
           <Route path="/ProblemasSimples" element={<ProblemasSimples />}/>
 
        
+=======
+        {/* Componente que controla cuándo mostrar el progreso */}
+>>>>>>> 10eafb2de6d8c0de6f44b2b1bc75fcbdd7cbee8e
 
 
-          {/* Rutas protegidas */}
-          <Route path="*" element={<NotFound />} />
+        <div className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/singin" element={<Singin />} />
+            <Route path="/perfil" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+            <Route path="/Chatbot" element={<ProtectedRoute><ChatBot/></ProtectedRoute>} />
+            <Route path="/pago" element={<Pago />} /> {/* Asegúrate de que este componente exista */}
+            
+            <Route path="/configuracion" element={<ProtectedRoute><Configuracion /></ProtectedRoute>} />
+            <Route path="/newPassword" element={<NewPassword />} />
+            <Route path="/forgotPassword" element={<ForgotPassword />} />
+            <Route path="/Ejercicio1" element={<Ejercicio1 />} />
+            <Route path="/clases" element={<Clases />} /> {/* Incluí la ruta para Clases */}
+            <Route path="/juegonumeros" element={<JuegoNumeros/>} />
+            {/* <Route path="/resta" element={<EjercicioMatematicas/>} /> */}
+            <Route path="/juegosnumeros" element={<JuegoNumeros />} />
+            <Route path="/numerosvoz" element={<NumerosGame />} />
+            <Route path="/JuegoFiguras" element={<JuegoFiguras/>} />
+            <Route path="/juegosNumeros" element={<JuegoNumeros />} />
+            {/* //<Route path="/numerosVoz" element={<NumerosGame />} /> */}
+            {/* Asegúrate de que la ruta sea correcta para el componente de juego de números */}
+            <Route path="/contar50" element={<Contar50/>} />
+            {/* <Route path='/ejerciciosmatematicassuma' element={<EjercicioMatematicas />} /> */}
+            <Route path="/contar20" element={<Contar20 />} /> 
+            <Route path="/figurecounter" element={<FigureCounter />} />
+            <Route path="/animalcounterds" element={<AnimalCounterDs />} />
+            <Route path="/cuentahasta100" element={<CuentaHasta100 />} />
+            <Route path="/oddnumbersgame" element={<OddNumbersGame />} /> {/* Ruta para el juego de números impares */}
+            <Route path="/ejerciciosumasbasicas" element={<EjercicioSuma />} /> {/* Ruta para el ejercicio de suma básica */}
+            <Route path="/ejerciciosrestas" element={<EjercicioResta />} /> {/* Ruta para el ejercicio de resta */}
+            <Route path="/juegocomparacion" element={<JuegoComparacion />} /> {/* Ruta para el juego de comparación */}
+            <Route path="/juegopatrones" element={<JuegoPatrones />} /> {/* Ruta para el juego de patrones */}
+            
 
+<<<<<<< HEAD
         </Routes>
         <ChatBot />
       </div>
+=======
+         
+>>>>>>> 10eafb2de6d8c0de6f44b2b1bc75fcbdd7cbee8e
 
-      <Footer />
-    </Router>
-    
+
+            {/* Rutas protegidas */}
+            <Route path="*" element={<NotFound />} />
+
+          </Routes>
+        </div>
+
+      </Router>
+    </div>
   );
 }
 

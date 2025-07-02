@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './patrones.css';
+import { useNavigate } from 'react-router-dom';
 
 const JuegoPatrones = () => {
   // Estados del juego
@@ -13,6 +14,7 @@ const JuegoPatrones = () => {
   const [racha, setRacha] = useState(0);
   const [tiempoRestante, setTiempoRestante] = useState(30);
   const [juegoActivo, setJuegoActivo] = useState(false);
+    const navigate = useNavigate();
 
   // Tipos de patrones
   const tiposPatron = [
@@ -190,6 +192,12 @@ const JuegoPatrones = () => {
 
   return (
     <div className="juego-patrones">
+      <button 
+        className="boton-regresar"
+        onClick={() => navigate('/clases')}
+      >
+        ← Regresar
+      </button>
       <h1>Identifica el Patrón Numérico</h1>
       
       <div className="controles">
@@ -232,6 +240,7 @@ const JuegoPatrones = () => {
       
       {juegoActivo && (
         <div className="juego-contenido">
+          
           <div className="serie">
             {serie.map((num, index) => (
               <span key={index} className="numero">
@@ -252,6 +261,7 @@ const JuegoPatrones = () => {
                 {opcion}
               </button>
             ))}
+   
           </div>
         </div>
       )}

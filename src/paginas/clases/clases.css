@@ -1,17 +1,24 @@
+/* BASE */
+* {
+  box-sizing: border-box;
+}
+
+
+
+/* CONTENEDOR PRINCIPAL */
 .contenedor-niveles {
-  margin: auto;
-  padding: 50px 20px;
+  margin: 10rem auto;
+  padding: 20px 110px;
   max-width: 1200px;
   background: #ffffffaa;
   border-radius: 60px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow: hidden;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
-/* Nubes decorativas funcionales */
-
+/* NUBES DECORATIVAS */
 .contenedor-niveles::before,
 .contenedor-niveles::after {
   content: "";
@@ -19,32 +26,16 @@
   background-image: url("./nube.png");
   background-size: contain;
   background-repeat: no-repeat;
-  width: 100px;
-  height: 60px;
+  width: 200px;
+  height: 70px;
   opacity: 1;
   z-index: 1;
-  top: 50px;
- 
+  top: 90px;
 }
-
-@keyframes moverNube {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-.contenedor-niveles::before {
-  top: 20px;
-  left: 20px;
-}
-
-.contenedor-niveles::after {
-  top: 40px;
-  right: 20px;
-}
-
 
 .nube {
   position: absolute;
-  background-image: url('./nube.png'); /* tu nube */
+  background-image: url('./nube.png');
   background-size: contain;
   background-repeat: no-repeat;
   width: 120px;
@@ -57,55 +48,18 @@
   animation-fill-mode: forwards;
 }
 
-/* Animación para moverse de izquierda a derecha */
 @keyframes flotarNube {
-  0% {
-    transform: translateX(-200px);
-  }
-  100% {
-    transform: translateX(120vw);
-  }
+  0% { transform: translateX(-200px); }
+  100% { transform: translateX(120vw); }
 }
 
-/* Variaciones para cada nube */
-.nube1 {
-  top: 40px;
-  animation-duration: 60s;
-}
+.nube1 { top: 40px; animation-duration: 60s; }
+.nube2 { top: 100px; left: -150px; width: 90px; height: 60px; animation-duration: 45s; }
+.nube3 { top: 160px; left: -300px; width: 130px; height: 75px; animation-duration: 80s; }
+.nube4 { top: 220px; left: -100px; animation-duration: 55s; }
+.nube5 { top: 80px; left: -250px; width: 100px; height: 65px; animation-duration: 50s; }
 
-.nube2 {
-  top: 100px;
-  left: -150px;
-  width: 90px;
-  height: 60px;
-  animation-duration: 45s;
-}
-
-.nube3 {
-  top: 160px;
-  left: -300px;
-  width: 130px;
-  height: 75px;
-  animation-duration: 80s;
-}
-
-.nube4 {
-  top: 220px;
-  left: -100px;
-  animation-duration: 55s;
-}
-
-.nube5 {
-  top: 80px;
-  left: -250px;
-  width: 100px;
-  height: 65px;
-  animation-duration: 50s;
-}
-
-
-
-/* Título centrado */
+/* TÍTULO */
 .titulo-nivel {
   font-size: 3rem;
   background-color: #ffb703;
@@ -116,12 +70,11 @@
   display: inline-block;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
   margin-bottom: 40px;
-  text-transform: uppercase;
   z-index: 2;
   position: relative;
 }
 
-/* Tarjetas */
+/* TARJETAS */
 .tarjetas {
   display: flex;
   flex-wrap: wrap;
@@ -139,16 +92,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  transition: transform 0.3s ease;
+  padding: 8px;
   cursor: pointer;
 }
 
-.tarjeta:hover {
-  transform: scale(1.05);
-}
-
-/* Ícono con efecto de flotación */
+/* ICONO FLOTANTE */
 .burbuja-icono {
   width: 80px;
   height: 80px;
@@ -164,7 +112,12 @@
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Nombre y descripción */
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* TEXTOS */
 .nombre {
   font-size: 1.4rem;
   color: #0077b6;
@@ -177,11 +130,87 @@
   color: #555;
 }
 
-/* Animación divertida */
-@keyframes flotar {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+/* ------------------ RESPONSIVE ------------------ */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 1024px) {
+  .contenedor-niveles {
+    margin: 6rem auto;
+    padding: 30px 40px;
+    border-radius: 50px;
+  }
+
+  .titulo-nivel {
+    font-size: 2.5rem;
+  }
+
+  .tarjeta {
+    width: 200px;
+    height: 240px;
+  }
 }
+
+/* Pantallas pequeñas y celulares */
+@media (max-width: 768px) {
+  .contenedor-niveles {
+    padding: 25px 20px;
+    margin: 4rem 1rem;
+    border-radius: 40px;
+  }
+
+  .titulo-nivel {
+    font-size: 2rem;
+    padding: 10px 20px;
+  }
+
+  .tarjeta {
+    width: 180px;
+    height: 220px;
+  }
+
+  .burbuja-icono {
+    width: 70px;
+    height: 70px;
+    font-size: 2.5rem;
+  }
+
+  .nombre {
+    font-size: 1.2rem;
+  }
+
+  .descripcion {
+    font-size: 0.95rem;
+  }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+  .titulo-nivel {
+    font-size: 1.6rem;
+    padding: 8px 15px;
+  }
+
+  .tarjeta {
+    width: 160px;
+    height: 200px;
+  }
+
+  .burbuja-icono {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+
+  .nombre {
+    font-size: 1rem;
+  }
+
+  .descripcion {
+    font-size: 0.9rem;
+  }
+}
+
+
 
 
 

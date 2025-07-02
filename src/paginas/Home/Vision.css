@@ -2,7 +2,9 @@
 
 .vision {
   background: linear-gradient(135deg, #a8ede977, #fed6e3);
+  width: 100vh;
   margin: 40px auto;
+  transform: translate(1rem);
   padding: 40px 30px;
   border-radius: 25px;
   box-shadow: 0 15px 30px rgba(255, 182, 193, 0.5);

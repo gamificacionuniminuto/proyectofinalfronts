@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './configuracion.css';
 import avatar1 from '.././configuracion/avatares/avartar1.png'; 
@@ -8,11 +8,11 @@ import avatar5 from '../configuracion/avatares/avatar5.png';
 import avatar6 from '../configuracion/avatares/avatar6.png';
 import avatar8 from '../configuracion/avatares/avatar8.png';
 
-
 const Configuracion = () => {
-    // Lista de avatares locales
-    const avatares = [avatar1, avatar3, avatar4, avatar5, avatar6,  avatar8]; // Reemplaza con tus avatares locales
+    const avatares = [avatar1, avatar3, avatar4, avatar5, avatar6, avatar8];
     const navigate = useNavigate();
+    
+    // Estado inicial con valores por defecto
     const [formData, setFormData] = useState({
         username: '',
         tutorName: '',
@@ -20,7 +20,7 @@ const Configuracion = () => {
         confirmEmail: '',
         password: '',
         confirmPassword: '',
-        selectedAvatar: avatares[0] // Avatar por defecto
+        selectedAvatar: avatares[0]
     });
     
     const [errors, setErrors] = useState({
@@ -30,11 +30,39 @@ const Configuracion = () => {
         passwordValid: true
     });
     
-
-  
     const [showSuccessAlert, setShowSuccessAlert] = useState(false);
     const [showErrorAlert, setShowErrorAlert] = useState(false);
     const [currentAvatarIndex, setCurrentAvatarIndex] = useState(0);
+    const [editMode, setEditMode] = useState(false);
+    const [originalData, setOriginalData] = useState(null);
+
+    // Cargar datos del localStorage al montar el componente
+    useEffect(() => {
+        const savedUserData = localStorage.getItem('user');
+        if (savedUserData) {
+            const userData = JSON.parse(savedUserData);
+            
+            // Encontrar el índice del avatar guardado
+            const savedAvatarIndex = avatares.findIndex(
+                avatar => avatar === userData.selectedAvatar
+            );
+            
+            // Actualizar el estado con los datos del localStorage
+            const newFormData = {
+                username: userData.name || '',
+                tutorName: userData.parent || '',
+                email: userData.email || '',
+                confirmEmail: userData.email || '',
+                password: userData.password || '',
+                confirmPassword: userData.password || '',
+                selectedAvatar: userData.selectedAvatar || avatares[0]
+            };
+            
+            setFormData(newFormData);
+            setOriginalData(newFormData);
+            setCurrentAvatarIndex(savedAvatarIndex !== -1 ? savedAvatarIndex : 0);
+        }
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -61,35 +89,64 @@ const Configuracion = () => {
         e.preventDefault();
         
         if (validateForm()) {
-            // Aquí iría la lógica para guardar los cambios
+            // Guardar en localStorage
+            const dataToSave = {
+                name: formData.username,
+                parent: formData.tutorName,
+                email: formData.email,
+                password: formData.password,
+                selectedAvatar: formData.selectedAvatar
+            };
+            
+            localStorage.setItem('user', JSON.stringify(dataToSave));
+            setOriginalData(formData);
             setShowSuccessAlert(true);
             setTimeout(() => setShowSuccessAlert(false), 3000);
+            setEditMode(false);
         } else {
             setShowErrorAlert(true);
             setTimeout(() => setShowErrorAlert(false), 3000);
         }
     };
 
+    const toggleEditMode = () => {
+        if (editMode) {
+            // Si estamos cancelando la edición, restaurar los valores originales
+            setFormData(originalData);
+            setErrors({
+                emailMatch: false,
+                passwordMatch: false,
+                emailValid: true,
+                passwordValid: true
+            });
+        }
+        setEditMode(!editMode);
+    };
+
     const nextAvatar = () => {
-        setCurrentAvatarIndex((prevIndex) => 
-            prevIndex === avatares.length - 1 ? 0 : prevIndex + 1
-        );
+        const newIndex = currentAvatarIndex === avatares.length - 1 ? 0 : currentAvatarIndex + 1;
+        setCurrentAvatarIndex(newIndex);
         setFormData(prev => ({
             ...prev,
-            selectedAvatar: avatares[currentAvatarIndex === avatares.length - 1 ? 0 : currentAvatarIndex + 1]
+            selectedAvatar: avatares[newIndex]
         }));
     };
 
     const prevAvatar = () => {
-        setCurrentAvatarIndex((prevIndex) => 
-            prevIndex === 0 ? avatares.length - 1 : prevIndex - 1
-        );
+        const newIndex = currentAvatarIndex === 0 ? avatares.length - 1 : currentAvatarIndex - 1;
+        setCurrentAvatarIndex(newIndex);
         setFormData(prev => ({
             ...prev,
-            selectedAvatar: avatares[currentAvatarIndex === 0 ? avatares.length - 1 : currentAvatarIndex - 1]
+            selectedAvatar: avatares[newIndex]
         }));
     };
-   
+
+    const handleCloseAccount = () => {
+        if(window.confirm('¿Estás seguro que deseas cerrar tu cuenta? Esta acción no se puede deshacer.')) {
+            localStorage.removeItem('user');
+            navigate('/login');
+        }
+    };
 
     return (
         <div className="configuracion-container">
@@ -153,6 +210,8 @@ const Configuracion = () => {
                         value={formData.username}
                         onChange={handleChange}
                         className="form-input" 
+                        placeholder="Ingresa tu nombre de usuario"
+                        disabled={!editMode}
                     />
                 </div>
                 
@@ -165,6 +224,8 @@ const Configuracion = () => {
                         value={formData.tutorName}
                         onChange={handleChange}
                         className="form-input" 
+                        placeholder="Ingresa el nombre del tutor"
+                        disabled={!editMode}
                     />
                 </div>
                 
@@ -177,6 +238,8 @@ const Configuracion = () => {
                         value={formData.email}
                         onChange={handleChange}
                         className={`form-input ${!errors.emailValid ? 'input-error' : ''}`} 
+                        placeholder="ejemplo@correo.com"
+                        disabled={!editMode}
                     />
                     {!errors.emailValid && (
                         <p className="error-message">
@@ -194,6 +257,8 @@ const Configuracion = () => {
                         value={formData.confirmEmail}
                         onChange={handleChange}
                         className={`form-input ${errors.emailMatch ? 'input-error' : ''}`} 
+                        placeholder="Confirma tu correo electrónico"
+                        disabled={!editMode}
                     />
                     {errors.emailMatch && (
                         <p className="error-message">
@@ -202,67 +267,48 @@ const Configuracion = () => {
                     )}
                 </div>
                 
-                <div className="form-group">
-                    <label htmlFor="password" className="form-label">Contraseña:</label>
-                    <input 
-                        type="password" 
-                        id="password" 
-                        name="password" 
-                        value={formData.password}
-                        onChange={handleChange}
-                        className={`form-input ${!errors.passwordValid ? 'input-error' : ''}`} 
-                    />
-                    {!errors.passwordValid && (
-                        <p className="error-message">
-                            La contraseña debe tener al menos 8 caracteres
-                        </p>
+              
+                <div className="form-actions">
+                    {!editMode ? (
+                        <button 
+                            type="button"
+                            onClick={toggleEditMode}
+                            className="submit-button"
+                        >
+                            Editar información
+                        </button>
+                    ) : (
+                        <>
+                            <button type="submit" className="submit-button">
+                                Guardar cambios
+                            </button>
+                            <button 
+                                type="button"
+                                onClick={toggleEditMode}
+                                className="cancel-button"
+                            >
+                                Cancelar
+                            </button>
+                        </>
                     )}
+                    
+                    <div className="secondary-actions">
+                        <button 
+                            type="button"
+                            onClick={() => navigate(-1)}
+                            className="return-button"
+                        >
+                            Regresar
+                        </button>
+                        <button 
+                            type="button"
+                            onClick={handleCloseAccount}
+                            className="cancel-button"
+                        >
+                            Cerrar cuenta
+                        </button>
+                    </div>
                 </div>
-                
-                <div className="form-group">
-                    <label htmlFor="confirmPassword" className="form-label">Confirmar Contraseña:</label>
-                    <input 
-                        type="password" 
-                        id="confirmPassword" 
-                        name="confirmPassword" 
-                        value={formData.confirmPassword}
-                        onChange={handleChange}
-                        className={`form-input ${errors.passwordMatch ? 'input-error' : ''}`} 
-                    />
-                    {errors.passwordMatch && (
-                        <p className="error-message">
-                            Las contraseñas no coinciden
-                        </p>
-                    )}
-                </div>
-                
-                <button type="submit" className="submit-button">
-                    Guardar cambios
-                </button>
-            <div className="action-buttons">
- 
-              <button 
-                type="button"
-                    onClick={() => {
-                   if (window.history.length > 1) {
-                  navigate(-1);  // Regresa si hay historial
-                 } else {
-                    navigate('/');  // Va al inicio si no hay historial
-                    }
-                 }}
-                 className="return-button"
-                >
-                 Regresar
-              </button>
-            <button 
-                type="button"
-                onClick={() => {/* lógica para cerrar cuenta */}}
-                className="cancel-button"
-              >
-                Cerrar cuenta
-            </button>
-         </div>
-
             </form>
         </div>
     );
