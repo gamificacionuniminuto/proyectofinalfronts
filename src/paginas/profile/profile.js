@@ -128,20 +128,75 @@ const Profile = () => {
             </div>
           </section>
         )}
+{activeTab === 'logros' && (
+  <section className="achievements-section">
+    <h2 className="section-title">🏆 Mis Logros</h2>
+    <div className="badges-container">
+      {[
+        'Matemático Novato',
+        'Maestro de Sumas',
+        'Campeón de Restas',
+        'Explorador de Figuras',
+        'Genio de los Números',
+        'Rápido como un Rayo',
+        'Súper Calculador',
+        'Matemático Estrella',
+        'Resuelve Problemas',
+        '¡Graduado Matemático!',
+      ].map((achievement, index) => {
+        const emojiMap = {
+          'Matemático Novato': '🧮',
+          'Maestro de Sumas': '➕',
+          'Campeón de Restas': '➖',
+          'Explorador de Figuras': '🔺',
+          'Genio de los Números': '🔢',
+          'Rápido como un Rayo': '⚡',
+          'Súper Calculador': '🧠',
+          'Matemático Estrella': '⭐',
+          'Resuelve Problemas': '🕵️‍♂️',
+          '¡Graduado Matemático!': '🎓',
+        };
 
-        {activeTab === 'logros' && (
-          <section className="achievements-section">
-            <h2 className="section-title">🏆 Mis Logros</h2>
-            <div className="badges-container">
-              {userData.student.achievements.map((achievement, index) => (
-                <div key={index} className="badge">
-                  <div className="badge-icon">⭐</div>
-                  <p>{achievement}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
+        const colorMap = {
+          'Matemático Novato': '#FFE082',
+          'Maestro de Sumas': '#FFCDD2',
+          'Campeón de Restas': '#C5CAE9',
+          'Explorador de Figuras': '#B2EBF2',
+          'Genio de los Números': '#C8E6C9',
+          'Rápido como un Rayo': '#F0F4C3',
+          'Súper Calculador': '#D1C4E9',
+          'Matemático Estrella': '#FFF9C4',
+          'Resuelve Problemas': '#FFECB3',
+          '¡Graduado Matemático!': '#B3E5FC',
+        };
+
+        const isUnlocked = userData.student.achievements.includes(achievement);
+        const emoji = isUnlocked ? emojiMap[achievement] : '🔒';
+        const bgColor = isUnlocked ? colorMap[achievement] : '#E0E0E0';
+
+        return (
+          <div
+            key={index}
+            className={`badge ${isUnlocked ? 'unlocked' : 'locked'}`}
+            style={{
+              backgroundColor: bgColor,
+              borderRadius: '10px',
+              padding: '10px',
+              opacity: isUnlocked ? 1 : 0.5,
+              boxShadow: isUnlocked ? '0 0 15px rgba(0,0,0,0.3)' : 'none',
+              animation: isUnlocked ? 'glow 1s ease-in-out infinite alternate' : 'none',
+            }}
+          >
+            <div className="badge-icon" style={{ fontSize: '30px' }}>{emoji}</div>
+            <p>{achievement}</p>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+)}
+
+
 
         {activeTab === 'info' && (
           <section className="info-section">

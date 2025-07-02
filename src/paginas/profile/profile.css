@@ -181,7 +181,7 @@
 }
   
   .kids-profile-header {
-  width: 96%;
+  width: 99.5%;
   padding: 1.5rem;
   color: rgb(255, 255, 255);
   background-blend-mode: color-dodge;
@@ -663,3 +663,4 @@
     font-size: 0.8rem;
   }
 }
+
