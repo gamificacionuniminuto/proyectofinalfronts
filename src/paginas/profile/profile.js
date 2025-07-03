@@ -14,30 +14,49 @@ const Profile = () => {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    const localUser = JSON.parse(localStorage.getItem('user'));
-    if (localUser) {
-      setUserData({
-        tutor: {
-          name: localUser.parent || 'Tutor',
-          email: localUser.emailparent || 'tutor@email.com',
-          avatar: '👩'
-        },
-        student: {
-          name: localUser.name,
-          lastName: localUser.lastName,
-          grade: "3° Primaria",
-          avatar: '🧒',
-          points: 120,
-          level: 5,
-          achievements: ['Matemático Novato']
-        },
-        lastAccess: new Date().toLocaleDateString(),
-        activities: [
-          { name: "Matemáticas - Sumas", date: "05/06/2025", completed: true }
-        ]
-      });
-    }
-  }, []);
+  const localUser = JSON.parse(localStorage.getItem('user'));
+  if (localUser) {
+    // Define los requisitos de puntos para cada logro
+    const achievementRequirements = {
+      'Matemático Novato': 1,
+      'Maestro de Sumas': 50,
+      'Campeón de Restas': 50,
+      'Explorador de Figuras': 100,
+      'Genio de los Números': 200,
+      'Rápido como un Rayo': 150,
+      'Súper Calculador': 300,
+      'Matemático Estrella': 250,
+      'Resuelve Problemas': 180,
+      '¡Graduado Matemático!': 500,
+    };
+
+    const userPoints = localUser.score; 
+    const unlockedAchievements = Object.keys(achievementRequirements).filter(
+      (achievement) => userPoints >= achievementRequirements[achievement]
+    );
+
+    setUserData({
+      tutor: {
+        name: localUser.parent || 'Tutor',
+        email: localUser.emailparent || 'tutor@email.com',
+        avatar: '👩'
+      },
+      student: {
+        name: localUser.name,
+        lastName: localUser.lastName,
+        grade: "3° Primaria",
+        avatar: '🧒',
+        points: localUser.score, 
+        level: 5,
+        achievements: unlockedAchievements, 
+      },
+      lastAccess: new Date().toLocaleDateString(),
+      activities: [
+        { name: "Matemáticas - Sumas", date: "05/06/2025", completed: true }
+      ]
+    });
+  }
+}, []);
 
   const handleLogout = () => {
     localStorage.clear();
