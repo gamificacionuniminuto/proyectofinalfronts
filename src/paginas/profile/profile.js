@@ -234,7 +234,7 @@ const Profile = () => {
             </button>
             
 
-            <button className="action-btn" onClick={() => navigate('/material')}>
+            <button className="action-btn" onClick={() => navigate('/materiales')}>
               <i className="icon">📁</i>
               <span>Material</span>
             </button>

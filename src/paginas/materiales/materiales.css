@@ -1,0 +1,149 @@
+.material-page {
+  padding: 20px;
+  font-family: 'Comic Sans MS', cursive;
+  
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.material-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 30px 10px;
+  margin-bottom: 80px;
+}
+
+.mati-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.mati-img {
+  width: 60px;
+  height: auto;
+}
+
+.material-header h1 {
+  font-size: 36px;
+  color: #f10e0e;
+}
+
+.back-btn {
+  background-color: #ffcc80;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #ffa726;
+}
+
+.material-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+.material-card {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.material-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.material-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.material-card h3 {
+  font-size: 18px;
+  margin: 5px 0;
+  color: #333;
+}
+
+.material-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.material-card button {
+  background-color: #4db6ac;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 15px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.material-card button:hover {
+  background-color: #00897b;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .material-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .material-header h1 {
+    font-size: 24px;
+  }
+
+  .back-btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .material-header h1 {
+    font-size: 20px;
+  }
+
+  .material-card h3 {
+    font-size: 16px;
+  }
+
+  .material-card p {
+    font-size: 12px;
+  }
+
+  .material-card button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .material-img {
+    height: 100px;
+  }
+}
