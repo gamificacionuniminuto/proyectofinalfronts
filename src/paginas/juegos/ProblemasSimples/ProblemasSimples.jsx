@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './ProblemasSimples.css';
 
 const bancoProblemas = [
   // Sumas
@@ -85,6 +86,7 @@ const ProblemasSimples = () => {
         <button onClick={siguienteProblema}>Siguiente</button>
       </div>
       <p className="mensaje">{mensaje}</p>
+      
     </div>
   );
 };
