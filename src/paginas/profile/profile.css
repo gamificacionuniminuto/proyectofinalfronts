@@ -662,5 +662,82 @@
   .descripcion {
     font-size: 0.8rem;
   }
+  .premium-badge {
+  background: linear-gradient(45deg, #ffd700, #ff8c00);
+  color: #000;
+  padding: 3px 8px;
+  border-radius: 15px;
+  font-size: 0.7em;
+  font-weight: bold;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.premium-message {
+  text-align: center;
+  padding: 30px;
+  background: #f8f8f8;
+  border-radius: 15px;
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.premium-message h2 {
+  color: #ff8c00;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+.premium-message p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.premium-message button {
+  background: linear-gradient(45deg, #ffd700, #ff8c00);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.premium-message button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255,140,0,0.3);
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #ccc !important;
+}
+
+.premium-upgrade-btn {
+  background: linear-gradient(45deg, #ffd700, #ff8c00);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin-top: 15px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+}
+
+.action-btn.disabled {
+  position: relative;
+  opacity: 0.7;
+}
+
+.action-btn.disabled::after {
+  content: "🔒";
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 1.2em;
+}
 }
 
