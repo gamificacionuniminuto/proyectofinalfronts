@@ -310,6 +310,7 @@ color: "#fcbf49", // amarillo
   icono: "📏",
   forma: "cuadrado",
   color: "#e76f51", // naranja
+  link: "/JuegoUnidadMedida",
 
 },
 {

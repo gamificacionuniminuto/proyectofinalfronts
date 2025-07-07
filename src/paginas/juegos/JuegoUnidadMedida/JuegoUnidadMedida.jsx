@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./ProblemasSimples.css";
+import "./JuegoUnidadMedida.css";
 
 const problemas = [
   {

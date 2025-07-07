@@ -16,7 +16,7 @@ import NotFound from './NotFound.js';
 import Ejercicio1 from './paginas/primero/Ejercicio1.jsx';
 import Clases from './paginas/clases/clases.jsx';
 import Pago from './paginas/pago/pago.jsx';
-
+import JuegoUnidadMedida from './paginas/juegos/JuegoUnidadMedida/JuegoUnidadMedida.jsx';
 import JuegoNumeros from './paginas/juegos/NumerosImparesPares/JuegoNumeros.jsx';
 import JuegoFiguras from './paginas/JuegoFiguras/JuegoFiguras.jsx';
 import Contar50 from './paginas/juegos/Contar/contar50.jsx';
@@ -71,6 +71,7 @@ function App() {
           <Route path="/juegocomparacion" element={<JuegoComparacion />} />
           <Route path="/juegopatrones" element={<JuegoPatrones />} />
           <Route path="/ProblemasSimples" element={<ProblemasSimples />} />
+          <Route path="/JuegoUnidadMedida" element={<JuegoUnidadMedida />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
