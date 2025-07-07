@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../singin/singin.css';
+import '../forgotpassword/ForgotPassword.css'; // Asegúrate de que la ruta sea correcta
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 

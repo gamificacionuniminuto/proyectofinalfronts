@@ -23,7 +23,7 @@ const MaterialPage = () => {
       name: 'Bingo de Números',
       category: 'Juegos',
       image: 'https://example.com/bingo.png',
-      link: '/material/bingo'
+      link: '/juegobingo',
     },
     {
       name: 'Video: Aprende a Restar',

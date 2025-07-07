@@ -9,6 +9,7 @@ const Profile = () => {
   const [showConfetti, setShowConfetti] = useState(false);
   const [activeTab, setActiveTab] = useState('actividades');
   const [userData, setUserData] = useState(null);
+  
 
   useEffect(() => {
     const localUser = JSON.parse(localStorage.getItem('user'));
@@ -76,7 +77,25 @@ const Profile = () => {
 
   if (!userData) return <div>Cargando perfil...</div>;
 
+  
+
+  const achievementPoints = {
+  'Matemático Novato': 0,
+  'Maestro de Sumas': 20,
+  'Campeón de Restas': 50,
+  'Explorador de Figuras': 80,
+  'Genio de los Números': 120,
+  'Rápido como un Rayo': 160,
+  'Súper Calculador': 200,
+  'Matemático Estrella': 250,
+  'Resuelve Problemas': 300,
+  '¡Graduado Matemático!': 400,
+};
+
+
   return (
+    <div className={`main-container ${userData.student.premium ? 'premium-background' : ''}`}>
+
     <div className="main-container">
       <div className="background.imagen"></div>
       <div className="kids-profile-container">
@@ -295,7 +314,11 @@ const Profile = () => {
         </div>
       </div>
     </div>
+  </div>
   );
-};
+}
+                  
+   
+
 
 export default Profile;
