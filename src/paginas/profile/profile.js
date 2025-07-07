@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import Confetti from 'react-confetti';
 import Conejo from './conejo-icon.svg';
 
-
-
 import './profile.css';
 
 const Profile = () => {
@@ -12,6 +10,7 @@ const Profile = () => {
   const [showConfetti, setShowConfetti] = useState(false);
   const [activeTab, setActiveTab] = useState('actividades');
   const [userData, setUserData] = useState(null);
+  
 
   useEffect(() => {
     const localUser = JSON.parse(localStorage.getItem('user'));
@@ -29,7 +28,8 @@ const Profile = () => {
           avatar: '🧒',
           points: 120,
           level: 5,
-          achievements: ['Matemático Novato']
+          achievements: ['Maestro Sumas'],
+          premium: localUser.premium || true 
         },
         lastAccess: new Date().toLocaleDateString(),
         activities: [
@@ -56,9 +56,29 @@ const Profile = () => {
 
   if (!userData) return <div>Cargando perfil...</div>;
 
+  
+
+  const achievementPoints = {
+  'Matemático Novato': 0,
+  'Maestro de Sumas': 20,
+  'Campeón de Restas': 50,
+  'Explorador de Figuras': 80,
+  'Genio de los Números': 120,
+  'Rápido como un Rayo': 160,
+  'Súper Calculador': 200,
+  'Matemático Estrella': 250,
+  'Resuelve Problemas': 300,
+  '¡Graduado Matemático!': 400,
+};
+
+
   return (
+    <div className={`main-container ${userData.student.premium ? 'premium-background' : ''}`}>
+
     <div className="main-container">
       <div className="background.imagen"></div>
+      
+
         <div className="kids-profile-container">
       {showConfetti && <Confetti recycle={false} numberOfPieces={200} />}
 
@@ -70,6 +90,12 @@ const Profile = () => {
             <div className="welcome-message">
               <h1>¡Hola, {userData.student.name}! <span className="welcome-emoji">👋</span></h1>
               <p>Nivel {userData.student.level} • ⭐ {userData.student.points} puntos</p>
+              {userData.student.premium && (
+               <div className="premium-badge">
+              <span>⭐ Premium</span>
+               </div>
+              )}
+
             </div>
           </div>
           <button onClick={handleLogout} className="logout-btn">Salir</button>
@@ -253,7 +279,8 @@ const Profile = () => {
       
     </div>
     
-   </div> 
+    </div>
+  </div>
   );
 };
 

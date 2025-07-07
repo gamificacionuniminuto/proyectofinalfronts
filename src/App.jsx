@@ -36,7 +36,7 @@ import EjercicioResta from './paginas/juegos/EjercisiosMatematicos/restaBasica.j
 import JuegoComparacion from './paginas/juegos/Comparacion/mayormenor.jsx'; // Asegúrate de que este componente exista
 import JuegoPatrones from './paginas/juegos/Patrones/patrones.jsx'; // Asegúrate de que este componente exista
 import MaterialPage from './paginas/materiales/materialeasPage.jsx'; // Asegúrate de que este componente exista
-
+import JuegoBingo from './paginas/materiales/juegoBingo.jsx'; // Asegúrate de que este componente exista
 
 
 
@@ -88,6 +88,9 @@ function App() {
             <Route path="/juegocomparacion" element={<JuegoComparacion />} /> {/* Ruta para el juego de comparación */}
             <Route path="/juegopatrones" element={<JuegoPatrones />} /> {/* Ruta para el juego de patrones */}
             <Route path="/materiales" element={<ProtectedRoute><MaterialPage /></ProtectedRoute>} />
+            <Route path="/juegobingo" element={<ProtectedRoute><JuegoBingo /></ProtectedRoute>} />
+        
+
             
 
          
