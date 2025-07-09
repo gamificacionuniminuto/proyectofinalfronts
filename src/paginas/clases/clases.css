@@ -30,7 +30,7 @@
   height: 70px;
   opacity: 1;
   z-index: 1;
-  top: 90px;
+  top: 160px;
 }
 
 .nube {
@@ -38,6 +38,7 @@
   background-image: url('./nube.png');
   background-size: contain;
   background-repeat: no-repeat;
+  margin: 50px;
   width: 120px;
   height: 70px;
   opacity: 0.7;
@@ -53,7 +54,7 @@
   100% { transform: translateX(120vw); }
 }
 
-.nube1 { top: 40px; animation-duration: 60s; }
+.nube1 { top: 60px; animation-duration: 60s; }
 .nube2 { top: 100px; left: -150px; width: 90px; height: 60px; animation-duration: 45s; }
 .nube3 { top: 160px; left: -300px; width: 130px; height: 75px; animation-duration: 80s; }
 .nube4 { top: 220px; left: -100px; animation-duration: 55s; }
