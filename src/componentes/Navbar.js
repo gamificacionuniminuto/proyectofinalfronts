@@ -6,8 +6,9 @@ const Navbar = () => {
   const location = useLocation();
   const { user, logout } = useAuth();
 
-  // Eliminamos la condición que oculta el navbar en ciertas rutas
-  // if (hiddenRoutes.includes(location.pathname)) return null;
+  // Obtener datos del usuario del localStorage
+  const localUser = JSON.parse(localStorage.getItem('user'));
+  const isPremium = localUser?.isPremium === true;
 
   return (    
     <nav className="navbar">
@@ -50,23 +51,43 @@ const Navbar = () => {
             className={location.pathname === '/configuracion' ? 'active' : ''}
           >
             Configuración
-
           </Link>
+          
+          {/* Mostrar enlace de pago solo si NO es premium */}
+          {!isPremium && (
+            <Link
+              to="/pago"
+              className={location.pathname === '/pago' ? 'active' : ''}
+            >
+              Pagar curso
+            </Link>
+          )}
+
+          {/* Opción alternativa: Mostrar el enlace deshabilitado si es premium */}
+          {/* 
           <Link
-            to="/pago"
-            className={location.pathname === '/pago' ? 'active' : ''}
+            to={isPremium ? '#' : '/pago'}
+            className={`${location.pathname === '/pago' ? 'active' : ''} ${
+              isPremium ? 'disabled-link' : ''
+            }`}
+            onClick={e => isPremium && e.preventDefault()}
           >
             Pagar curso
-
+            {isPremium && <span className="premium-badge">YA PREMIUM</span>}
           </Link>
-          <button onClick={logout} className="logout-button"
+          */}
+
+          <Link
+            to="/formulario"
+            className={location.pathname === '/formulario' ? 'active' : ''}
           >
+            Formulario
+          </Link>
+          <button onClick={logout} className="logout-button">
             Cerrar Sesión
           </button>
         </>
       )}
-      
-   
     </nav>
   );
 };

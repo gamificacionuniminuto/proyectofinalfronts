@@ -16,6 +16,7 @@ import NotFound from './NotFound.js';
 import Ejercicio1 from './paginas/primero/Ejercicio1.jsx';
 import Clases from './paginas/clases/clases.jsx';
 import Pago from './paginas/pago/pago.jsx';
+import Formulario from './paginas/pago/formulario.jsx';
 import JuegoUnidadMedida from './paginas/juegos/JuegoUnidadMedida/JuegoUnidadMedida.jsx';
 import JuegoNumeros from './paginas/juegos/NumerosImparesPares/JuegoNumeros.jsx';
 import JuegoFiguras from './paginas/JuegoFiguras/JuegoFiguras.jsx';
@@ -34,46 +35,53 @@ import EjercicioSuma from './paginas/juegos/EjercisiosMatematicos/sumaBasica.jsx
 import EjercicioResta from './paginas/juegos/EjercisiosMatematicos/restaBasica.jsx';
 import JuegoComparacion from './paginas/juegos/Comparacion/mayormenor.jsx';
 import JuegoPatrones from './paginas/juegos/Patrones/patrones.jsx';
+import MaterialPage from './paginas/materiales/materialeasPage.jsx';
+import JuegoBingo from './paginas/materiales/juegoBingo.jsx';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/singin" element={<Singin />} />
-          <Route path="/perfil" element={<Profile />} />
-          <Route path="/Chatbot" element={<ProtectedRoute><ChatBot /></ProtectedRoute>} />
-          <Route path="/pago" element={<Pago />} />
-          <Route path="/configuracion" element={<ProtectedRoute><Configuracion /></ProtectedRoute>} />
-          <Route path="/newPassword" element={<NewPassword />} />
-          <Route path="/forgotPassword" element={<ForgotPassword />} />
-          <Route path="/Ejercicio1" element={<Ejercicio1 />} />
-          <Route path="/clases" element={<Clases />} />
-          <Route path="/juegonumeros" element={<JuegoNumeros />} />
-          <Route path="/juegosnumeros" element={<JuegoNumeros />} />
-          <Route path="/numerosvoz" element={<NumerosGame />} />
-          <Route path="/JuegoFiguras" element={<JuegoFiguras />} />
-          <Route path="/contar50" element={<Contar50 />} />
-          <Route path="/contar20" element={<Contar20 />} />
-          <Route path="/figurecounter" element={<FigureCounter />} />
-          <Route path="/animalcounterds" element={<AnimalCounterDs />} />
-          <Route path="/cuentahasta100" element={<CuentaHasta100 />} />
-          <Route path="/JuegoDescomposicion" element={<JuegoDescomposicion />} />
-          <Route path="/JuegoFracciones" element={<JuegoFracciones />} />
-          <Route path="/JuegoTiempo" element={<JuegoTiempo />} />
-          <Route path="/oddnumbersgame" element={<OddNumbersGame />} />
-          <Route path="/ejerciciosumasbasicas" element={<EjercicioSuma />} />
-          <Route path="/ejerciciosrestas" element={<EjercicioResta />} />
-          <Route path="/juegocomparacion" element={<JuegoComparacion />} />
-          <Route path="/juegopatrones" element={<JuegoPatrones />} />
-          <Route path="/ProblemasSimples" element={<ProblemasSimples />} />
-          <Route path="/JuegoUnidadMedida" element={<JuegoUnidadMedida />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/singin" element={<Singin />} />
+            <Route path="/perfil" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+            <Route path="/Chatbot" element={<ProtectedRoute><ChatBot /></ProtectedRoute>} />
+            <Route path="/pago" element={<Pago />} />
+            <Route path="/formulario" element={<Formulario />} />
+            <Route path="/configuracion" element={<ProtectedRoute><Configuracion /></ProtectedRoute>} />
+            <Route path="/newPassword" element={<NewPassword />} />
+            <Route path="/forgotPassword" element={<ForgotPassword />} />
+            <Route path="/Ejercicio1" element={<Ejercicio1 />} />
+            <Route path="/clases" element={<Clases />} />
+            <Route path="/juegonumeros" element={<JuegoNumeros />} />
+            <Route path="/juegosnumeros" element={<JuegoNumeros />} />
+            <Route path="/numerosvoz" element={<NumerosGame />} />
+            <Route path="/JuegoFiguras" element={<JuegoFiguras />} />
+            <Route path="/contar50" element={<Contar50 />} />
+            <Route path="/contar20" element={<Contar20 />} />
+            <Route path="/figurecounter" element={<FigureCounter />} />
+            <Route path="/animalcounterds" element={<AnimalCounterDs />} />
+            <Route path="/cuentahasta100" element={<CuentaHasta100 />} />
+            <Route path="/JuegoDescomposicion" element={<JuegoDescomposicion />} />
+            <Route path="/JuegoFracciones" element={<JuegoFracciones />} />
+            <Route path="/JuegoTiempo" element={<JuegoTiempo />} />
+            <Route path="/oddnumbersgame" element={<OddNumbersGame />} />
+            <Route path="/ejerciciosumasbasicas" element={<EjercicioSuma />} />
+            <Route path="/ejerciciosrestas" element={<EjercicioResta />} />
+            <Route path="/juegocomparacion" element={<JuegoComparacion />} />
+            <Route path="/juegopatrones" element={<JuegoPatrones />} />
+            <Route path="/ProblemasSimples" element={<ProblemasSimples />} />
+            <Route path="/JuegoUnidadMedida" element={<JuegoUnidadMedida />} />
+            <Route path="/materiales" element={<ProtectedRoute><MaterialPage /></ProtectedRoute>} />
+            <Route path="/juegobingo" element={<ProtectedRoute><JuegoBingo /></ProtectedRoute>} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
       </Router>
     </div>
   );

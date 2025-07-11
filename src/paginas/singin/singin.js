@@ -20,43 +20,48 @@ const SingIn = () => {
         document.head.appendChild(meta);
       })();
   }, []);
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError('');
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setError('');
 
-    if (!email || !password) {
-      setError('Por favor completa todos los campos');
-      return;
-    }
+  if (!email || !password) {
+    setError('Por favor completa todos los campos');
+    return;
+  }
 
-    if (!/\S+@\S+\.\S+/.test(email)) {
-      setError('Por favor ingresa un correo electrónico válido');
-      return;
-    }
+  if (!/\S+@\S+\.\S+/.test(email)) {
+    setError('Por favor ingresa un correo electrónico válido');
+    return;
+  }
 
-    try {
-      const response = await axios.post(`${REACT_APP_API}/api/login`, {
-        email,
-        password,
-      });
+  try {
+    const response = await axios.post(`${REACT_APP_API}/api/login`, {
+      email,
+      password,
+    });
 
-      const data = response.data;
+    const data = response.data;
 
-      if (data.status === 'success') {
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('user', JSON.stringify(data.data.user));
-        navigate('/perfil');
-        window.location.reload(true);
-      } else {
-        setError(data.message || 'Correo electrónico o contraseña incorrectos');
-        setTimeout(() => setError(''), 3000);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      setError('Error al conectar con el servidor');
+    if (data.status === 'success') {
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.data.user));
+      navigate('/perfil');
+      window.location.reload(true);
+    } else {
+      setError(data.message || 'Correo electrónico o contraseña incorrectos');
       setTimeout(() => setError(''), 3000);
     }
-  };
+  } catch (error) {
+    // 👇 Aquí distinguimos el error 401 de un error de red
+    if (error.response && error.response.status === 401) {
+      setError(error.response.data.message || 'Correo electrónico o contraseña incorrectos');
+    } else {
+      setError('Error al conectar con el servidor');
+    }
+    setTimeout(() => setError(''), 3000);
+  }
+};
+
 
   return (
     <div className="signin-container">
