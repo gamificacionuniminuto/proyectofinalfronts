@@ -1,101 +1,94 @@
-import React, { useState, useEffect } from "react";
-import "./ProblemasSimples.css";
+import React, { useState, useEffect } from 'react';
+import './ProblemasSimples.css';
+import { useNavigate } from 'react-router-dom';
 
-const problemas = [
-  {
-    enunciado: "María compró 2 metros de cinta para envolver regalos. Si usó 50 centímetros, ¿cuánto le queda?",
-    opciones: ["150 cm", "1.5 m", "2.5 m", "50 m"],
-    respuesta: "1.5 m",
-  },
-  {
-    enunciado: "Pedro recorrió 3000 metros en bicicleta. ¿Cuántos kilómetros recorrió?",
-    opciones: ["0.3 km", "3 km", "30 km", "300 km"],
-    respuesta: "3 km",
-  },
-  {
-    enunciado: "Una botella tiene 2 litros de agua. Si se sirve 500 mililitros, ¿cuánto queda?",
-    opciones: ["1.5 L", "1 L", "2.5 L", "500 L"],
-    respuesta: "1.5 L",
-  },
-  {
-    enunciado: "Una caja pesa 1500 gramos. ¿Cuántos kilogramos son?",
-    opciones: ["1.5 kg", "15 kg", "0.15 kg", "150 kg"],
-    respuesta: "1.5 kg",
-  },
-  {
-    enunciado: "Un libro mide 30 centímetros de largo. ¿Cuántos metros son?",
-    opciones: ["0.3 m", "3 m", "30 m", "0.03 m"],
-    respuesta: "0.3 m",
-  },
+const bancoProblemas = [
+  // Sumas
+  { enunciado: "Carlos tenía 19 piedras y luego recogió 9 más. ¿Cuántas piedras tiene ahora?", respuesta: 28 },
+  { enunciado: "Ana tiene 12 caramelos y su mamá le dio 8 más. ¿Cuántos tiene en total?", respuesta: 20 },
+  { enunciado: "Pedro encontró 5 monedas y luego encontró 13 más. ¿Cuántas monedas tiene?", respuesta: 18 },
+  { enunciado: "Marta compró 7 lápices y luego compró 6 más. ¿Cuántos lápices tiene ahora?", respuesta: 13 },
+  { enunciado: "Juan leyó 15 páginas y luego leyó 10 más. ¿Cuántas páginas leyó en total?", respuesta: 25 },
+
+  // Restas
+  { enunciado: "Sofía tenía 14 lápices y prestó 4. ¿Cuántos le quedan?", respuesta: 10 },
+  { enunciado: "Miguel tenía 20 caramelos y se comió 5. ¿Cuántos le quedan?", respuesta: 15 },
+  { enunciado: "Daniel tenía 30 pelotas y regaló 10. ¿Cuántas le quedan?", respuesta: 20 },
+  { enunciado: "Lucía tenía 18 libros y prestó 3. ¿Cuántos le quedan?", respuesta: 15 },
+  { enunciado: "Paula tenía 10 galletas y se comió 2. ¿Cuántas tiene ahora?", respuesta: 8 },
+
+  // Multiplicación
+  { enunciado: "En cada caja hay 7 manzanas y hay 10 cajas. ¿Cuántas manzanas hay?", respuesta: 70 },
+  { enunciado: "Cada niño tiene 4 globos y hay 6 niños. ¿Cuántos globos hay en total?", respuesta: 24 },
+  { enunciado: "Hay 5 filas con 8 sillas cada una. ¿Cuántas sillas hay?", respuesta: 40 },
+  { enunciado: "Cada paquete tiene 9 galletas. Si tengo 3 paquetes, ¿cuántas galletas tengo?", respuesta: 27 },
+  { enunciado: "Cada florero tiene 5 flores. Si hay 7 floreros, ¿cuántas flores hay?", respuesta: 35 },
+
+  // División
+  { enunciado: "Se reparten 12 galletas entre 4 niños. ¿Cuántas recibe cada uno?", respuesta: 3 },
+  { enunciado: "Hay 18 lápices y se reparten en 6 estuches. ¿Cuántos lápices por estuche?", respuesta: 3 },
+  { enunciado: "20 caramelos se reparten entre 5 niños. ¿Cuántos recibe cada niño?", respuesta: 4 },
+  { enunciado: "24 manzanas se reparten entre 8 personas. ¿Cuántas recibe cada persona?", respuesta: 3 },
+  { enunciado: "30 globos se reparten entre 10 niños. ¿Cuántos globos recibe cada uno?", respuesta: 3 },
 ];
 
-const UsoUnidadMedida = () => {
-  const [indice, setIndice] = useState(0);
-  const [seleccion, setSeleccion] = useState(null);
-  const [resultado, setResultado] = useState("");
-  const problemaActual = problemas[indice];
+const hablar = (texto) => {
+  const mensaje = new SpeechSynthesisUtterance(texto);
+  mensaje.lang = 'es-ES';
+  window.speechSynthesis.speak(mensaje);
+};
 
-  useEffect(() => {
-    leerTexto(problemaActual.enunciado);
-    setSeleccion(null);
-    setResultado("");
-  }, [indice]);
+function obtenerProblemaAleatorio() {
+  return bancoProblemas[Math.floor(Math.random() * bancoProblemas.length)];
+}
 
-  const leerTexto = (texto) => {
-    const speech = new SpeechSynthesisUtterance(texto);
-    speech.lang = "es-ES";
-    speech.pitch = 1;
-    speech.rate = 0.95;
-    window.speechSynthesis.speak(speech);
+const ProblemasSimples = () => {
+  const [problema, setProblema] = useState(obtenerProblemaAleatorio());
+  const [respuestaUsuario, setRespuestaUsuario] = useState('');
+  const [mensaje, setMensaje] = useState('');
+  const navigate = useNavigate();
+
+  const volverAlInicio = () => {
+    navigate('/clases'); // Ajusta esta ruta según donde esté tu tarjeta principal
   };
+  useEffect(() => {
+    hablar(problema.enunciado); // Lee el problema al cargar
+  }, [problema]);
 
   const verificarRespuesta = () => {
-    if (!seleccion) return;
-    const esCorrecta = seleccion === problemaActual.respuesta;
-    const mensaje = esCorrecta ? "¡Correcto!" : "Incorrecto. Intenta de nuevo.";
-    leerTexto(mensaje);
-    setResultado(mensaje);
+    const esCorrecto = parseInt(respuestaUsuario) === problema.respuesta;
+    const mensajeVoz = esCorrecto ? '¡Muy bien! La respuesta es correcta.' : 'Lo siento, esa no es la respuesta. Intenta otra vez.';
+    const mensajeTexto = esCorrecto ? '✅ ¡Correcto!' : '❌ Intenta de nuevo';
+
+    setMensaje(mensajeTexto);
+    hablar(mensajeVoz);
   };
 
   const siguienteProblema = () => {
-    if (indice < problemas.length - 1) {
-      setIndice(indice + 1);
-    }
-  };
-
-  const regresarProblema = () => {
-    if (indice > 0) {
-      setIndice(indice - 1);
-    }
+    const nuevoProblema = obtenerProblemaAleatorio();
+    setProblema(nuevoProblema);
+    setRespuestaUsuario('');
+    setMensaje('');
   };
 
   return (
-    <div className="unidad-medida-contenedor">
-      <h2>Uso de unidad de medida</h2>
-      <p className="enunciado">{problemaActual.enunciado}</p>
-      <div className="opciones">
-        {problemaActual.opciones.map((opcion, i) => (
-          <button
-            key={i}
-            onClick={() => setSeleccion(opcion)}
-            className={seleccion === opcion ? "opcion seleccionada" : "opcion"}
-          >
-            {opcion}
-          </button>
-        ))}
-      </div>
+    <div className="contenedor-problemas">
+      <h2>🧠 Resuelve el problema</h2>
+      <p className="problema-texto">{problema.enunciado}</p>
+      <input
+        type="number"
+        placeholder="Tu respuesta"
+        value={respuestaUsuario}
+        onChange={(e) => setRespuestaUsuario(e.target.value)}
+      />
       <div className="botones">
-        <button onClick={regresarProblema} disabled={indice === 0}>
-          ⬅ Regresar
-        </button>
-        <button onClick={verificarRespuesta}>✅ Verificar</button>
-        <button onClick={siguienteProblema} disabled={indice === problemas.length - 1}>
-          Siguiente ➡
-        </button>
+        <button onClick={verificarRespuesta}>Verificar</button>
+        <button onClick={siguienteProblema}>Siguiente</button>
+        <button onClick={volverAlInicio}>Regresar</button>
       </div>
-      {resultado && <div className="resultado">{resultado}</div>}
+      <p className="mensaje">{mensaje}</p>
     </div>
   );
 };
 
-export default UsoUnidadMedida;
+export default ProblemasSimples;
