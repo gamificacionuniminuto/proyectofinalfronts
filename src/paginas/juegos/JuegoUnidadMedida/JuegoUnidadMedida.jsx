@@ -1,101 +1,88 @@
-import React, { useState, useEffect } from "react";
-import "./JuegoUnidadMedida.css";
+import React, { useState, useEffect } from 'react';
+import './JuegoUnidadMedida.css';
+import { useNavigate } from 'react-router-dom';
 
 const problemas = [
   {
-    enunciado: "María compró 2 metros de cinta para envolver regalos. Si usó 50 centímetros, ¿cuánto le queda?",
-    opciones: ["150 cm", "1.5 m", "2.5 m", "50 m"],
-    respuesta: "1.5 m",
+    enunciado: 'Carlos quiere medir la longitud de su escritorio. Usa una regla y mide 120 centímetros. ¿Cuántos metros son?',
+    respuesta: '1.2',
+    unidad: 'metros',
   },
   {
-    enunciado: "Pedro recorrió 3000 metros en bicicleta. ¿Cuántos kilómetros recorrió?",
-    opciones: ["0.3 km", "3 km", "30 km", "300 km"],
-    respuesta: "3 km",
+    enunciado: 'Una botella contiene 2 litros de agua. ¿Cuántos mililitros son?',
+    respuesta: '2000',
+    unidad: 'mililitros',
   },
   {
-    enunciado: "Una botella tiene 2 litros de agua. Si se sirve 500 mililitros, ¿cuánto queda?",
-    opciones: ["1.5 L", "1 L", "2.5 L", "500 L"],
-    respuesta: "1.5 L",
-  },
-  {
-    enunciado: "Una caja pesa 1500 gramos. ¿Cuántos kilogramos son?",
-    opciones: ["1.5 kg", "15 kg", "0.15 kg", "150 kg"],
-    respuesta: "1.5 kg",
-  },
-  {
-    enunciado: "Un libro mide 30 centímetros de largo. ¿Cuántos metros son?",
-    opciones: ["0.3 m", "3 m", "30 m", "0.03 m"],
-    respuesta: "0.3 m",
+    enunciado: 'Ana corrió 3 kilómetros. ¿Cuántos metros recorrió?',
+    respuesta: '3000',
+    unidad: 'metros',
   },
 ];
 
-const UsoUnidadMedida = () => {
+const JuegoUnidadMedida = () => {
   const [indice, setIndice] = useState(0);
-  const [seleccion, setSeleccion] = useState(null);
-  const [resultado, setResultado] = useState("");
+  const [respuesta, setRespuesta] = useState('');
+  const [resultado, setResultado] = useState('');
+  const navigate = useNavigate();
+
   const problemaActual = problemas[indice];
 
-  useEffect(() => {
-    leerTexto(problemaActual.enunciado);
-    setSeleccion(null);
-    setResultado("");
-  }, [indice]);
-
-  const leerTexto = (texto) => {
-    const speech = new SpeechSynthesisUtterance(texto);
-    speech.lang = "es-ES";
-    speech.pitch = 1;
-    speech.rate = 0.95;
-    window.speechSynthesis.speak(speech);
+  const leerProblema = () => {
+    const utterance = new SpeechSynthesisUtterance(problemaActual.enunciado);
+    speechSynthesis.speak(utterance);
   };
 
   const verificarRespuesta = () => {
-    if (!seleccion) return;
-    const esCorrecta = seleccion === problemaActual.respuesta;
-    const mensaje = esCorrecta ? "¡Correcto!" : "Incorrecto. Intenta de nuevo.";
-    leerTexto(mensaje);
-    setResultado(mensaje);
+    if (respuesta.trim() === problemaActual.respuesta) {
+      setResultado('¡Respuesta correcta! 🎉');
+      const utter = new SpeechSynthesisUtterance('¡Respuesta correcta!');
+      speechSynthesis.speak(utter);
+    } else {
+      setResultado('Respuesta incorrecta. Intenta de nuevo.');
+      const utter = new SpeechSynthesisUtterance('Respuesta incorrecta. Intenta de nuevo.');
+      speechSynthesis.speak(utter);
+    }
   };
 
   const siguienteProblema = () => {
+    setResultado('');
+    setRespuesta('');
     if (indice < problemas.length - 1) {
       setIndice(indice + 1);
+    } else {
+      setResultado('¡Has completado todos los problemas!');
     }
   };
 
-  const regresarProblema = () => {
-    if (indice > 0) {
-      setIndice(indice - 1);
-    }
+  const volverAlInicio = () => {
+    navigate('/clases'); // Ajusta esta ruta según donde esté tu tarjeta principal
   };
+
+  useEffect(() => {
+    leerProblema();
+  }, [indice]);
 
   return (
-    <div className="unidad-medida-contenedor">
-      <h2>Uso de unidad de medida</h2>
-      <p className="enunciado">{problemaActual.enunciado}</p>
-      <div className="opciones">
-        {problemaActual.opciones.map((opcion, i) => (
-          <button
-            key={i}
-            onClick={() => setSeleccion(opcion)}
-            className={seleccion === opcion ? "opcion seleccionada" : "opcion"}
-          >
-            {opcion}
-          </button>
-        ))}
+    <div className="contenedor-unidad-medida">
+      <h2>Uso de unidades de medida</h2>
+      <div className="problema">
+        <p>{problemaActual.enunciado}</p>
+        <input
+          type="text"
+          placeholder={`Respuesta en ${problemaActual.unidad}`}
+          value={respuesta}
+          onChange={(e) => setRespuesta(e.target.value)}
+        />
+        <div className="botones">
+          <button onClick={verificarRespuesta}>Verificar</button>
+          <button onClick={siguienteProblema}>Siguiente</button>
+          <button onClick={volverAlInicio}>Regresar</button>
+        </div>
+        {resultado && <p className="resultado">{resultado}</p>}
       </div>
-      <div className="botones">
-        <button onClick={regresarProblema} disabled={indice === 0}>
-          ⬅ Regresar
-        </button>
-        <button onClick={verificarRespuesta}>✅ Verificar</button>
-        <button onClick={siguienteProblema} disabled={indice === problemas.length - 1}>
-          Siguiente ➡
-        </button>
-      </div>
-      {resultado && <div className="resultado">{resultado}</div>}
     </div>
   );
 };
 
-export default UsoUnidadMedida;
+export default JuegoUnidadMedida;
