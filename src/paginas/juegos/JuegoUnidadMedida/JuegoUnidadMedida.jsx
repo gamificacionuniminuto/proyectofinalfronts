@@ -18,6 +18,22 @@ const problemas = [
     respuesta: '3000',
     unidad: 'metros',
   },
+  {
+    enunciado: 'Un saco de arroz pesa 5 kilogramos. ¿Cuántos gramos son?',
+    respuesta: '5000',
+    unidad: 'gramos',
+ },
+ {
+    enunciado: 'Una película dura 2 horas. ¿Cuántos minutos son?',
+    respuesta: '120',
+    unidad: 'minutos',
+ },
+ {
+    enunciado: 'Un tanque tiene capacidad para 1.5 litros. ¿Cuántos mililitros son?',
+    respuesta: '1500',
+    unidad: 'mililitros',
+ },
+
 ];
 
 const JuegoUnidadMedida = () => {
