@@ -104,65 +104,68 @@ const JuegoFiguras = () => {
     }
   }, []);
 
-  const verificarRespuesta = (respuesta) => {
-    const palabras = respuesta.split(/\s+/);
-    const primeraPalabra = palabras[0];
-    const figuraCorrecta = figuraRef.current.tipo.toLowerCase();
+  const quitarTildes = (str) => str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-    if (primeraPalabra === figuraCorrecta) {
-      setMensaje('🎉 ¡Correcto!');
-      sonidoCorrecto.current.play();
-      setAnimacion('acierto');
-      enviarPuntaje()
-      setPuntaje(prev => prev + 1);
+const verificarRespuesta = (respuesta) => {
+  const palabras = respuesta.split(/\s+/);
+  const primeraPalabra = palabras[0];
+  const figuraCorrecta = quitarTildes(figuraRef.current.tipo.toLowerCase());
+  const respuestaUsuario = quitarTildes(primeraPalabra.toLowerCase());
 
-      const nuevaFigura = figuraCorrecta;
-      setConteoFiguras(prev => {
-        const actualizado = { ...prev, [nuevaFigura]: (prev[nuevaFigura] || 0) + 1 };
+  if (respuestaUsuario === figuraCorrecta) {
+    setMensaje('🎉 ¡Correcto!');
+    sonidoCorrecto.current.play();
+    setAnimacion('acierto');
+    enviarPuntaje();
+    setPuntaje(prev => prev + 1);
 
-        const figurasRestantes = figuras.filter(f => (actualizado[f.tipo] || 0) < 2);
-        if (figurasRestantes.length === 0) {
-          setJuegoTerminado(true);
-        } else {
-          setTimeout(() => seleccionarNuevaFigura(actualizado), 2000);
-        }
+    const nuevaFigura = figuraCorrecta;
+    setConteoFiguras(prev => {
+      const actualizado = { ...prev, [nuevaFigura]: (prev[nuevaFigura] || 0) + 1 };
 
-        return actualizado;
-      });
-
-      if (figuraElemento.current) {
-        const rect = figuraElemento.current.getBoundingClientRect();
-        const x = (rect.left + rect.width / 2) / window.innerWidth;
-        const y = (rect.top + rect.height / 2) / window.innerHeight;
-
-        confetti({
-          particleCount: 120,
-          spread: 100,
-          startVelocity: 30,
-          origin: { x, y },
-          colors: ['#ffeb3b', '#f50057', '#4caf50', '#2196f3', '#ff9800', '#e91e63'],
-        });
+      const figurasRestantes = figuras.filter(f => (actualizado[f.tipo] || 0) < 2);
+      if (figurasRestantes.length === 0) {
+        setJuegoTerminado(true);
+      } else {
+        setTimeout(() => seleccionarNuevaFigura(actualizado), 2000);
       }
 
-      setTimeout(() => {
-        sonidoCorrecto.current.pause();
-        sonidoCorrecto.current.currentTime = 0;
-        setMensaje('');
-        setAnimacion('');
-      }, 2000);
-    } else {
-      setMensaje('❌ Intenta de nuevo...');
-      sonidoIncorrecto.current.play();
-      setAnimacion('fallo');
+      return actualizado;
+    });
 
-      setTimeout(() => {
-        sonidoIncorrecto.current.pause();
-        sonidoIncorrecto.current.currentTime = 0;
-        setMensaje('');
-        setAnimacion('');
-      }, 2000);
+    if (figuraElemento.current) {
+      const rect = figuraElemento.current.getBoundingClientRect();
+      const x = (rect.left + rect.width / 2) / window.innerWidth;
+      const y = (rect.top + rect.height / 2) / window.innerHeight;
+
+      confetti({
+        particleCount: 120,
+        spread: 100,
+        startVelocity: 30,
+        origin: { x, y },
+        colors: ['#ffeb3b', '#f50057', '#4caf50', '#2196f3', '#ff9800', '#e91e63'],
+      });
     }
-  };
+
+    setTimeout(() => {
+      sonidoCorrecto.current.pause();
+      sonidoCorrecto.current.currentTime = 0;
+      setMensaje('');
+      setAnimacion('');
+    }, 2000);
+  } else {
+    setMensaje('❌ Intenta de nuevo...');
+    sonidoIncorrecto.current.play();
+    setAnimacion('fallo');
+
+    setTimeout(() => {
+      sonidoIncorrecto.current.pause();
+      sonidoIncorrecto.current.currentTime = 0;
+      setMensaje('');
+      setAnimacion('');
+    }, 2000);
+  }
+};
 
   const seleccionarNuevaFigura = (conteoActual = conteoFiguras) => {
     const disponibles = figuras.filter(f => (conteoActual[f.tipo] || 0) < 2);
@@ -227,7 +230,7 @@ const JuegoFiguras = () => {
 
       <div className="zona-botones">
         <button onClick={iniciarEscucha} disabled={escuchando || juegoTerminado}>🎤 ¡Habla ahora!</button>
-        <button onClick={() => seleccionarNuevaFigura()} disabled={juegoTerminado}>🔄 Nueva figura</button>
+        <button onClick={reiniciarJuego} disabled={juegoTerminado}>🔄 Nueva figura</button>
         <button onClick={reproducirInstrucciones}>📢 Instrucciones</button>
         <button onClick={volverClases} className="boton-volver">⬅️ Regresar</button>
       </div>
