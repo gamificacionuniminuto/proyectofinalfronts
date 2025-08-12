@@ -207,6 +207,7 @@ const ClasesData = [
   icono: "➕",
   forma: "nube",
   color: "#2a9d8f", // azul claro
+  link: "/sumasLLevando", 
 },
 {
   id: 20,
@@ -217,6 +218,7 @@ const ClasesData = [
   icono: "➖",
   forma: "triangulo",
   color: "#d62828", // rojo
+  link: "/restasLLevando", // Asegúrate de que esta ruta esté definida en tu aplicación
 },
 {
   id:21,
@@ -227,6 +229,7 @@ const ClasesData = [
   icono: "✖️",
   forma: "estrella",
   color: "#fcbf49", // amarillo
+  link: "/tablasMultiplicar", // Asegúrate de que esta ruta esté definida en tu aplicación
 },
 {
   id: 22,

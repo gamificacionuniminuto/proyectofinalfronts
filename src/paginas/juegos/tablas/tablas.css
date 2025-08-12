@@ -1,0 +1,58 @@
+.juego-tablas {
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #f0f9ff;
+  border-radius: 12px;
+  max-width: 400px;
+  margin: 40px auto;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+}
+
+.juego-tablas h2 {
+  color: #0077cc;
+}
+
+.btn-volver {
+  background: #ff6f61;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+input {
+  padding: 8px;
+  font-size: 18px;
+  width: 80px;
+  text-align: center;
+  margin: 10px;
+  border-radius: 6px;
+  border: 2px solid #ccc;
+}
+
+button {
+  padding: 6px 12px;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  background: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
+.mensaje {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.mensaje:contains("✅") {
+  color: green;
+}
+
+.mensaje:contains("❌") {
+  color: red;
+}

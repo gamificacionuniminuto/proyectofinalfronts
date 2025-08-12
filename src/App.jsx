@@ -1,5 +1,4 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ChatBot from './componentes/Chatgpt.jsx';
 //import './componentes/
 import Navbar from './componentes/Navbar.js'; 
@@ -35,8 +34,14 @@ import EjercicioSuma from './paginas/juegos/EjercisiosMatematicos/sumaBasica.jsx
 import EjercicioResta from './paginas/juegos/EjercisiosMatematicos/restaBasica.jsx'; // Asegúrate de que este componente exista
 import JuegoComparacion from './paginas/juegos/Comparacion/mayormenor.jsx'; // Asegúrate de que este componente exista
 import JuegoPatrones from './paginas/juegos/Patrones/patrones.jsx'; // Asegúrate de que este componente exista
+import SumasLLevando from './paginas/juegos/EjercisiosMatematicos/sumasLLevando.jsx';
+import RestasLLevando from './paginas/juegos/EjercisiosMatematicos/restasLLevando.jsx'; // Asegúrate de que este componente exista
+import TablasMultiplicar from './paginas/juegos/tablas/tablasMultiplicar.jsx'; // Asegúrate de que este componente exista
+
+
 import MaterialPage from './paginas/materiales/materialeasPage.jsx'; // Asegúrate de que este componente exista
-import JuegoBingo from './paginas/materiales/juegoBingo.jsx'; // Asegúrate de que este componente exista
+import JuegoBingo from './paginas/materiales/juegoBingo.jsx';
+// Asegúrate de que este componente exista
 
 
 
@@ -87,8 +92,18 @@ function App() {
             <Route path="/ejerciciosrestas" element={<EjercicioResta />} /> {/* Ruta para el ejercicio de resta */}
             <Route path="/juegocomparacion" element={<JuegoComparacion />} /> {/* Ruta para el juego de comparación */}
             <Route path="/juegopatrones" element={<JuegoPatrones />} /> {/* Ruta para el juego de patrones */}
+            <Route path="/sumasLLevando" element={<SumasLLevando />} /> {/* Ruta para el juego de sumas con llevadas */}
+            <Route path="/restasLLevando" element={<RestasLLevando />} /> {/* Ruta para el juego de restas con llevadas */}
+            <Route path="/tablasMultiplicar" element={<TablasMultiplicar />} /> {/* Ruta para el juego de tablas de multiplicar */}
+            
+            {/* Rutas para materiales y juegos adicionales */}
+
+
+            
+
             <Route path="/materiales" element={<ProtectedRoute><MaterialPage /></ProtectedRoute>} />
             <Route path="/juegobingo" element={<ProtectedRoute><JuegoBingo /></ProtectedRoute>} />
+
         
 
             
