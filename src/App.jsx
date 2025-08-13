@@ -19,16 +19,16 @@ import Pago from './paginas/pago/pago.jsx';
 import Formulario from './paginas/pago/formulario.jsx';
 import JuegoUnidadMedida from './paginas/juegos/JuegoUnidadMedida/JuegoUnidadMedida.jsx';
 import JuegoNumeros from './paginas/juegos/NumerosImparesPares/JuegoNumeros.jsx';
-import JuegoFiguras from './paginas/JuegoFiguras/JuegoFiguras.jsx';
+import JuegoFiguras from './paginas/juegos/JuegoFiguras/JuegoFiguras.jsx';
 import Contar50 from './paginas/juegos/Contar/contar50.jsx';
 import Contar20 from './paginas/juegos/Contar/Contar20.jsx';
-import NumerosGame from './paginas/JuegoVoz/NumerosVoz.jsx';
+import NumerosGame from './paginas/juegos/JuegoVoz/NumerosVoz.jsx';
 import FigureCounter from './paginas/juegos/RelacionNumerosFiguras/RelacionFiguras.jsx';
 import AnimalCounterDs from './paginas/juegos/ContarFormaAsyds/ContarAsyds.jsx';
 import CuentaHasta100 from './paginas/juegos/Contar/Contar100.jsx';
-import JuegoDescomposicion from './paginas/JuegoDescomposicion/JuegoDescomposicion.jsx';
-import JuegoFracciones from './paginas/JuegoFracciones/JuegoFracciones.jsx';
-import JuegoTiempo from './paginas/JuegoTiempo/JuegoTiempo.jsx';
+import JuegoDescomposicion from './paginas/juegos/JuegoDescomposicion/JuegoDescomposicion.jsx';
+import JuegoFracciones from './paginas/juegos/JuegoFracciones/JuegoFracciones.jsx';
+import JuegoTiempo from './paginas/juegos/JuegoTiempo/JuegoTiempo.jsx';
 import ProblemasSimples from './paginas/juegos/ProblemasSimples/ProblemasSimples.jsx';
 import OddNumbersGame from './paginas/juegos/NumerosImparesPares/Numerosimpares.jsx';
 import EjercicioSuma from './paginas/juegos/EjercisiosMatematicos/sumaBasica.jsx';
@@ -37,6 +37,7 @@ import JuegoComparacion from './paginas/juegos/Comparacion/mayormenor.jsx';
 import JuegoPatrones from './paginas/juegos/Patrones/patrones.jsx';
 import MaterialPage from './paginas/materiales/materialeasPage.jsx';
 import JuegoBingo from './paginas/materiales/juegoBingo.jsx';
+import JuegoDiasSemana from './paginas/juegos/JuegoDiasSemana/JuegoDiasSemana.jsx';
 
 function App() {
   return (
@@ -80,6 +81,7 @@ function App() {
             <Route path="/materiales" element={<ProtectedRoute><MaterialPage /></ProtectedRoute>} />
             <Route path="/juegobingo" element={<ProtectedRoute><JuegoBingo /></ProtectedRoute>} />
             <Route path="*" element={<NotFound />} />
+            <Route path="/JuegoDiasSemana" element={<JuegoDiasSemana />} />
           </Routes>
         </div>
       </Router>

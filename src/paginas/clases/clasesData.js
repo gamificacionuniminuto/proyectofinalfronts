@@ -201,16 +201,17 @@ forma: "cuadrado",
 color: "#e76f51", // naranja
 link: "/JuegoDescomposicion",
 },
-//{
-//   id:17,
-//   nombre: "Dias de la semana",
-//   descripcion: "Aprende los días y secuencias Temporales.",
-//   nivel: "Nivel 2",
-//   completado: false,
-//   icono: "🗓️",
-//   forma: "circulo",
-//   color: "#264653",
-// },
+{
+id:17,
+nombre: "Dias de la semana",
+descripcion: "Aprende los días y secuencias Temporales.",
+nivel: "Nivel 2",
+completado: false,
+icono: "🗓️",
+forma: "circulo",
+color: "#264653",
+link: "/JuegoDiasSemana", // Asegúrate de que esta ruta esté definida en tu aplicación
+},
 // {
 // id: 18,
 // nombre: "Los numeros grandes y su descomposición",
@@ -300,6 +301,7 @@ color: "#fcbf49", // amarillo
   icono: "⏰",
   forma: "circulo",
   color: "#264653", // azul oscuro
+  link: "/JuegoTiempo",
 },
 {
   id: 27,

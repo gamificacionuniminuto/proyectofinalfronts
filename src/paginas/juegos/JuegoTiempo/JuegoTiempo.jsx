@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './JuegoTiempo.css';
-import fondoReloj from '../../imagenes/reloj-analogico.png';
+//import fondoReloj from './imagenes/reloj-analogico.png';
 import { useNavigate } from 'react-router-dom';
 
 const horasPosibles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -95,13 +95,14 @@ const JuegoTiempo = () => {
   return (
     <div className="juego-tiempo">
       <h2>¡Practica el tiempo!</h2>
+      <img src="/imagenes/reloj-analogico.png" alt="Reloj analógico" />
 
       {pregunta.tipo === 'reloj' ? (
         <div className="reloj">
           <div
             className="esfera"
             style={{
-              backgroundImage: `url(${fondoReloj})`,
+              backgroundImage: `url('/imagenes/reloj-analogico.png')`,
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
@@ -133,10 +134,12 @@ const JuegoTiempo = () => {
       <div>
         <button onClick={verificarRespuesta}>Verificar</button>
         <button onClick={siguientePregunta}>Siguiente</button>
+        <button onClick={regresarAClases}>Regresar</button>
       </div>
 
       <p style={{ color: esError ? 'red' : 'green' }}>{mensaje}</p>
     </div>
+    
   );
 };
 

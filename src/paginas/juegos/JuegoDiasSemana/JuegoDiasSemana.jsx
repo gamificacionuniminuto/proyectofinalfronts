@@ -63,8 +63,9 @@ const JuegoDiasSemana = () => {
         nuevaPregunta();
       }, 2000);
     }
+    
   };
-
+  
   return (
     <div className="juego-dias-semana">
       <h2>📅 Juego de Días de la Semana</h2>
