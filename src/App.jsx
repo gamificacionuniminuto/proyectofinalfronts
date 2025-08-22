@@ -24,22 +24,25 @@ import JuegoFiguras from './paginas/JuegoFiguras/JuegoFiguras.jsx'
 // import JuegoNumeros from './paginas/juegos/JuegoNumeros.jsx';
 // import EjercicioMatematicas from './paginas/EjercisiosMatematicos/EjercicioMatematicasSuma.jsx';
 import Contar50 from './paginas/juegos/Contar/contar50.jsx'; 
-import Contar20 from './paginas/juegos/Contar/Contar20.jsx'; // Asegúrate de que este componente exista
-import NumerosGame from './paginas/JuegoVoz/NumerosVoz.jsx'; // Asegúrate de que este componente exista
-import FigureCounter from './paginas/juegos/RelacionNumerosFiguras/RelacionFiguras.jsx'; // Asegúrate de que este componente exista
-import AnimalCounterDs from './paginas/juegos/ContarFormaAsyds/ContarAsyds.jsx'; // Asegúrate de que este componente exista
-import CuentaHasta100 from './paginas/juegos/Contar/Contar100.jsx'; // Asegúrate de que este componente exista
-import OddNumbersGame from './paginas/juegos/NumerosImparesPares/Numerosimpares.jsx'; // Asegúrate de que este componente exista
-import EjercicioSuma from './paginas/juegos/EjercisiosMatematicos/sumaBasica.jsx'; // Asegúrate de que este componente exista
-import EjercicioResta from './paginas/juegos/EjercisiosMatematicos/restaBasica.jsx'; // Asegúrate de que este componente exista
-import JuegoComparacion from './paginas/juegos/Comparacion/mayormenor.jsx'; // Asegúrate de que este componente exista
-import JuegoPatrones from './paginas/juegos/Patrones/patrones.jsx'; // Asegúrate de que este componente exista
+import Contar20 from './paginas/juegos/Contar/Contar20.jsx'; 
+import NumerosGame from './paginas/JuegoVoz/NumerosVoz.jsx'; 
+import FigureCounter from './paginas/juegos/RelacionNumerosFiguras/RelacionFiguras.jsx'; 
+import AnimalCounterDs from './paginas/juegos/ContarFormaAsyds/ContarAsyds.jsx'; 
+import CuentaHasta100 from './paginas/juegos/Contar/Contar100.jsx';
+import OddNumbersGame from './paginas/juegos/NumerosImparesPares/Numerosimpares.jsx'; 
+import EjercicioSuma from './paginas/juegos/EjercisiosMatematicos/sumaBasica.jsx'; 
+import EjercicioResta from './paginas/juegos/EjercisiosMatematicos/restaBasica.jsx'; 
+import JuegoComparacion from './paginas/juegos/Comparacion/mayormenor.jsx';
+import JuegoPatrones from './paginas/juegos/Patrones/patrones.jsx'; 
 import SumasLLevando from './paginas/juegos/EjercisiosMatematicos/sumasLLevando.jsx';
-import RestasLLevando from './paginas/juegos/EjercisiosMatematicos/restasLLevando.jsx'; // Asegúrate de que este componente exista
-import TablasMultiplicar from './paginas/juegos/tablas/tablasMultiplicar.jsx'; // Asegúrate de que este componente exista
+import RestasLLevando from './paginas/juegos/EjercisiosMatematicos/restasLLevando.jsx'; 
+import TablasMultiplicar from './paginas/juegos/tablas/tablasMultiplicar.jsx'; 
+import DivisionesBasicas from './paginas/juegos/EjercisiosMatematicos/divisionBasica.jsx'; 
+import FigurasAvanzadas from './paginas/juegos/RelacionNumerosFiguras/figurasAvanzadas.jsx'; 
+import FraccionesBasicas from './paginas/juegos/Fracciones/fraccionesBasicas.jsx';
+import MedicionTiempo from './paginas/juegos/medicion/medicionTiempo.jsx'; // Asegúrate de que este componente exista
 
-
-import MaterialPage from './paginas/materiales/materialeasPage.jsx'; // Asegúrate de que este componente exista
+import MaterialPage from './paginas/materiales/materialeasPage.jsx'; 
 import JuegoBingo from './paginas/materiales/juegoBingo.jsx';
 // Asegúrate de que este componente exista
 
@@ -95,10 +98,10 @@ function App() {
             <Route path="/sumasLLevando" element={<SumasLLevando />} /> {/* Ruta para el juego de sumas con llevadas */}
             <Route path="/restasLLevando" element={<RestasLLevando />} /> {/* Ruta para el juego de restas con llevadas */}
             <Route path="/tablasMultiplicar" element={<TablasMultiplicar />} /> {/* Ruta para el juego de tablas de multiplicar */}
-            
-            {/* Rutas para materiales y juegos adicionales */}
-
-
+            <Route path="/divisionesBasicas" element={<DivisionesBasicas />} /> {/* Ruta para el juego de divisiones básicas */}
+            <Route path="/figurasAvanzadas" element={<FigurasAvanzadas />} /> {/* Ruta para el juego de figuras avanzadas */}
+            <Route path="/fraccionesBasicas" element={<FraccionesBasicas />} /> {/* Ruta para el juego de fracciones básicas */}
+            <Route path="/medicionTiempo" element={<MedicionTiempo />} /> {/* Ruta para el juego de medición de tiempo */}
             
 
             <Route path="/materiales" element={<ProtectedRoute><MaterialPage /></ProtectedRoute>} />

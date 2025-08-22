@@ -250,6 +250,7 @@ const ClasesData = [
   icono: "➗",
   forma: "nube",
   color: "#2a9d8f", // azul claro
+  link: "/divisionesBasicas", // Asegúrate de que esta ruta esté definida en tu aplicación
 },
 {
   id: 24,
@@ -260,6 +261,8 @@ const ClasesData = [
   icono: "📐",
   forma: "triangulo",
   color: "#d62828", // rojo
+  link: "/figurasAvanzadas", 
+
   },
 {
 id:25,
@@ -270,6 +273,7 @@ completado: false,
 icono: "🥧",
 forma: "estrella",
 color: "#fcbf49", // amarillo
+link: "/fraccionesBasicas",
 },
 {
   id: 26,
@@ -280,6 +284,7 @@ color: "#fcbf49", // amarillo
   icono: "⏰",
   forma: "circulo",
   color: "#264653", // azul oscuro
+  link: "/medicionTiempo", // Asegúrate de que esta ruta esté definida en tu aplicación
 },
 {
   id: 27,
