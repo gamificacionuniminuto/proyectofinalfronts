@@ -41,6 +41,10 @@ import DivisionesBasicas from './paginas/juegos/EjercisiosMatematicos/divisionBa
 import FigurasAvanzadas from './paginas/juegos/RelacionNumerosFiguras/figurasAvanzadas.jsx'; 
 import FraccionesBasicas from './paginas/juegos/Fracciones/fraccionesBasicas.jsx';
 import MedicionTiempo from './paginas/juegos/medicion/medicionTiempo.jsx'; // Asegúrate de que este componente exista
+import MedicionUso from './paginas/juegos/medicion/usoMedida.jsx'; // Asegúrate de que este componente exista
+import ProblemasMate from './paginas/juegos/EjercisiosMatematicos/problemasMate.jsx';
+import GraficaPicto from './paginas/juegos/grafica/graficasPicto.jsx';
+import PatronesSecuencia from './paginas/juegos/Patrones/patronesSecuencias.jsx'; // Asegúrate de que este componente exista
 
 import MaterialPage from './paginas/materiales/materialeasPage.jsx'; 
 import JuegoBingo from './paginas/materiales/juegoBingo.jsx';
@@ -102,7 +106,13 @@ function App() {
             <Route path="/figurasAvanzadas" element={<FigurasAvanzadas />} /> {/* Ruta para el juego de figuras avanzadas */}
             <Route path="/fraccionesBasicas" element={<FraccionesBasicas />} /> {/* Ruta para el juego de fracciones básicas */}
             <Route path="/medicionTiempo" element={<MedicionTiempo />} /> {/* Ruta para el juego de medición de tiempo */}
+            <Route path="/medicionUso" element={<MedicionUso />} /> {/* Ruta para el juego de uso de medida */}
+            <Route path="/problemasMate" element={<ProblemasMate />} /> {/* Ruta para el juego de problemas matemáticos */}
+            <Route path="/graficaPicto" element={<GraficaPicto />} /> {/* Ruta para el juego de gráficas pictográficas */}              
+            <Route path="/patronesSecuencia" element={<PatronesSecuencia />} /> {/* Ruta para el juego de patrones y secuencias */}
             
+            {/* Rutas para materiales */}
+
 
             <Route path="/materiales" element={<ProtectedRoute><MaterialPage /></ProtectedRoute>} />
             <Route path="/juegobingo" element={<ProtectedRoute><JuegoBingo /></ProtectedRoute>} />

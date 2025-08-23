@@ -295,6 +295,7 @@ link: "/fraccionesBasicas",
   icono: "📏",
   forma: "cuadrado",
   color: "#e76f51", // naranja
+  link: "/medicionUso", // Asegúrate de que esta ruta esté definida en tu aplicación
 
 },
 {
@@ -306,6 +307,7 @@ link: "/fraccionesBasicas",
   icono: "📘",
   forma: "nube",
   color: "#2a9d8f", // azul claro
+  link: "/problemasMate", // Asegúrate de que esta ruta esté definida en tu aplicación
 },
 {
 id: 29,
@@ -316,6 +318,7 @@ completado: false,
 icono: "📈",
 forma: "triangulo",
 color: "#d62828", // rojo
+link: "/graficaPicto", // Asegúrate de que esta ruta esté definida en tu aplicación
 },
  
 {
@@ -327,6 +330,8 @@ color: "#d62828", // rojo
   icono: "🔄",
   forma: "nube",
   color: "#2a9d8f", // azul claro
+  link: "/patronesSecuencia", // Asegúrate de que esta ruta esté definida en tu aplicación
+   // Asegúrate de que esta ruta esté definida en tu aplicación
 },
 {
   id: 31,
