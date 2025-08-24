@@ -154,3 +154,63 @@
 .incorrecto {
   color: red;
 }
+@media (max-width: 500px) {
+  .resta-container {
+    max-width: 98vw;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+  }
+
+  .resta-container h2 {
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+  }
+
+  .flechas-container,
+  .fila-llevada,
+  .fila-digitos,
+  .fila-respuesta {
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+
+  .flecha-columna,
+  .llevada-input,
+  .digito-box,
+  .respuesta-input {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+    line-height: 36px;
+  }
+
+  .digito-box {
+    font-size: 1.1rem;
+  }
+
+  .prestar-btn {
+    font-size: 0.7rem;
+    padding: 2px 7px;
+    bottom: 36px;
+    left: 50%;
+  }
+
+  .linea-resta {
+    width: 90px;
+    height: 2px;
+    margin: 5px auto;
+  }
+
+  .btn {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    margin: 5px 3px;
+    border-radius: 6px;
+  }
+
+  .resultado {
+    font-size: 1rem;
+    margin-top: 7px;
+  }
+}

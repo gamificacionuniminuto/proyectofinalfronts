@@ -45,6 +45,10 @@ import MedicionUso from './paginas/juegos/medicion/usoMedida.jsx'; // Asegúrate
 import ProblemasMate from './paginas/juegos/EjercisiosMatematicos/problemasMate.jsx';
 import GraficaPicto from './paginas/juegos/grafica/graficasPicto.jsx';
 import PatronesSecuencia from './paginas/juegos/Patrones/patronesSecuencias.jsx'; // Asegúrate de que este componente exista
+import ProblemasMate2 from './paginas/juegos/EjercisiosMatematicos/problemasMate2.jsx'; // Asegúrate de que este componente exista
+import ProblemasMD1 from './paginas/juegos/EjercisiosMatematicos/problemasMD1.jsx'; // Asegúrate de que este componente exista
+import OperacionCombinada from './paginas/juegos/EjercisiosMatematicos/operacionCombinada.jsx';
+
 
 import MaterialPage from './paginas/materiales/materialeasPage.jsx'; 
 import JuegoBingo from './paginas/materiales/juegoBingo.jsx';
@@ -110,8 +114,9 @@ function App() {
             <Route path="/problemasMate" element={<ProblemasMate />} /> {/* Ruta para el juego de problemas matemáticos */}
             <Route path="/graficaPicto" element={<GraficaPicto />} /> {/* Ruta para el juego de gráficas pictográficas */}              
             <Route path="/patronesSecuencia" element={<PatronesSecuencia />} /> {/* Ruta para el juego de patrones y secuencias */}
-            
-            {/* Rutas para materiales */}
+            <Route path="/problemasMate2" element={<ProblemasMate2 />} /> {/* Ruta para el juego de problemas matemáticos avanzados */}
+            <Route path="/problemasMD1" element={<ProblemasMD1 />} /> {/* Ruta para el juego de problemas de multiplicación y división */}
+            <Route path="/operacionCombinada" element={<OperacionCombinada />} /> {/* Ruta para el juego de operaciones combinadas */}
 
 
             <Route path="/materiales" element={<ProtectedRoute><MaterialPage /></ProtectedRoute>} />

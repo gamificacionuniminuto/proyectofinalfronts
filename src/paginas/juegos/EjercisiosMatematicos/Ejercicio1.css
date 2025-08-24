@@ -99,6 +99,64 @@ body::before {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+@media (max-width: 1200px) {
+  .contenedor-caja {
+    padding: 30px 20px;
+    min-height: 250px;
+  }
+  .titulo-principal {
+    font-size: 2.5rem;
+  }
+}
 
+@media (max-width: 900px) {
+  .contenedor-ejercicios {
+    padding: 30px 10px;
+  }
+  .menu-operaciones {
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  .boton-seleccion {
+    font-size: 1rem;
+    padding: 12px 20px;
+  }
+  .contenedor-caja {
+    padding: 25px 10px;
+    min-height: 200px;
+  }
+  .titulo-principal {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .contenedor-ejercicios {
+    padding: 15px 2px;
+  }
+  .titulo-principal {
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+  }
+  .mensaje-seleccion {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+  .menu-operaciones {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .boton-seleccion {
+    font-size: 0.95rem;
+    padding: 10px 12px;
+    border-radius: 20px;
+  }
+  .contenedor-caja {
+    padding: 12px 4px;
+    border-radius: 15px;
+    min-height: 120px;
+  }
+}
 
 /* Eliminamos los estilos de .ejercicio-seccion, ya que ya no se usa */

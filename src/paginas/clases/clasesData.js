@@ -342,6 +342,7 @@ link: "/graficaPicto", // Asegúrate de que esta ruta esté definida en tu aplic
   icono: "➕➖",
   forma: "estrella",
   color: "#fcbf49", // amarillo
+  link: "/problemasMate2", // Asegúrate de que esta ruta esté definida en tu aplicación
 },
 {
   id:32,
@@ -352,6 +353,8 @@ link: "/graficaPicto", // Asegúrate de que esta ruta esté definida en tu aplic
   icono: "✖️➗",
   forma: "cuadrado",
   color: "#e76f51", // naranja
+  link: "/problemasMD1", // Asegúrate de que esta ruta esté definida en tu aplicación
+  
 
 },
 {
@@ -363,6 +366,7 @@ link: "/graficaPicto", // Asegúrate de que esta ruta esté definida en tu aplic
   icono: "🧮",
   forma: "triangulo",
   color: "#d62828", // rojo
+  link: "/operacionCombinada", // Asegúrate de que esta ruta esté definida en tu aplicación
   
 },
 /*{
