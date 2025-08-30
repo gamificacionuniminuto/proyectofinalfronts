@@ -36,6 +36,7 @@ import JuegoComparacion from './paginas/juegos/Comparacion/mayormenor.jsx';
 import JuegoPatrones from './paginas/juegos/Patrones/patrones.jsx'; 
 import SumasLLevando from './paginas/juegos/EjercisiosMatematicos/sumasLLevando.jsx';
 import RestasLLevando from './paginas/juegos/EjercisiosMatematicos/restasLLevando.jsx'; 
+import ConocerTablasM from './paginas/juegos/EjercisiosMatematicos/conoceTablasM.jsx';
 import TablasMultiplicar from './paginas/juegos/tablas/tablasMultiplicar.jsx'; 
 import DivisionesBasicas from './paginas/juegos/EjercisiosMatematicos/divisionBasica.jsx'; 
 import FigurasAvanzadas from './paginas/juegos/RelacionNumerosFiguras/figurasAvanzadas.jsx'; 
@@ -105,6 +106,7 @@ function App() {
             <Route path="/juegopatrones" element={<JuegoPatrones />} /> {/* Ruta para el juego de patrones */}
             <Route path="/sumasLLevando" element={<SumasLLevando />} /> {/* Ruta para el juego de sumas con llevadas */}
             <Route path="/restasLLevando" element={<RestasLLevando />} /> {/* Ruta para el juego de restas con llevadas */}
+            <Route path="/conocetablasm" element={<ConocerTablasM />} /> {/* Ruta para el juego de conocer tablas de multiplicar */}
             <Route path="/tablasMultiplicar" element={<TablasMultiplicar />} /> {/* Ruta para el juego de tablas de multiplicar */}
             <Route path="/divisionesBasicas" element={<DivisionesBasicas />} /> {/* Ruta para el juego de divisiones básicas */}
             <Route path="/figurasAvanzadas" element={<FigurasAvanzadas />} /> {/* Ruta para el juego de figuras avanzadas */}

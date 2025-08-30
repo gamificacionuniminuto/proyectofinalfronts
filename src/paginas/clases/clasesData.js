@@ -229,7 +229,8 @@ const ClasesData = [
   icono: "✖️",
   forma: "estrella",
   color: "#fcbf49", // amarillo
-  link: "/tablasMultiplicar", // Asegúrate de que esta ruta esté definida en tu aplicación
+  link: "/conocetablasm",
+   // Asegúrate de que esta ruta esté definida en tu aplicación
 },
 {
   id: 22,
@@ -240,6 +241,7 @@ const ClasesData = [
   icono: "✖️",
   forma: "cuadrado",
   color: "#e76f51", // naranja
+  link: "/tablasMultiplicar",
   },
 {   
   id: 23,
