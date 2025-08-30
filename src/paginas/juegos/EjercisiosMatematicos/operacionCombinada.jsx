@@ -169,3 +169,34 @@ const botonStyle = (color) => ({
   boxShadow: "2px 2px 6px rgba(0,0,0,0.3)",
   transition: "transform 0.2s",
 });
+/* 🎨 Estilos responsivos para pantallas pequeñas */
+const style = document.createElement("style");
+style.innerHTML = `
+    @media (max-width: 600px) {
+        body, #root, .App {
+            min-height: 100vh !important;
+            padding: 0 !important;
+        }
+        h2 {
+            font-size: 22px !important;
+        }
+        h3 {
+            font-size: 18px !important;
+            padding: 8px 10px !important;
+        }
+        input {
+            font-size: 16px !important;
+            padding: 8px !important;
+        }
+        button {
+            font-size: 14px !important;
+            padding: 10px 12px !important;
+            margin: 6px !important;
+        }
+        div[style*="maxWidth: 500px"] {
+            max-width: 95vw !important;
+            padding: 10px !important;
+        }
+    }
+`;
+document.head.appendChild(style);
