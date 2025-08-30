@@ -84,7 +84,7 @@ export default function JuegoFracciones() {
       <div className="controles2">
         <button onClick={siguiente} className="control-btn2">➡️ Siguiente</button>
         <button onClick={repetir} className="control-btn3">🔄 Repetir Juego</button>
-        <button onClick={() => alert("Regresando a clases...")} className="control-btn">🏫 Regresar a Clases</button>
+        <button onClick={() => window.location.href = "/clases"} className="control-btn1">⬅️ Regresar a Clases</button>
       </div>
     </div>
   );

@@ -113,6 +113,13 @@ export default function JuegoMedidas() {
         ></iframe>
       </div>
 
+      <button
+        style={{ ...styles.boton, marginBottom: "15px" }}
+        onClick={() => window.location.href = "/clases"}
+      >
+        ⬅️ Regresar a Clases
+      </button>
+
       {mostrarResultado ? (
         <div style={styles.resultado}>
           <h2>🎉 ¡Has terminado el juego!</h2>
@@ -154,7 +161,7 @@ const styles = {
     padding: "20px",
     borderRadius: "15px",
     maxWidth: "800px",
-    margin: "20px auto",
+    margin: "40px auto",
     boxShadow: "0px 4px 10px rgba(0,0,0,0.2)",
   },
   titulo: {
