@@ -8,28 +8,35 @@ const MaterialPage = () => {
 
   const materials = [
     {
-      name: 'Hojas de Sumas Básicas',
+      name: 'Repasa los numeros',
+      category: 'Números',
+      image: 'https://example.com/numeros.png',
+      link: '/numeros',
+    },
+    {
+      name: 'Hojas de Sumas y Restas Básicas',
       category: 'Sumas',
       image: 'https://example.com/sumas.png',
-      link: '/material/sumas'
+      link: '/guia',
     },
+
     {
-      name: 'Tarjetas de Figuras',
+      name: 'Figuras',
       category: 'Figuras',
       image: 'https://example.com/figuras.png',
-      link: '/material/figuras'
+      link: '/figurasgeometricas',
     },
     {
-      name: 'Bingo de Números',
+      name: 'Ruleta de Números',
       category: 'Juegos',
       image: 'https://example.com/bingo.png',
       link: '/juegobingo',
     },
     {
-      name: 'Video: Aprende a Restar',
+      name: 'Ejemplo de Restas',
       category: 'Videos',
       image: 'https://example.com/restasvideo.png',
-      link: '/material/restasvideo'
+      link: '/problemasMD'
     },
   ];
 

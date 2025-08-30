@@ -52,7 +52,11 @@ import OperacionCombinada from './paginas/juegos/EjercisiosMatematicos/operacion
 
 
 import MaterialPage from './paginas/materiales/materialeasPage.jsx'; 
+import RepasaNUmeros from './paginas/materiales/repasaNumeros.jsx';
+import Guia from './paginas/materiales/guia.jsx';
+import FigurasGeometricas from './paginas/materiales/figurasGeometricas.jsx';
 import JuegoBingo from './paginas/materiales/juegoBingo.jsx';
+import ProblemasMD from './paginas/materiales/problemasMD.jsx';
 // Asegúrate de que este componente exista
 
 
@@ -65,7 +69,7 @@ function App() {
       <Router>
         <Navbar />
 
-        {/* Componente que controla cuándo mostrar el progreso */}
+      
 
 
         <div className="main-content">
@@ -122,8 +126,11 @@ function App() {
 
 
             <Route path="/materiales" element={<ProtectedRoute><MaterialPage /></ProtectedRoute>} />
+            <Route path="/numeros" element={<ProtectedRoute><RepasaNUmeros /></ProtectedRoute>} />
+            <Route path="/guia" element={<ProtectedRoute><Guia /></ProtectedRoute>} />
+            <Route path="/figurasgeometricas" element={<ProtectedRoute><FigurasGeometricas /></ProtectedRoute>} />
             <Route path="/juegobingo" element={<ProtectedRoute><JuegoBingo /></ProtectedRoute>} />
-
+            <Route path="/problemasMD" element={<ProtectedRoute><ProblemasMD /></ProtectedRoute>} />
         
 
             

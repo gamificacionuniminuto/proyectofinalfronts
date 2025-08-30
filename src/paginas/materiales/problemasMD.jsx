@@ -162,6 +162,12 @@ export default function MultiplicacionEnCuadricula() {
           <button className="btn ghost" onClick={() => hablar(vozTexto)}>
             Repetir voz
           </button>
+                 <button
+          onClick={() => (window.location.href = "/materiales")}
+          
+        >
+          ◀️ Regresar a Materiales
+        </button>
         </div>
       )}
 
