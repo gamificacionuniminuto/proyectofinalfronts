@@ -28,16 +28,41 @@ const MaterialPage = () => {
     },
     {
       name: 'Ruleta de Números',
-      category: 'Juegos',
+      category: 'Guia',
       image: 'https://example.com/bingo.png',
       link: '/juegobingo',
     },
     {
       name: 'Ejemplo de Restas',
-      category: 'Videos',
+      category: 'Guia',
       image: 'https://example.com/restasvideo.png',
       link: '/problemasMD'
     },
+    {
+      name: 'Multiplicacion',
+      category: 'Guia',
+      image: 'https://example.com/multiplicacionvideo.png',
+      link: '/multiplacacion',
+    },
+    {
+      name: 'División',
+      category: 'Guia',
+      image: 'https://example.com/divisionvideo.png',
+      link: '/division',
+    },
+    {
+      name: 'Números Ascendentes y Descendentes',
+      category: 'Guia',
+      image: 'https://example.com/ascendentedesendente.png',
+      link: '/asendentedesendente',
+    },
+    {
+      name: 'Relación de Números',
+      category: 'Guia',
+      image: 'https://example.com/relaciondenumeros.png',
+      link: '/relacionnumeros',
+    },
+    
   ];
 
   return (

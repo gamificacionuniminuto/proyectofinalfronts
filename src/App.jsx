@@ -57,7 +57,10 @@ import Guia from './paginas/materiales/guia.jsx';
 import FigurasGeometricas from './paginas/materiales/figurasGeometricas.jsx';
 import JuegoBingo from './paginas/materiales/juegoBingo.jsx';
 import ProblemasMD from './paginas/materiales/problemasMD.jsx';
-// Asegúrate de que este componente exista
+import Multiplicacion from './paginas/materiales/Multiplicacion.jsx';
+import Division from './paginas/materiales/Division.jsx';
+import AsendenteDesendente from './paginas/materiales/asendenteDesendente.jsx';
+import RelacionNumeros from './paginas/materiales/RelacionNumeros.jsx';
 
 
 
@@ -131,10 +134,10 @@ function App() {
             <Route path="/figurasgeometricas" element={<ProtectedRoute><FigurasGeometricas /></ProtectedRoute>} />
             <Route path="/juegobingo" element={<ProtectedRoute><JuegoBingo /></ProtectedRoute>} />
             <Route path="/problemasMD" element={<ProtectedRoute><ProblemasMD /></ProtectedRoute>} />
-        
-
-            
-
+            <Route path="/multiplacacion" element={<ProtectedRoute><Multiplicacion /></ProtectedRoute>} />
+            <Route path="/division" element={<ProtectedRoute><Division /></ProtectedRoute>} />
+            <Route path="/asendentedesendente" element={<ProtectedRoute><AsendenteDesendente /></ProtectedRoute>} />
+            <Route path="/relacionnumeros" element={<ProtectedRoute><RelacionNumeros /></ProtectedRoute>} />
          
 
 
