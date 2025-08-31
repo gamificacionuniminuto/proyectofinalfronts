@@ -1,18 +1,19 @@
+
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ChatBot from './componentes/Chatgpt.jsx';
-//import './componentes/
-import Navbar from './componentes/Navbar.js'; 
+import Navbar from './componentes/Navbar.js';
+import ProtectedRoute from './componentes/ProtectedRoute.js';
 
 import Home from './paginas/Home/home.js';
-import './paginas/Home/home.css'; 
-import Login from './paginas/login/LoginRegister.js';  
+import './paginas/Home/home.css';
+import Login from './paginas/login/LoginRegister.js';
 import Singin from './paginas/singin/singin.js';
 import Profile from './paginas/profile/profile.js';
 import Configuracion from './paginas/configuracion/configuracion.js';
 import NewPassword from './paginas/newPassword/newPassword.js';
 import ForgotPassword from './paginas/forgotpassword/ForgotPassword.js';
 import NotFound from './NotFound.js';
-import ProtectedRoute from './componentes/ProtectedRoute.js';
 import Ejercicio1 from './paginas/primero/Ejercicio1.jsx';
 import Clases from './paginas/clases/clases.jsx'; 
 import Pago from './paginas/pago/pago.jsx'; // Asegúrate de que este componente exista
@@ -67,8 +68,6 @@ import RelacionNumeros from './paginas/materiales/RelacionNumeros.jsx';
 function App() {
   return (
     <div className="App">
-   
-    
       <Router>
         <Navbar />
 
@@ -82,27 +81,20 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/singin" element={<Singin />} />
             <Route path="/perfil" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-            <Route path="/Chatbot" element={<ProtectedRoute><ChatBot/></ProtectedRoute>} />
-            <Route path="/pago" element={<Pago />} /> {/* Asegúrate de que este componente exista */}
-            <Route path="/formulario" element={<Formulario />} /> {/* Asegúrate de que este componente exista */}
-            
-            
+            <Route path="/Chatbot" element={<ProtectedRoute><ChatBot /></ProtectedRoute>} />
+            <Route path="/pago" element={<Pago />} />
+            <Route path="/formulario" element={<Formulario />} />
             <Route path="/configuracion" element={<ProtectedRoute><Configuracion /></ProtectedRoute>} />
             <Route path="/newPassword" element={<NewPassword />} />
             <Route path="/forgotPassword" element={<ForgotPassword />} />
             <Route path="/Ejercicio1" element={<Ejercicio1 />} />
-            <Route path="/clases" element={<Clases />} /> {/* Incluí la ruta para Clases */}
-            <Route path="/juegonumeros" element={<JuegoNumeros/>} />
-            {/* <Route path="/resta" element={<EjercicioMatematicas/>} /> */}
+            <Route path="/clases" element={<Clases />} />
+            <Route path="/juegonumeros" element={<JuegoNumeros />} />
             <Route path="/juegosnumeros" element={<JuegoNumeros />} />
             <Route path="/numerosvoz" element={<NumerosGame />} />
-            <Route path="/JuegoFiguras" element={<JuegoFiguras/>} />
-            <Route path="/juegosNumeros" element={<JuegoNumeros />} />
-            {/* //<Route path="/numerosVoz" element={<NumerosGame />} /> */}
-            {/* Asegúrate de que la ruta sea correcta para el componente de juego de números */}
-            <Route path="/contar50" element={<Contar50/>} />
-            {/* <Route path='/ejerciciosmatematicassuma' element={<EjercicioMatematicas />} /> */}
-            <Route path="/contar20" element={<Contar20 />} /> 
+            <Route path="/JuegoFiguras" element={<JuegoFiguras />} />
+            <Route path="/contar50" element={<Contar50 />} />
+            <Route path="/contar20" element={<Contar20 />} />
             <Route path="/figurecounter" element={<FigureCounter />} />
             <Route path="/animalcounterds" element={<AnimalCounterDs />} />
             <Route path="/cuentahasta100" element={<CuentaHasta100 />} />
@@ -143,10 +135,9 @@ function App() {
 
             {/* Rutas protegidas */}
             <Route path="*" element={<NotFound />} />
-
+            <Route path="/JuegoDiasSemana" element={<JuegoDiasSemana />} />
           </Routes>
         </div>
-
       </Router>
     </div>
   );

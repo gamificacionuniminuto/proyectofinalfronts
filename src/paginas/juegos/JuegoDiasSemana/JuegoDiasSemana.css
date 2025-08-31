@@ -1,0 +1,57 @@
+.juego-dias-semana {
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.juego-dias-semana h2 {
+  color: #2c3e50;
+}
+
+.juego-dias-semana p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.juego-dias-semana input {
+  padding: 10px;
+  font-size: 16px;
+  width: 200px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.botones {
+  margin-top: 10px;
+}
+
+.botones button {
+  padding: 10px 15px;
+  margin: 5px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.botones button:first-child {
+  background-color: #27ae60;
+  color: white;
+}
+
+.botones button:last-child {
+  background-color: #2980b9;
+  color: white;
+}
+
+.mensaje {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.puntaje {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 15px;
+}

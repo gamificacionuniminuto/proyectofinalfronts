@@ -35,6 +35,7 @@ const Clases = () => {
                 </div>
                 <h3 className="nombre">{clase.nombre}</h3>
                 <p className="descripcion">{clase.descripcion}</p>
+                
               </div>
             ))}
           </div>
