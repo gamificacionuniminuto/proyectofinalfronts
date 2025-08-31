@@ -16,7 +16,6 @@
     "es-toolkit": "^1.39.10",
     "framer-motion": "^12.7.4",
     "marked": "^16.2.0",
-    "marked": "^16.0.0",
     "react": "^19.0.0",
     "react-clock": "^6.0.0",
     "react-confetti": "^6.4.0",

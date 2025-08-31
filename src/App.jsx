@@ -1,5 +1,3 @@
-
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ChatBot from './componentes/Chatgpt.jsx';
 import Navbar from './componentes/Navbar.js';
@@ -19,22 +17,20 @@ import Clases from './paginas/clases/clases.jsx';
 import Pago from './paginas/pago/pago.jsx'; // Asegúrate de que este componente exista
 import Formulario from './paginas/pago/formulario.jsx'; // Asegúrate de que este componente exista
 
-import JuegoNumeros from './paginas/juegos/NumerosImparesPares/JuegoNumeros.jsx'
-// import EjercicioMatematicas from './paginas/EjercisiosMatematicos/EjercicioMatematicasSuma.jsx'
-import JuegoFiguras from './paginas/JuegoFiguras/JuegoFiguras.jsx'
-// import JuegoNumeros from './paginas/juegos/JuegoNumeros.jsx';
-// import EjercicioMatematicas from './paginas/EjercisiosMatematicos/EjercicioMatematicasSuma.jsx';
+
+
+import JuegoNumeros from './paginas/juegos/NumerosImparesPares/JuegoNumeros.jsx';
+import EjercicioMatematicas from './paginas/juegos/EjercisiosMatematicos/sumaBasica.jsx';
 import Contar50 from './paginas/juegos/Contar/contar50.jsx'; 
 import Contar20 from './paginas/juegos/Contar/Contar20.jsx'; 
-import NumerosGame from './paginas/JuegoVoz/NumerosVoz.jsx'; 
+import NumerosGame from './paginas/juegos/JuegoVoz/NumerosVoz.jsx'; 
 import FigureCounter from './paginas/juegos/RelacionNumerosFiguras/RelacionFiguras.jsx'; 
 import AnimalCounterDs from './paginas/juegos/ContarFormaAsyds/ContarAsyds.jsx'; 
 import CuentaHasta100 from './paginas/juegos/Contar/Contar100.jsx';
 import OddNumbersGame from './paginas/juegos/NumerosImparesPares/Numerosimpares.jsx'; 
 import EjercicioSuma from './paginas/juegos/EjercisiosMatematicos/sumaBasica.jsx'; 
 import EjercicioResta from './paginas/juegos/EjercisiosMatematicos/restaBasica.jsx'; 
-import JuegoComparacion from './paginas/juegos/Comparacion/mayormenor.jsx';
-import JuegoPatrones from './paginas/juegos/Patrones/patrones.jsx'; 
+
 import SumasLLevando from './paginas/juegos/EjercisiosMatematicos/sumasLLevando.jsx';
 import RestasLLevando from './paginas/juegos/EjercisiosMatematicos/restasLLevando.jsx'; 
 import ConocerTablasM from './paginas/juegos/EjercisiosMatematicos/conoceTablasM.jsx';
@@ -42,15 +38,19 @@ import TablasMultiplicar from './paginas/juegos/tablas/tablasMultiplicar.jsx';
 import DivisionesBasicas from './paginas/juegos/EjercisiosMatematicos/divisionBasica.jsx'; 
 import FigurasAvanzadas from './paginas/juegos/RelacionNumerosFiguras/figurasAvanzadas.jsx'; 
 import FraccionesBasicas from './paginas/juegos/Fracciones/fraccionesBasicas.jsx';
+
+import JuegoFiguras from './paginas/juegos/JuegoFiguras/JuegoFiguras.jsx';
+import JuegoDiasSemana from './paginas/juegos/JuegoDiasSemana/JuegoDiasSemana.jsx';
 import MedicionTiempo from './paginas/juegos/medicion/medicionTiempo.jsx'; // Asegúrate de que este componente exista
 import MedicionUso from './paginas/juegos/medicion/usoMedida.jsx'; // Asegúrate de que este componente exista
 import ProblemasMate from './paginas/juegos/EjercisiosMatematicos/problemasMate.jsx';
 import GraficaPicto from './paginas/juegos/grafica/graficasPicto.jsx';
+import JuegoPatrones from './paginas/juegos/Patrones/patrones.jsx';
 import PatronesSecuencia from './paginas/juegos/Patrones/patronesSecuencias.jsx'; // Asegúrate de que este componente exista
 import ProblemasMate2 from './paginas/juegos/EjercisiosMatematicos/problemasMate2.jsx'; // Asegúrate de que este componente exista
 import ProblemasMD1 from './paginas/juegos/EjercisiosMatematicos/problemasMD1.jsx'; // Asegúrate de que este componente exista
 import OperacionCombinada from './paginas/juegos/EjercisiosMatematicos/operacionCombinada.jsx';
-
+import JuegoDescomposicion from './paginas/juegos/JuegoDescomposicion/JuegoDescomposicion.jsx';
 
 import MaterialPage from './paginas/materiales/materialeasPage.jsx'; 
 import RepasaNUmeros from './paginas/materiales/repasaNumeros.jsx';
@@ -62,6 +62,11 @@ import Multiplicacion from './paginas/materiales/Multiplicacion.jsx';
 import Division from './paginas/materiales/Division.jsx';
 import AsendenteDesendente from './paginas/materiales/asendenteDesendente.jsx';
 import RelacionNumeros from './paginas/materiales/RelacionNumeros.jsx';
+import JuegoFracciones from './paginas/materiales/JuegoFracciones/JuegoFracciones.jsx';
+import JuegoTiempo from './paginas/materiales/JuegoTiempo/JuegoTiempo.jsx';
+import JuegoUnidadMedida from './paginas/materiales/JuegoUnidadMedida/JuegoUnidadMedida.jsx';
+import ProblemasSimples from './paginas/materiales/ProblemasSimples/ProblemasSimples.jsx';
+import JuegoComparacion from './paginas/juegos/Comparacion/mayormenor.jsx';
 
 
 
@@ -89,10 +94,8 @@ function App() {
             <Route path="/forgotPassword" element={<ForgotPassword />} />
             <Route path="/Ejercicio1" element={<Ejercicio1 />} />
             <Route path="/clases" element={<Clases />} />
-            <Route path="/juegonumeros" element={<JuegoNumeros />} />
-            <Route path="/juegosnumeros" element={<JuegoNumeros />} />
             <Route path="/numerosvoz" element={<NumerosGame />} />
-            <Route path="/JuegoFiguras" element={<JuegoFiguras />} />
+            
             <Route path="/contar50" element={<Contar50 />} />
             <Route path="/contar20" element={<Contar20 />} />
             <Route path="/figurecounter" element={<FigureCounter />} />
@@ -101,8 +104,8 @@ function App() {
             <Route path="/oddnumbersgame" element={<OddNumbersGame />} /> {/* Ruta para el juego de números impares */}
             <Route path="/ejerciciosumasbasicas" element={<EjercicioSuma />} /> {/* Ruta para el ejercicio de suma básica */}
             <Route path="/ejerciciosrestas" element={<EjercicioResta />} /> {/* Ruta para el ejercicio de resta */}
-            <Route path="/juegocomparacion" element={<JuegoComparacion />} /> {/* Ruta para el juego de comparación */}
-            <Route path="/juegopatrones" element={<JuegoPatrones />} /> {/* Ruta para el juego de patrones */}
+            <Route path="/JuegoDiasSemana" element={<JuegoDiasSemana />} />
+            <Route path="/juegodescomposicion" element={<JuegoDescomposicion />} /> {/* Ruta para el juego de descomposición de números */}
             <Route path="/sumasLLevando" element={<SumasLLevando />} /> {/* Ruta para el juego de sumas con llevadas */}
             <Route path="/restasLLevando" element={<RestasLLevando />} /> {/* Ruta para el juego de restas con llevadas */}
             <Route path="/conocetablasm" element={<ConocerTablasM />} /> {/* Ruta para el juego de conocer tablas de multiplicar */}
@@ -113,12 +116,13 @@ function App() {
             <Route path="/medicionTiempo" element={<MedicionTiempo />} /> {/* Ruta para el juego de medición de tiempo */}
             <Route path="/medicionUso" element={<MedicionUso />} /> {/* Ruta para el juego de uso de medida */}
             <Route path="/problemasMate" element={<ProblemasMate />} /> {/* Ruta para el juego de problemas matemáticos */}
-            <Route path="/graficaPicto" element={<GraficaPicto />} /> {/* Ruta para el juego de gráficas pictográficas */}              
+            <Route path="/graficaPicto" element={<GraficaPicto />} /> {/* Ruta para el juego de gráficas pictográficas */} 
+            <Route path="/juegopatrones" element={<JuegoPatrones />} /> {/* Ruta para el juego de patrones */}             
             <Route path="/patronesSecuencia" element={<PatronesSecuencia />} /> {/* Ruta para el juego de patrones y secuencias */}
             <Route path="/problemasMate2" element={<ProblemasMate2 />} /> {/* Ruta para el juego de problemas matemáticos avanzados */}
             <Route path="/problemasMD1" element={<ProblemasMD1 />} /> {/* Ruta para el juego de problemas de multiplicación y división */}
             <Route path="/operacionCombinada" element={<OperacionCombinada />} /> {/* Ruta para el juego de operaciones combinadas */}
-
+            
 
             <Route path="/materiales" element={<ProtectedRoute><MaterialPage /></ProtectedRoute>} />
             <Route path="/numeros" element={<ProtectedRoute><RepasaNUmeros /></ProtectedRoute>} />
@@ -130,12 +134,21 @@ function App() {
             <Route path="/division" element={<ProtectedRoute><Division /></ProtectedRoute>} />
             <Route path="/asendentedesendente" element={<ProtectedRoute><AsendenteDesendente /></ProtectedRoute>} />
             <Route path="/relacionnumeros" element={<ProtectedRoute><RelacionNumeros /></ProtectedRoute>} />
+            
+            <Route path="/medicionTiempo" element={<MedicionTiempo />} /> {/* Ruta para el juego de medición de tiempo */}
+            <Route path='/juegoNumeros' element={<JuegoNumeros />} />
+            <Route path="/juegocomparacion" element={<JuegoComparacion />} /> {/* Ruta para el juego de comparación */}
+            <Route path="/juegofracciones" element={<ProtectedRoute><JuegoFracciones /></ProtectedRoute>} />
+            <Route path="/JuegoFiguras" element={<JuegoFiguras />} />
+            <Route path="/juegotiempo" element={<ProtectedRoute><JuegoTiempo /></ProtectedRoute>} />
+            <Route path="/juegounidadmedida" element={<ProtectedRoute><JuegoUnidadMedida /></ProtectedRoute>} />
+            <Route path="/problemassimples" element={<ProtectedRoute><ProblemasSimples /></ProtectedRoute>} />
          
 
 
             {/* Rutas protegidas */}
             <Route path="*" element={<NotFound />} />
-            <Route path="/JuegoDiasSemana" element={<JuegoDiasSemana />} />
+           
           </Routes>
         </div>
       </Router>

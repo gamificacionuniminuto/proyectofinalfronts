@@ -87,7 +87,7 @@ const ClasesData = [
     icono: "➗",
     forma: "circulo",
     color: "#264653", // azul oscuro
-    link: "/juegosNumeros", // Asegúrate de que esta ruta esté definida en tu aplicación
+    link: "/juegoNumeros", // Asegúrate de que esta ruta esté definida en tu aplicación
   },
     {
     id: 9,
@@ -180,16 +180,6 @@ const ClasesData = [
 
     
   },
-{
-  id:17,
-  nombre: "Dias de la semana",
-  descripcion: "Aprende los días y secuencias Temporales.",
-  nivel: "Nivel 2",
-  completado: false,
-  icono: "🗓️",
-  forma: "circulo",
-  color: "#264653",
-},
 {
 id: 18,
 nombre: "Los numeros grandes y su descomposición",
@@ -310,6 +300,7 @@ link: "/fraccionesBasicas",
   icono: "⏰",
   forma: "circulo",
   color: "#264653", // azul oscuro
+  link: "/medicionTiempo", // Asegúrate de que esta ruta esté definida en tu aplicación
 },
 {
   id: 27,

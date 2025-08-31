@@ -239,7 +239,7 @@ export default function JuegoProblemas() {
       )}
 
       <br />
-      <button onClick={() => alert("Regresando a clases...")} style={styles.botonRegresar}>
+      <button onClick={() => window.location.href = "/clases"}  style={styles.botonRegresar}>
         ⬅️ Regresar a clases
       </button>
 

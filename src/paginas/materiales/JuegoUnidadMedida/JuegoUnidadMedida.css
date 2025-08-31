@@ -1,0 +1,139 @@
+/* JuegoUnidadMedida.css */
+* {
+  box-sizing: border-box;
+}
+
+.contenedor-unidad-medida {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Comic Sans MS', 'Arial', sans-serif;
+  background: #f0f9ff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+h2 {
+  color: #ff6b6b;
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+
+.instruccion {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.enunciado {
+  font-size: 18px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.ejemplo {
+  font-size: 16px;
+  padding: 10px;
+  background: #fff3e0;
+  border-radius: 8px;
+  color: #e65100;
+  border: 1px dashed #ffa726;
+  margin-bottom: 20px;
+}
+
+.input-respuesta {
+  font-size: 18px;
+  padding: 12px;
+  width: 80%;
+  max-width: 300px;
+  border: 3px solid #007acc;
+  border-radius: 10px;
+  margin: 15px 0;
+  text-align: center;
+}
+
+.botones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn-ayuda {
+  background: #ffcc00;
+  color: #333;
+}
+
+.btn-verificar {
+  background: #4caf50;
+  color: white;
+}
+
+.btn-siguiente {
+  background: #2196f3;
+  color: white;
+}
+
+.btn-regresar {
+  background: #6c757d;
+  color: white;
+}
+
+.resultado {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px 0;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.correcto {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.incorrecto {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.curiosidad {
+  margin-top: 20px;
+  padding: 15px;
+  background: #e3f2fd;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #0d47a1;
+  border: 1px dashed #1976d2;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .contenedor-unidad-medida {
+    padding: 15px;
+    margin: 15px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  .input-respuesta {
+    width: 100%;
+  }
+  button {
+    font-size: 15px;
+    padding: 8px 12px;
+  }
+}

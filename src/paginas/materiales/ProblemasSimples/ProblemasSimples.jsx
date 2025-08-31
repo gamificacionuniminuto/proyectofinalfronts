@@ -49,7 +49,7 @@ const ProblemasSimples = () => {
   const navigate = useNavigate();
 
   const volverAlInicio = () => {
-    navigate('/clases'); // Ajusta esta ruta según donde esté tu tarjeta principal
+    navigate('/materiales'); // Ajusta esta ruta según donde esté tu tarjeta principal
   };
   useEffect(() => {
     hablar(problema.enunciado); // Lee el problema al cargar

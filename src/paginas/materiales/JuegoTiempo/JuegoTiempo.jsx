@@ -89,13 +89,13 @@ const JuegoTiempo = () => {
   const anguloHora = ((pregunta.hora % 12) + pregunta.minutos / 60) * 30 + ROTACION_BASE;
   const anguloMinuto = pregunta.minutos * 6 + ROTACION_BASE;
   const regresarAClases = () => {
-    navigate('/clases'); // <-- Redirección al presionar el botón
+    navigate('/materiales'); // <-- Redirección al presionar el botón
   };
   
   return (
     <div className="juego-tiempo">
       <h2>¡Practica el tiempo!</h2>
-      <img src="/imagenes/reloj-analogico.png" alt="Reloj analógico" />
+
 
       {pregunta.tipo === 'reloj' ? (
         <div className="reloj">

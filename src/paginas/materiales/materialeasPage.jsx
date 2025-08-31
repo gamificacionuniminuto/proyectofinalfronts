@@ -62,6 +62,32 @@ const MaterialPage = () => {
       image: 'https://example.com/relaciondenumeros.png',
       link: '/relacionnumeros',
     },
+    {
+      name:'Fracciones',
+      category: 'juego',
+      image: 'https://example.com/juegofiguras.png',
+      link: '/juegofracciones',
+    },
+    {
+      name: 'Juego del tiempo',
+      category: 'juego',
+      image: 'https://example.com/juegotiempo.png',
+      link: '/juegoTiempo',
+    },
+    {
+      name: 'Juego unidades de medida',
+      category: 'juego',
+      image: 'https://example.com/juegomedicion.png',
+      link: '/juegounidadmedida',
+    },
+    {
+      name: 'Problemas Simples',
+      category: 'Guia',
+      image: 'https://example.com/problemasimples.png',
+      link: '/problemassimples',
+    },
+
+
     
   ];
 
