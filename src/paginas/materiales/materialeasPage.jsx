@@ -1,94 +1,106 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import Mati from '../../componentes/Mati.png'; // Tu imagen de Mati
-import './materiales.css';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Mati from "../../componentes/Mati.png"; // Tu imagen de Mati
+import "./materiales.css";
+
+// Importamos iconos de react-icons
+import {
+  FaCalculator,
+  FaShapes,
+  FaMinus,
+  FaTimes,
+  FaDivide,
+  FaSortNumericDown,
+  FaBalanceScale,
+  FaChartPie,
+  FaClock,
+  FaRuler,
+  FaPuzzlePiece,
+} from "react-icons/fa";
+import { GiPerspectiveDiceSixFacesRandom } from "react-icons/gi";
 
 const MaterialPage = () => {
   const navigate = useNavigate();
 
   const materials = [
     {
-      name: 'Repasa los numeros',
-      category: 'Números',
-      image: 'https://example.com/numeros.png',
-      link: '/numeros',
+      name: "Repasa los numeros",
+      category: "Números",
+      icon: <FaCalculator size={50} color="#4CAF50" />,
+      link: "/numeros",
     },
     {
-      name: 'Hojas de Sumas y Restas Básicas',
-      category: 'Sumas',
-      image: 'https://example.com/sumas.png',
-      link: '/guia',
-    },
-
-    {
-      name: 'Figuras',
-      category: 'Figuras',
-      image: 'https://example.com/figuras.png',
-      link: '/figurasgeometricas',
+      name: "Hojas de Sumas y Restas Básicas",
+      category: "Sumas",
+      icon: <FaCalculator size={50} color="#2196F3" />,
+      link: "/guia",
     },
     {
-      name: 'Ruleta de Números',
-      category: 'Guia',
-      image: 'https://example.com/bingo.png',
-      link: '/juegobingo',
+      name: "Figuras",
+      category: "Figuras",
+      icon: <FaShapes size={50} color="#FF9800" />,
+      link: "/figurasgeometricas",
     },
     {
-      name: 'Ejemplo de Restas',
-      category: 'Guia',
-      image: 'https://example.com/restasvideo.png',
-      link: '/problemasMD'
+      name: "Ruleta de Números",
+      category: "Juego",
+      icon: <GiPerspectiveDiceSixFacesRandom size={50} color="#9C27B0" />,
+      link: "/juegobingo",
     },
     {
-      name: 'Multiplicacion',
-      category: 'Guia',
-      image: 'https://example.com/multiplicacionvideo.png',
-      link: '/multiplacacion',
+      name: "Ejemplo de Restas",
+      category: "Guia",
+      icon: <FaMinus size={50} color="#F44336" />,
+      link: "/problemasMD",
     },
     {
-      name: 'División',
-      category: 'Guia',
-      image: 'https://example.com/divisionvideo.png',
-      link: '/division',
+      name: "Multiplicacion",
+      category: "Guia",
+      icon: <FaTimes size={50} color="#795548" />,
+      link: "/multiplacacion",
     },
     {
-      name: 'Números Ascendentes y Descendentes',
-      category: 'Guia',
-      image: 'https://example.com/ascendentedesendente.png',
-      link: '/asendentedesendente',
+      name: "División",
+      category: "Guia",
+      icon: <FaDivide size={50} color="#009688" />,
+      link: "/division",
     },
     {
-      name: 'Relación de Números',
-      category: 'Guia',
-      image: 'https://example.com/relaciondenumeros.png',
-      link: '/relacionnumeros',
+      name: "Números Ascendentes y Descendentes",
+      category: "Guia",
+      icon: <FaSortNumericDown size={50} color="#3F51B5" />,
+      link: "/asendentedesendente",
     },
     {
-      name:'Fracciones',
-      category: 'juego',
-      image: 'https://example.com/juegofiguras.png',
-      link: '/juegofracciones',
+      name: "Relación de Números",
+      category: "Guia",
+      icon: <FaBalanceScale size={50} color="#607D8B" />,
+      link: "/relacionnumeros",
     },
     {
-      name: 'Juego del tiempo',
-      category: 'juego',
-      image: 'https://example.com/juegotiempo.png',
-      link: '/juegoTiempo',
+      name: "Fracciones",
+      category: "juego",
+      icon: <FaChartPie size={50} color="#E91E63" />,
+      link: "/juegofracciones",
     },
     {
-      name: 'Juego unidades de medida',
-      category: 'juego',
-      image: 'https://example.com/juegomedicion.png',
-      link: '/juegounidadmedida',
+      name: "Juego del tiempo",
+      category: "juego",
+      icon: <FaClock size={50} color="#00BCD4" />,
+      link: "/juegoTiempo",
     },
     {
-      name: 'Problemas Simples',
-      category: 'Guia',
-      image: 'https://example.com/problemasimples.png',
-      link: '/problemassimples',
+      name: "Juego unidades de medida",
+      category: "juego",
+      icon: <FaRuler size={50} color="#8BC34A" />,
+      link: "/juegounidadmedida",
     },
-
-
-    
+    {
+      name: "Problemas Simples",
+      category: "Guia",
+      icon: <FaPuzzlePiece size={50} color="#FFC107" />,
+      link: "/problemassimples",
+    },
   ];
 
   return (
@@ -98,13 +110,15 @@ const MaterialPage = () => {
           <img src={Mati} alt="Mati el conejo" className="mati-img" />
           <h1>📚 Material de Apoyo</h1>
         </div>
-        <button className="back-btn" onClick={() => navigate('/perfil')}>⬅️ Volver al Perfil</button>
+        <button className="back-btn" onClick={() => navigate("/perfil")}>
+          ⬅️ Volver al Perfil
+        </button>
       </header>
 
       <section className="material-list">
         {materials.map((item, index) => (
           <div key={index} className="material-card">
-            <img src={item.image} alt={item.name} className="material-img"/>
+            <div className="material-icon">{item.icon}</div>
             <h3>{item.name}</h3>
             <p>{item.category}</p>
             <button onClick={() => navigate(item.link)}>Ver Material</button>
