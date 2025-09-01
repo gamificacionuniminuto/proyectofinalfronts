@@ -48,7 +48,7 @@ const MaterialPage = () => {
       link: "/juegobingo",
     },
     {
-      name: "Ejemplo de Restas",
+      name: "Ejemplo de Multiplicacion",
       category: "Guia",
       icon: <FaMinus size={50} color="#F44336" />,
       link: "/problemasMD",
