@@ -19,6 +19,20 @@ const ChatBot = () => {
     cargarVoces();
     // Algunos navegadores cargan las voces asincrónicamente
     window.speechSynthesis.onvoiceschanged = cargarVoces;
+
+    // Configurar el evento para pausar la voz cuando la pestaña no está visible
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        window.speechSynthesis.cancel();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.speechSynthesis.cancel(); // Limpiar al desmontar
+    };
   }, []);
 
   const palabrasClave = [
@@ -59,6 +73,13 @@ const ChatBot = () => {
     utterance.rate = 0.9;   // velocidad un poco más lenta
     utterance.pitch = 1.3;  // tono más agudo para voz infantil
 
+    // Cancelar si la pestaña pierde el foco durante la reproducción
+    utterance.onboundary = () => {
+      if (document.hidden) {
+        window.speechSynthesis.cancel();
+      }
+    };
+
     window.speechSynthesis.speak(utterance);
   };
 
@@ -86,7 +107,7 @@ const ChatBot = () => {
         {
           method: 'POST',
           headers: {
-            Authorization: 'Bearer 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',
+            Authorization: 'Bearer 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',
             'HTTP-Referer': 'https://www.sitename.com',
             'X-Title': 'SiteName',
             'Content-Type': 'application/json',
@@ -133,6 +154,7 @@ const ChatBot = () => {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ingresa tu pregunta matemática"
           disabled={cargando}
+          onKeyPress={(e) => e.key === 'Enter' && enviarMensaje()}
         />
       </div>
 
