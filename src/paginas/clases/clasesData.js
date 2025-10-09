@@ -1,3 +1,5 @@
+// import { link } from "react-router-dom";
+
 const ClasesData = [
   {
     id: 1,
@@ -85,7 +87,7 @@ const ClasesData = [
     icono: "➗",
     forma: "circulo",
     color: "#264653", // azul oscuro
-    link: "/juegosNumeros", // Asegúrate de que esta ruta esté definida en tu aplicación
+    link: "/juegoNumeros", // Asegúrate de que esta ruta esté definida en tu aplicación
   },
     {
     id: 9,
@@ -178,16 +180,28 @@ const ClasesData = [
 
     
   },
-//{
-//   id:17,
-//   nombre: "Dias de la semana",
-//   descripcion: "Aprende los días y secuencias Temporales.",
-//   nivel: "Nivel 2",
-//   completado: false,
-//   icono: "🗓️",
-//   forma: "circulo",
-//   color: "#264653",
-// },
+{
+id: 18,
+nombre: "Los numeros grandes y su descomposición",
+descripcion: "Comprende los números grandes y su descomposición.",
+nivel: "Nivel 3",
+completado: false,
+icono: "🔢",
+forma: "cuadrado",
+color: "#e76f51", // naranja
+link: "/JuegoDescomposicion",
+},
+{
+id:17,
+nombre: "Dias de la semana",
+descripcion: "Aprende los días y secuencias Temporales.",
+nivel: "Nivel 2",
+completado: false,
+icono: "🗓️",
+forma: "circulo",
+color: "#264653",
+link: "/JuegoDiasSemana", // Asegúrate de que esta ruta esté definida en tu aplicación
+},
 // {
 // id: 18,
 // nombre: "Los numeros grandes y su descomposición",
@@ -207,6 +221,7 @@ const ClasesData = [
   icono: "➕",
   forma: "nube",
   color: "#2a9d8f", // azul claro
+  link: "/sumasLLevando", 
 },
 {
   id: 20,
@@ -217,6 +232,7 @@ const ClasesData = [
   icono: "➖",
   forma: "triangulo",
   color: "#d62828", // rojo
+  link: "/restasLLevando", // Asegúrate de que esta ruta esté definida en tu aplicación
 },
 {
   id:21,
@@ -227,6 +243,8 @@ const ClasesData = [
   icono: "✖️",
   forma: "estrella",
   color: "#fcbf49", // amarillo
+  link: "/conocetablasm",
+   // Asegúrate de que esta ruta esté definida en tu aplicación
 },
 {
   id: 22,
@@ -237,6 +255,7 @@ const ClasesData = [
   icono: "✖️",
   forma: "cuadrado",
   color: "#e76f51", // naranja
+  link: "/tablasMultiplicar",
   },
 {   
   id: 23,
@@ -247,6 +266,7 @@ const ClasesData = [
   icono: "➗",
   forma: "nube",
   color: "#2a9d8f", // azul claro
+  link: "/divisionesBasicas", // Asegúrate de que esta ruta esté definida en tu aplicación
 },
 {
   id: 24,
@@ -257,6 +277,8 @@ const ClasesData = [
   icono: "📐",
   forma: "triangulo",
   color: "#d62828", // rojo
+  link: "/figurasAvanzadas", 
+
   },
 {
 id:25,
@@ -267,6 +289,7 @@ completado: false,
 icono: "🥧",
 forma: "estrella",
 color: "#fcbf49", // amarillo
+link: "/fraccionesBasicas",
 },
 {
   id: 26,
@@ -277,6 +300,7 @@ color: "#fcbf49", // amarillo
   icono: "⏰",
   forma: "circulo",
   color: "#264653", // azul oscuro
+  link: "/medicionTiempo", // Asegúrate de que esta ruta esté definida en tu aplicación
 },
 {
   id: 27,
@@ -287,6 +311,7 @@ color: "#fcbf49", // amarillo
   icono: "📏",
   forma: "cuadrado",
   color: "#e76f51", // naranja
+  link: "/medicionUso", // Asegúrate de que esta ruta esté definida en tu aplicación
 
 },
 {
@@ -298,6 +323,7 @@ color: "#fcbf49", // amarillo
   icono: "📘",
   forma: "nube",
   color: "#2a9d8f", // azul claro
+  link: "/problemasMate", // Asegúrate de que esta ruta esté definida en tu aplicación
 },
 {
 id: 29,
@@ -308,6 +334,7 @@ completado: false,
 icono: "📈",
 forma: "triangulo",
 color: "#d62828", // rojo
+link: "/graficaPicto", // Asegúrate de que esta ruta esté definida en tu aplicación
 },
  
 {
@@ -319,6 +346,8 @@ color: "#d62828", // rojo
   icono: "🔄",
   forma: "nube",
   color: "#2a9d8f", // azul claro
+  link: "/patronesSecuencia", // Asegúrate de que esta ruta esté definida en tu aplicación
+   // Asegúrate de que esta ruta esté definida en tu aplicación
 },
 {
   id: 31,
@@ -329,6 +358,7 @@ color: "#d62828", // rojo
   icono: "➕➖",
   forma: "estrella",
   color: "#fcbf49", // amarillo
+  link: "/problemasMate2", // Asegúrate de que esta ruta esté definida en tu aplicación
 },
 {
   id:32,
@@ -339,6 +369,8 @@ color: "#d62828", // rojo
   icono: "✖️➗",
   forma: "cuadrado",
   color: "#e76f51", // naranja
+  link: "/problemasMD1", // Asegúrate de que esta ruta esté definida en tu aplicación
+  
 
 },
 {
@@ -350,6 +382,7 @@ color: "#d62828", // rojo
   icono: "🧮",
   forma: "triangulo",
   color: "#d62828", // rojo
+  link: "/operacionCombinada", // Asegúrate de que esta ruta esté definida en tu aplicación
   
 },
 /*{

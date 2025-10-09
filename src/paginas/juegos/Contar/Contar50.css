@@ -5,8 +5,8 @@
 
 /* Contenedor principal centrado */
 .contenedor-principal {
-  max-width: 1000px;
-  margin: 10rem auto;
+  max-width: 82rem;
+  margin: 7rem auto;
   padding: 30px 20px;
   background: #fffdf5;
   border-radius: 30px;
@@ -19,7 +19,7 @@
 .titulo-juego {
   font-size: 3.5rem;
   color: #00efdb8c;
-  margin-bottom: 40px;
+  margin-bottom: -20px;
   text-shadow: 2px 2px 5px #fa6b33;
 }
 
@@ -28,8 +28,8 @@
 .contenedor-camino {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(70px, 5fr));
-  gap: 10px;
-  margin-bottom:-10px;
+  gap: 2px;
+  margin-bottom:20px;
   user-select: none;
   padding: 8%;
   max-height: 100vh; /* ajusta según tu diseño */
@@ -92,11 +92,11 @@
 
 /* Input */
 .campo-respuesta {
-  padding: 12px 20px;
+  padding: 12px 10px;
   font-size: 10px;
   border: 3px solid #ffab91;
   border-radius: 20px;
-  width: 260px;
+  width: 50px;
   outline: none;
   transition: border-color 0.3s ease;
 }

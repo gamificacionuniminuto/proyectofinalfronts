@@ -1,0 +1,119 @@
+.juego-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #d4fc79, #96e6a1);
+}
+
+.juego-card {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  text-align: center;
+  max-width: 350px;
+}
+
+.titulo {
+  font-size: 1.6rem;
+  color: #0074D9;
+  margin-bottom: 15px;
+}
+
+.operacion {
+  display: inline-block;
+  margin: 20px 0;
+}
+
+.numeros, .respuestas {
+  display: flex;
+  justify-content: center;
+}
+
+.digito {
+  width: 50px;
+  height: 50px;
+  margin: 2px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.respuesta {
+  margin: 0 8px;
+}
+
+.respuestas {
+  gap: 8px;
+}
+
+.respuesta input {
+  width: 60px;
+  height: 70px;
+  font-size: 1.5rem;
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.respuesta.activa input {
+  border-color: #ff4136;
+  box-shadow: 0 0 10px #ff4136;
+}
+
+.llevar {
+  height: 30px;
+  font-size: 1.2rem;
+  color: red;
+  text-align: center;
+}
+
+.linea {
+  height: 3px;
+  background: black;
+  margin: 5px 0;
+}
+
+.flecha {
+  display: block;
+  font-size: 1.2rem;
+  animation: rebote 0.6s infinite alternate;
+  margin-bottom: -5px;
+}
+
+@keyframes rebote {
+  from { transform: translateY(0); }
+  to { transform: translateY(-5px); }
+}
+
+.btn {
+  background: #2ECC40;
+  color: white;
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #27ae60;
+}
+
+.btn.volver {
+  background: #7D3C98;
+}
+
+.mensaje {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.final {
+  font-size: 1.4rem;
+  color: #27ae60;
+  margin-bottom: 10px;
+}

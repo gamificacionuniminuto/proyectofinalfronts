@@ -280,7 +280,7 @@ const Profile = () => {
             <h2 className="section-title">🚀 Acciones Rápidas</h2>
             <div className="actions-grid">
               <button className="action-btn" onClick={() => navigate('/clases')}>
-                <i className="icon">📚</i>
+                <i className="iconc">📚</i>
                 <span>Clases</span>
               </button>
               
@@ -298,7 +298,7 @@ const Profile = () => {
               </button>
 
               <button className="action-btn" onClick={() => navigate('/materiales')}>
-                <i className="icon">📁</i>
+                <i className="iconm">📁</i>
                 <span>Material</span>
               </button>
             </div>

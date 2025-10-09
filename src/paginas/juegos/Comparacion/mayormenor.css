@@ -205,3 +205,36 @@
   flex-wrap: wrap;
   align-items: center;
 }
+@media (max-width: 400px) {
+  .juego-comparacion {
+    padding: 10px;
+    margin: 3rem auto;
+    font-size: 0.95em;
+  }
+  .ejercicio {
+    padding: 15px;
+    font-size: 1em;
+  }
+  .numeros {
+    gap: 10px;
+    font-size: 1.2em;
+  }
+  .numero {
+    font-size: 1.5em;
+  }
+  .vs {
+    font-size: 1em;
+  }
+  .opcion {
+    padding: 8px 12px;
+    font-size: 1em;
+  }
+  .boton-sonido,
+  .boton-regresar2 {
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+  .explicacion {
+    font-size: 1em;
+  }
+}

@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+
+.juego-contenedor {
+  max-width: 550px;
+  margin: 12rem auto;
+  background-color: #e1abebd3;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(245, 0, 87, 0.3);
+  font-family: 'Comic Neue', cursive, sans-serif;
+  color: #3a0ca3;
+  text-align: center;
+}
+
+
+
+.zona-figura {
+  margin: 20px 0;
+  min-height: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Figuras */
+.figura {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 150px;
+  height: 150px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  background-color: #ffffff;
+  position: relative;
+  filter: drop-shadow(0 0 5px #ff4081);
+}
+
+/* Figuras específicas */
+.círculo {
+  background-color: #ffeb3b;
+  border-radius: 50%;
+}
+
+.cuadrado {
+  background-color: #4caf50;
+}
+
+.triángulo {
+  width: 0;
+  height: 0;
+  border-left: 75px solid transparent;
+  border-right: 75px solid transparent;
+  border-bottom: 150px solid #2196f3;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.rectángulo {
+  width: 180px;
+  height: 100px;
+  background-color: #ff9800;
+  border-radius: 20px;
+}
+
+.óvalo {
+  width: 180px;
+  height: 100px;
+  background-color: #9c27b0;
+  border-radius: 50% / 100%;
+}
+
+.rombo {
+  width: 130px;
+  height: 130px;
+  background-color: #00bcd4;
+  transform: rotate(45deg);
+  border-radius: 15px;
+  margin: auto;
+}
+
+.estrella {
+  position: relative;
+  display: block;
+  color: #f50057;
+  width: 0;
+  height: 0;
+  margin: 0 auto;
+  border-right:  50px solid transparent;
+  border-bottom: 35px  solid #f50057;
+  border-left:   50px solid transparent;
+  transform: rotate(35deg);
+}
+.estrella:before {
+  border-bottom: 50px solid #f50057;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -29px;
+  left: -50px;
+  display: block;
+  content: '';
+  transform: rotate(-35deg);
+}
+.estrella:after {
+  position: absolute;
+  display: block;
+  color: #f50057;
+  top: 3px;
+  left: -65px;
+  width: 0;
+  height: 0;
+  border-right: 50px solid transparent;
+  border-bottom: 35px solid #f50057;
+  border-left: 50px solid transparent;
+  transform: rotate(-70deg);
+  content: '';
+}
+
+/* Animaciones acierto y fallo */
+.acierto {
+  animation: brillo 
+}
+
+/* ANIMACIONES DE RESPUESTA */
+
+
+button {
+  background-color: #f3842a;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 10px;
+  transition: background-color 0.3s ease, transform 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: #f50057;
+  transform: scale(1.05);
+}
+
+/* TEXTO */
+p {
+  font-size: 20px;
+  color: #4a148c;
+  margin-top: 1rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .juego-contenedor {
+    padding: 1.5rem;
+    margin: 2rem auto;
+  }
+
+  .figura {
+    width: 100px;
+    height: 100px;
+  }
+
+  .triángulo {
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid #2196f3;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
+@media (max-width: 400px) {
+  .juego-contenedor {
+    padding: 1rem;
+    margin: 1rem auto;
+    max-width: 95vw;
+  }
+
+  .figura,
+  .cuadrado,
+  .círculo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .triángulo {
+    border-left: 35px solid transparent;
+    border-right: 35px solid transparent;
+    border-bottom: 70px solid #2196f3;
+  }
+
+  .rectángulo,
+  .óvalo {
+    width: 90px;
+    height: 50px;
+  }
+
+  .rombo {
+    width: 60px;
+    height: 60px;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  p {
+    font-size: 13px;
+  }
+
+  button {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .juego-contenedor {
+    max-width: 400px;
+    padding: 2rem;
+    margin: 6rem auto;
+  }
+
+  .figura {
+    width: 120px;
+    height: 120px;
+  }
+
+  .triángulo {
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 120px solid #2196f3;
+  }
+
+  .rectángulo,
+  .óvalo {
+    width: 140px;
+    height: 80px;
+  }
+
+  .rombo {
+    width: 100px;
+    height: 100px;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+  .juego-contenedor {
+    max-width: 500px;
+    padding: 2.5rem;
+    margin: 8rem auto;
+  }
+
+  .figura {
+    width: 140px;
+    height: 140px;
+  }
+
+  .triángulo {
+    border-left: 70px solid transparent;
+    border-right: 70px solid transparent;
+    border-bottom: 140px solid #2196f3;
+  }
+
+  .rectángulo,
+  .óvalo {
+    width: 160px;
+    height: 90px;
+  }
+
+  .rombo {
+    width: 120px;
+    height: 120px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  p {
+    font-size: 19px;
+  }
+
+  button {
+    font-size: 17px;
+    padding: 11px 22px;
+  }
+}
+
